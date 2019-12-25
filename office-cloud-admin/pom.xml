@@ -20,6 +20,17 @@
             <artifactId>office-cloud-biz</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
+        <!-- ehcache需要的依赖 -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context-support</artifactId>
+            <version>${spring.context.support.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>net.sf.ehcache</groupId>
+            <artifactId>ehcache</artifactId>
+            <version>${ehcache.version}</version>
+        </dependency>
         <!-- modelmapper -->
         <dependency>
             <groupId>org.modelmapper</groupId>

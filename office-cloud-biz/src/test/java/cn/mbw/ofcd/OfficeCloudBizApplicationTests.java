@@ -16,6 +16,7 @@ class OfficeCloudBizApplicationTests {
 
     @Test
     void contextLoads() {
+
     }
 
 }

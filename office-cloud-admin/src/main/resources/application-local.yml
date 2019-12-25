@@ -9,7 +9,7 @@ spring:
   datasource:
     druid:
       type: com.alibaba.druid.pool.DruidDataSource
-      url: jdbc:mysql://192.168.1.200:3306/db_lightflow?useUnicode=true&characterEncoding=UTF-8
+      url: jdbc:mysql://192.168.1.200:3306/db_test?useUnicode=true&characterEncoding=UTF-8
       username: root
       password: qwerASDF1234?
       driver-class-name: com.mysql.cj.jdbc.Driver
@@ -25,13 +25,14 @@ spring:
           slow-sql-millis: 2000
           merge-sql: true
 
-  # 第一次建表用create，后面使用update
+  # create 第一次建表用create，后面使用update
+  # update 没有表创建，只有更新
   # 不然每次重新系统工程都会先删除表再新建
   jpa:
     properties:
       hibernate:
         hbm2ddl:
-          auto: create
+          auto: update
         dialect: org.hibernate.dialect.MySQL5InnoDBDialect
         format_sql: true
     show-sql: true
