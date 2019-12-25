@@ -1,0 +1,39 @@
+spring:
+  profiles:
+    active: local
+
+  aop:
+    proxy-target-class: true
+
+  resources:
+    static-locations: classpath:static/,file:static/
+
+  http:
+    encoding:
+      force: true
+      charset: UTF-8
+      enabled: true
+
+  mvc:
+    static-path-pattern: /static/**
+
+  application:
+    name: office-cloud
+
+  cache:
+    type: ehcache
+    ehcache:
+      config: classpath:conf/ehcache.xml
+
+  datasource:
+    druid:
+      pool-prepared-statements: false
+      max-pool-prepared-statement-per-connection-size: -1
+      validation-query: SELECT 1
+      validation-query-timeout: 60
+      test-on-borrow: false
+      test-on-return: false
+      test-while-idle: true
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      filters: stat,wall,log4j
