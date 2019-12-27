@@ -64,6 +64,9 @@ spring:
 
   #热部署指定端口,具体视自己情况而定,只要不重复就可以
   devtools:
+    # 禁止自动重启
+    restart:
+      enabled: false
     livereload:
       port: 35730
 
