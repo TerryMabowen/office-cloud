@@ -8,4 +8,18 @@
 <h1 th:text="${title}"></h1>
 <div th:include="layout/footer::test2"></div>
 </body>
+<script type="text/javascript">
+    KindEditor.ready(function(K) {
+        window.editor = K.create('#editor_id', {
+            allowFileManager : true,
+            uploadJson : /*[[${@qiniuConfig.getZone()}]]*/'https://upload-z2.qiniup.com',
+            filePostName: 'file',
+            extraFileUploadParams: {
+                token: /*[[${@qiniuConfig.getUploadToken(2)}]]*/'invalidToken',
+                'x:dir': 'kindeditor/',
+                'x:prefixPath': /*[[${@qiniuConfig.getPublicDomain()}]]*/'invalidPrefix'
+            },
+        });
+    });
+</script>
 </html>

@@ -37,3 +37,8 @@ spring:
       time-between-eviction-runs-millis: 60000
       min-evictable-idle-time-millis: 300000
       filters: stat,wall,log4j
+
+endpoints:
+  shutdown:
+    enabled: true
+    sensitive: false

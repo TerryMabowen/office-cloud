@@ -12,9 +12,12 @@ import org.springframework.stereotype.Service;
 @Slf4j
 @Service
 public class UserService {
+
     public UserVO findUserByName(String username) {
         AssertUtil.assertNotEmpty(username, "用户名不能为空");
-
-        return null;
+        UserVO userVO = new UserVO();
+        userVO.setName("lisi");
+        userVO.setPassword("123456");
+        return userVO;
     }
 }

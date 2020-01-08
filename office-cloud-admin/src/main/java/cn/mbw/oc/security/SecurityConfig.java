@@ -22,9 +22,9 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
  * @author Mabowen
  * @date 2019-12-25 19:18
  */
-@Configuration
-@EnableWebSecurity
-@EnableGlobalMethodSecurity(securedEnabled = true, prePostEnabled = true)
+//@Configuration
+//@EnableWebSecurity
+//@EnableGlobalMethodSecurity(securedEnabled = true, prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private DbUserDetailServiceImpl userDetailService;
@@ -37,6 +37,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
             .antMatchers("/static/**").permitAll()
             //必须有“USER”角色的才能访问
+            .antMatchers("/level1/**").hasRole("VIP1")
+            .antMatchers("/level2/**").hasRole("VIP2")
+            .antMatchers("/level3/**").hasRole("VIP3")
             .antMatchers("/admin/**").hasAuthority("USER")
             .anyRequest().authenticated()
             .and()
@@ -75,11 +78,19 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth
-            //配置 UserDetailsService 实现类，实现自定义登录校验
-            .userDetailsService(userDetailService)
-            //配置密码加密规则
-            .passwordEncoder(passwordEncoder());
+//        auth
+//            //配置 UserDetailsService 实现类，实现自定义登录校验
+//            .userDetailsService(userDetailService)
+//            //配置密码加密规则
+//            .passwordEncoder(passwordEncoder());
+
+        // TODO
+        auth.inMemoryAuthentication()
+                .passwordEncoder(passwordEncoder())
+                .withUser("zhangsan").password(passwordEncoder().encode("123456")).roles("VIP1","VIP2","VIP3")
+                .and()
+                .passwordEncoder(passwordEncoder())
+                .withUser("lisi").password(passwordEncoder().encode("123456")).roles("VIP1");
     }
 
     /**
