@@ -37,6 +37,7 @@ public class DbUserDetailServiceImpl implements UserDetailsService {
         //2.权限集合（一般也是从数据库查询，这里简化，直接赋值）
         List<GrantedAuthority> grantedAuthorities = new ArrayList<>();
         grantedAuthorities.add(new SimpleGrantedAuthority("USER"));
+        // todo 角色
         //3.用户名、密码、权限集合 构建UserDetails对象
         return new org.springframework.security.core.userdetails.User(userVO.getName(),
                 userVO.getPassword(), grantedAuthorities);

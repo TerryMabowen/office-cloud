@@ -48,6 +48,12 @@
                 </exclusion>
             </exclusions>
         </dependency>
+        <!-- thymeleaf和Security整合依赖 -->
+        <dependency>
+            <groupId>org.thymeleaf.extras</groupId>
+            <artifactId>thymeleaf-extras-springsecurity4</artifactId>
+            <version>${thymeleaf.version}</version>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>

@@ -19,8 +19,8 @@ public class EnumStatusUtils {
         if (enums.isEnum()) {
             Object[] statuses = enums.getEnumConstants();
 
-            for(int i = 0; i < statuses.length; ++i) {
-                EnumStatus status = (EnumStatus)statuses[i];
+            for (Object o : statuses) {
+                EnumStatus status = (EnumStatus) o;
                 if (status.getValue().equals(value)) {
                     return status;
                 }
@@ -34,8 +34,8 @@ public class EnumStatusUtils {
         if (enums.isEnum()) {
             Object[] statuses = enums.getEnumConstants();
 
-            for(int i = 0; i < statuses.length; ++i) {
-                EnumStatus status = (EnumStatus)statuses[i];
+            for (Object o : statuses) {
+                EnumStatus status = (EnumStatus) o;
                 if (status.getDesc().equals(desc)) {
                     return status;
                 }

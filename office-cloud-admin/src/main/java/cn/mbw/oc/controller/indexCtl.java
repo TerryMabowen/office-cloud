@@ -1,6 +1,7 @@
 package cn.mbw.oc.controller;
 
 import cn.mbw.oc.controller.base.BaseCtl;
+import cn.mbw.oc.data.user.vo.UserVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,7 +17,7 @@ public class indexCtl extends BaseCtl {
 
     @GetMapping(value = {"/index.html", "/index", "/", ""})
     public String index(Model model) {
-        model.addAttribute("title", "测试首页");
+
         return "index.html";
     }
 }

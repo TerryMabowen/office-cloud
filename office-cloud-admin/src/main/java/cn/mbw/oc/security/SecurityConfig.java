@@ -7,7 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -20,6 +23,8 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
  * @date 2019-12-25 19:18
  */
 @Configuration
+@EnableWebSecurity
+@EnableGlobalMethodSecurity(securedEnabled = true, prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private DbUserDetailServiceImpl userDetailService;
@@ -29,38 +34,52 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
      */
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http
-                .authorizeRequests()
-                .antMatchers("/").permitAll()
-                //必须有“USER”角色的才能访问
-                .antMatchers("/user/**").hasAuthority("USER")
-                .and()
-                //登陆成功以后默认访问路径
-                .formLogin().loginPage("/login").defaultSuccessUrl("/user")
-                .and()
-                //注销以后默认访问路径
-                .logout().invalidateHttpSession(true)
-                .clearAuthentication(true)
-                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                .logoutSuccessUrl("/login").permitAll()
-                .and()
-                // 记住我 配置
-                .rememberMe().key("unique-and-secret")
-                .rememberMeCookieName("remember-me-cookie-name")
-                .tokenValiditySeconds(24 * 60 * 60);
+        http.authorizeRequests()
+            .antMatchers("/static/**").permitAll()
+            //必须有“USER”角色的才能访问
+            .antMatchers("/admin/**").hasAuthority("USER")
+            .anyRequest().authenticated()
+            .and()
+            // 权限不足跳转到403页面/异常处理
+            .exceptionHandling().accessDeniedPage("/error")
+            .and()
+            //设置登陆
+            .formLogin().loginPage("/login")
+            // 设置登陆成功页
+            .defaultSuccessUrl("/index").permitAll()
+            .and()
+            //注销以后默认访问路径
+            .logout().invalidateHttpSession(true)
+            .clearAuthentication(true)
+            .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+            .logoutSuccessUrl("/login").permitAll()
+            .and()
+            // 记住我 配置
+            .rememberMe().key("unique-and-secret")
+            .rememberMeCookieName("remember-me-cookie-name")
+            .tokenValiditySeconds(24 * 60 * 60);
         // 在 UsernamePasswordAuthenticationFilter 前添加 BeforeLoginFilter
         http.addFilterBefore(new BeforeLoginFilter(), UsernamePasswordAuthenticationFilter.class);
         // 在 CsrfFilter 后添加 AfterCsrfFilter
         http.addFilterAfter(new AfterCsrfFilter(), CsrfFilter.class);
+
+        // 关闭CSRF跨域
+        http.csrf().disable();
+    }
+
+    @Override
+    public void configure(WebSecurity web) {
+        // 设置拦截忽略文件夹，可以对静态资源放行
+        web.ignoring().antMatchers("/vue/**", "/layui/**", "/css/**", "/js/**", "/images/**");
     }
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth
-                //配置 UserDetailsService 实现类，实现自定义登录校验
-                .userDetailsService(userDetailService)
-                //配置密码加密规则
-                .passwordEncoder(passwordEncoder());
+            //配置 UserDetailsService 实现类，实现自定义登录校验
+            .userDetailsService(userDetailService)
+            //配置密码加密规则
+            .passwordEncoder(passwordEncoder());
     }
 
     /**

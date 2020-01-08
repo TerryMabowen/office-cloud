@@ -131,6 +131,12 @@
                 <artifactId>spring-security-oauth2-autoconfigure</artifactId>
                 <version>${spring.security.oauth2.autoconfigure.version}</version>
             </dependency>
+            <!-- thymeleaf和Security整合依赖 -->
+            <dependency>
+                <groupId>org.thymeleaf.extras</groupId>
+                <artifactId>thymeleaf-extras-springsecurity4</artifactId>
+                <version>${thymeleaf.version}</version>
+            </dependency>
             <!--jwt-->
             <dependency>
                 <groupId>io.jsonwebtoken</groupId>

@@ -2,6 +2,7 @@ package cn.mbw.oc.common.enums;
 
 import cn.mbw.oc.common.throwable.ServiceException;
 import cn.mbw.oc.common.util.EnumStatusUtils;
+import com.google.common.collect.Sets;
 
 import java.util.Collections;
 import java.util.HashSet;
@@ -12,8 +13,7 @@ import java.util.Set;
  * @date 2019-12-20 17:08
  */
 public interface EnumStatus extends BaseEnumStatus<Integer> {
-    /** @deprecated */
-    @Deprecated
+
     default EnumStatus getEnumStatus(int value) {
         return getEnumStatus(this.getClass(), value);
     }
@@ -35,55 +35,6 @@ public interface EnumStatus extends BaseEnumStatus<Integer> {
             throw new ServiceException("枚举值未定义, typeClass = " + typeClass.getCanonicalName() + ", Value = " + value);
         } else {
             return status;
-        }
-    }
-
-    static boolean isInGroup(int value, EnumStatus[] group) {
-        EnumStatus[] var2 = group;
-        int var3 = group.length;
-
-        for(int var4 = 0; var4 < var3; ++var4) {
-            EnumStatus item = var2[var4];
-            if (((Integer)item.getValue()).equals(value)) {
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-    static boolean isInGroup(EnumStatus status, EnumStatus[] group) {
-        if (status == null) {
-            return false;
-        } else {
-            EnumStatus[] var2 = group;
-            int var3 = group.length;
-
-            for(int var4 = 0; var4 < var3; ++var4) {
-                EnumStatus item = var2[var4];
-                if (item == status) {
-                    return true;
-                }
-            }
-
-            return false;
-        }
-    }
-
-    static Set<Integer> getValueInGroup(EnumStatus[] group) {
-        if (group != null && group.length != 0) {
-            Set<Integer> values = new HashSet();
-            EnumStatus[] var2 = group;
-            int var3 = group.length;
-
-            for(int var4 = 0; var4 < var3; ++var4) {
-                EnumStatus item = var2[var4];
-                values.add(item.getValue());
-            }
-
-            return values;
-        } else {
-            return Collections.emptySet();
         }
     }
 }

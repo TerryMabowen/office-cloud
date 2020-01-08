@@ -3,16 +3,16 @@ package cn.mbw.oc.controller.dev;
 import cn.mbw.oc.common.results.ResponseResults;
 import cn.mbw.oc.common.throwable.ServiceException;
 import cn.mbw.oc.controller.base.BaseCtl;
+import cn.mbw.oc.data.user.vo.UserVO;
 import cn.mbw.oc.util.AssertUtil;
 import cn.mbw.oc.util.ConvertUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 
+import javax.validation.constraints.NotBlank;
 import java.util.List;
 
 /**
@@ -26,7 +26,8 @@ public class DevCtl extends BaseCtl {
 
     @PostMapping("test1")
     @ResponseBody
-    @RequiresPermissions(value = "quanxian/juese")
+    @NotBlank
+//    @RequiresPermissions(value = "quanxian/juese")
     public ResponseResults test1(@RequestParam("str") String str) {
         try {
             AssertUtil.assertNotEmpty(str, "str不能为空");
@@ -37,6 +38,15 @@ public class DevCtl extends BaseCtl {
             log.error("test1失败：" + e.getMessage(), e);
             return ResponseResults.newFailed(e.getMessage());
         }
+    }
+
+    @GetMapping(value = {"", "/", "/index", "/index.html"})
+    @ResponseBody
+    public String test2(Model model) {
+        UserVO currentLoginUser = getCurrentLoginUser();
+        model.addAttribute("user", currentLoginUser);
+
+        return "index.html";
     }
 
 }

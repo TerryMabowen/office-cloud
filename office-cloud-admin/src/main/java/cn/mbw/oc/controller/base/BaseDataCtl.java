@@ -1,11 +1,16 @@
 package cn.mbw.oc.controller.base;
 
+import cn.mbw.oc.common.throwable.ServiceException;
+import cn.mbw.oc.data.user.BaseUser;
+import cn.mbw.oc.data.user.vo.UserVO;
 import com.baidu.unbiz.fluentvalidator.FluentValidator;
 import com.baidu.unbiz.fluentvalidator.Result;
 import com.baidu.unbiz.fluentvalidator.jsr303.HibernateSupportedValidator;
+import org.apache.shiro.SecurityUtils;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.datetime.DateFormatter;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 
@@ -43,5 +48,16 @@ public class BaseDataCtl {
     protected void initMapper() {
         mapper = new ModelMapper();
         doMapper(mapper);
+    }
+
+    public UserVO getCurrentLoginUser() {
+        UserVO principal = (UserVO) SecurityContextHolder
+                .getContext()
+                .getAuthentication()
+                .getPrincipal();
+        if (principal == null) {
+            throw new ServiceException("用户未登录");
+        }
+        return principal;
     }
 }
