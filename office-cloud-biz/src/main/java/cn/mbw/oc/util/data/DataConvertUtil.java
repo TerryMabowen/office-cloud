@@ -1,4 +1,4 @@
-package cn.mbw.oc.util;
+package cn.mbw.oc.util.data;
 
 import cn.mbw.oc.common.throwable.ServiceException;
 import cn.mbw.oc.enums.EnumDataType;

@@ -1,4 +1,4 @@
-package cn.mbw.oc.util;
+package cn.mbw.oc.util.data;
 
 import java.util.ArrayList;
 import java.util.HashSet;

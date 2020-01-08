@@ -1,6 +1,7 @@
 package cn.mbw.oc.service.user;
 
 import cn.mbw.oc.data.user.vo.UserVO;
+import cn.mbw.oc.util.valid.AssertUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +12,9 @@ import org.springframework.stereotype.Service;
 @Slf4j
 @Service
 public class UserService {
-    public UserVO findUserByName(String s) {
+    public UserVO findUserByName(String username) {
+        AssertUtil.assertNotEmpty(username, "用户名不能为空");
+
         return null;
     }
 }
