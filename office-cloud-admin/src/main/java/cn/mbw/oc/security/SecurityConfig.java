@@ -6,6 +6,7 @@ import cn.mbw.oc.service.user.DbUserDetailServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -22,20 +23,32 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
  * @author Mabowen
  * @date 2019-12-25 19:18
  */
-//@Configuration
-//@EnableWebSecurity
-//@EnableGlobalMethodSecurity(securedEnabled = true, prePostEnabled = true)
+@Configuration
+@EnableWebSecurity
+@EnableGlobalMethodSecurity(securedEnabled = true, prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private DbUserDetailServiceImpl userDetailService;
+
+    @Autowired
+    private SecurityAccessDeniedHandler deniedHandler;
+
+    @Autowired
+    private SecurityAuthenticationEntryPoint authenticationEntryPoint;
 
     /**
      * 配置验证规则
      */
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
-            .antMatchers("/static/**").permitAll()
+        http
+            //禁用baisc和form认证，在AuthController中自己实现认证逻辑
+            .httpBasic().disable()
+            .formLogin().disable()
+            .csrf().disable()
+            .logout().disable()
+            .authorizeRequests()
+            .antMatchers("/static/**", "/css/**", "/js/**", "/font/**", "/images/**").permitAll()
             //必须有“USER”角色的才能访问
             .antMatchers("/level1/**").hasRole("VIP1")
             .antMatchers("/level2/**").hasRole("VIP2")
@@ -44,13 +57,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .anyRequest().authenticated()
             .and()
             // 权限不足跳转到403页面/异常处理
-            .exceptionHandling().accessDeniedPage("/error")
+            .exceptionHandling()
+            .accessDeniedHandler(deniedHandler)
+            .authenticationEntryPoint(authenticationEntryPoint)
+            .accessDeniedPage("/error")
             .and()
             //设置登陆
-            .formLogin().loginPage("/login")
+//            .formLogin().loginPage("/login")
             // 设置登陆成功页
-            .defaultSuccessUrl("/index").permitAll()
-            .and()
+//            .defaultSuccessUrl("/index").permitAll()
+//            .and()
             //注销以后默认访问路径
             .logout().invalidateHttpSession(true)
             .clearAuthentication(true)
@@ -65,15 +81,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.addFilterBefore(new BeforeLoginFilter(), UsernamePasswordAuthenticationFilter.class);
         // 在 CsrfFilter 后添加 AfterCsrfFilter
         http.addFilterAfter(new AfterCsrfFilter(), CsrfFilter.class);
-
-        // 关闭CSRF跨域
-        http.csrf().disable();
     }
 
     @Override
     public void configure(WebSecurity web) {
         // 设置拦截忽略文件夹，可以对静态资源放行
-        web.ignoring().antMatchers("/vue/**", "/layui/**", "/css/**", "/js/**", "/images/**");
+        web.ignoring()
+                .antMatchers("/vue/**", "/layui/**", "/css/**", "/js/**", "/images/**");
     }
 
     @Override
@@ -86,11 +100,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         // TODO
         auth.inMemoryAuthentication()
-                .passwordEncoder(passwordEncoder())
-                .withUser("zhangsan").password(passwordEncoder().encode("123456")).roles("VIP1","VIP2","VIP3")
-                .and()
-                .passwordEncoder(passwordEncoder())
-                .withUser("lisi").password(passwordEncoder().encode("123456")).roles("VIP1");
+                .withUser("lisi")
+                .password("123456")
+                .roles("VIP1","VIP2","VIP3");
     }
 
     /**
@@ -104,5 +116,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
+    }
+
+    @Override
+    @Bean
+    public AuthenticationManager authenticationManagerBean() throws Exception {
+        return super.authenticationManagerBean();
     }
 }

@@ -13,7 +13,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
  */
 public abstract class BaseCtl {
 
-    public UserVO getCurrentLoginUser() {
+    protected UserVO getCurrentLoginUser() {
         UserVO principal = (UserVO) SecurityContextHolder
                 .getContext()
                 .getAuthentication()

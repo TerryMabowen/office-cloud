@@ -1,7 +1,8 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
-<head th:fragment="test">
+<head th:fragment="sources">
+    <meta charset="UTF-8">
     <link href="/static/css/test.css" rel="stylesheet">
     <!-- import Vue.js -->
 <!--    <script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>-->
@@ -12,10 +13,31 @@
     <script src="/static/kindeditor/kindeditor-all.js"></script>
 </head>
 <body>
-    <div>
-        <security:authorize access="isAuthenticated()">
-            <security:authentication property="principal.username" />
-        </security:authorize>
-    </div>
+    <header th:fragment="header">
+        <div class="collapse navbar-collapse" id="navbarsContainer">
+            <!--导航栏-->
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{~/users}">首页<span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+            <!--登陆用户信息-->
+            <div sec:authorize="isAuthenticated()" class="row">
+                <ul class="navbar-nav mr-auto">
+                    <li class="navbar-item">
+                        <span class="nav-link" sec:authentication="name"></span>
+                    </li>
+                </ul>
+                <form th:action="@{/logout}" method="post">
+                    <input type="submit" class="btn btn-outline-success" value="退出">
+                </form>
+            </div>
+
+            <!--登陆-->
+            <div sec:authorize="isAnonymous()">
+                <a type="submit" th:href="@{~/login}" class="btn btn-outline-success">登陆</a>
+            </div>
+        </div>
+    </header>
 </body>
 </html>

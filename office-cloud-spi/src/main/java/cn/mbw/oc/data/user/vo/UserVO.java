@@ -14,6 +14,7 @@ import lombok.ToString;
 @ToString
 public class UserVO extends BaseUser {
     private static final long serialVersionUID = 5668540453818811192L;
+    private String username;
     private String password;
     private String email;
     private String faceImage;

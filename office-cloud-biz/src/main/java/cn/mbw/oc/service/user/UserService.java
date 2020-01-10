@@ -1,5 +1,6 @@
 package cn.mbw.oc.service.user;
 
+import cn.mbw.oc.data.user.dto.UserDTO;
 import cn.mbw.oc.data.user.vo.UserVO;
 import cn.mbw.oc.util.valid.AssertUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -16,8 +17,14 @@ public class UserService {
     public UserVO findUserByName(String username) {
         AssertUtil.assertNotEmpty(username, "用户名不能为空");
         UserVO userVO = new UserVO();
-        userVO.setName("lisi");
+        userVO.setName("李四");
+        userVO.setUsername(username);
         userVO.setPassword("123456");
         return userVO;
+    }
+
+
+    public void register(UserDTO userDTO) {
+
     }
 }

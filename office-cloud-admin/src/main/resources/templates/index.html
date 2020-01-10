@@ -1,12 +1,14 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
-<head th:include="layout/header::test">
-
+<head th:include="layout/header::sources">
+    <title>首页</title>
 </head>
 <body>
-<h1 th:text="${title}"></h1>
-<div th:include="layout/footer::test2"></div>
+<div th:include="layout/header::header"></div>
+
+
+<div th:include="layout/footer::footer" class="fastui-footer"></div>
 </body>
 <script type="text/javascript">
     KindEditor.ready(function(K) {
