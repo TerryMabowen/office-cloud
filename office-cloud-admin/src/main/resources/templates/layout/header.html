@@ -32,7 +32,6 @@
                     <input type="submit" class="btn btn-outline-success" value="退出">
                 </form>
             </div>
-
             <!--登陆-->
             <div sec:authorize="isAnonymous()">
                 <a type="submit" th:href="@{~/login}" class="btn btn-outline-success">登陆</a>

@@ -68,6 +68,10 @@
         <spring.security.jwt.version>1.0.10.RELEASE</spring.security.jwt.version>
         <spring.security.oauth2.autoconfigure.version>2.1.4.RELEASE</spring.security.oauth2.autoconfigure.version>
         <jjwt.version>0.9.1</jjwt.version>
+        <fastdfs.version>1.2</fastdfs.version>
+        <servlet.api.version>4.0.1</servlet.api.version>
+        <apache.poi.version>4.1.0</apache.poi.version>
+        <apache.httpclient.version>4.5.10</apache.httpclient.version>
     </properties>
 
     <dependencies>
@@ -172,6 +176,64 @@
                 <version>${springboot.version}</version>
                 <scope>runtime</scope>
                 <optional>true</optional>
+            </dependency>
+            <!--spring-->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-web</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <!--apache.httpclient-->
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpclient</artifactId>
+                <version>${apache.httpclient.version}</version>
+            </dependency>
+            <!--servlet-->
+            <!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>javax.servlet-api</artifactId>
+                <version>${servlet.api.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <!--fastdfs-->
+            <!-- https://mvnrepository.com/artifact/org.csource/fastdfs-client-java -->
+            <dependency>
+                <groupId>org.csource.fastdfs</groupId>
+                <artifactId>fastdfs</artifactId>
+                <version>${fastdfs.version}</version>
+            </dependency>
+            <!--apache.poi-->
+            <!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi</artifactId>
+                <version>${apache.poi.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.apache.poi/poi-excelant -->
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi-excelant</artifactId>
+                <version>${apache.poi.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi-ooxml</artifactId>
+                <version>${apache.poi.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml-schemas -->
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi-ooxml-schemas</artifactId>
+                <version>${apache.poi.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.apache.poi/poi-scratchpad -->
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi-scratchpad</artifactId>
+                <version>${apache.poi.version}</version>
             </dependency>
             <!-- modelmapper -->
             <dependency>
