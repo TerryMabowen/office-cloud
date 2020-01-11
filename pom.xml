@@ -64,7 +64,7 @@
         <spring.context.support.version>5.2.1.RELEASE</spring.context.support.version>
         <thymeleaf.version>3.0.2.RELEASE</thymeleaf.version>
         <thymeleaf-layout-dialect.version>2.1.1</thymeleaf-layout-dialect.version>
-        <spring.security.oauth2.version>2.3.5.RELEASE</spring.security.oauth2.version>
+        <spring.security.oauth2.version>2.3.6.RELEASE</spring.security.oauth2.version>
         <spring.security.jwt.version>1.0.10.RELEASE</spring.security.jwt.version>
         <spring.security.oauth2.autoconfigure.version>2.1.4.RELEASE</spring.security.oauth2.autoconfigure.version>
         <jjwt.version>0.9.1</jjwt.version>
