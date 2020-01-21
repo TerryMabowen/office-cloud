@@ -62,10 +62,32 @@
         </dependency>
         <!--fastdfs-->
         <!-- https://mvnrepository.com/artifact/org.csource/fastdfs-client-java -->
+<!--        <dependency>-->
+<!--            <groupId>org.csource.fastdfs</groupId>-->
+<!--            <artifactId>fastdfs</artifactId>-->
+<!--            <version>${fastdfs.version}</version>-->
+<!--        </dependency>-->
+        <!--easypoi-->
         <dependency>
-            <groupId>org.csource.fastdfs</groupId>
-            <artifactId>fastdfs</artifactId>
-            <version>${fastdfs.version}</version>
+            <groupId>cn.afterturn</groupId>
+            <artifactId>easypoi-base</artifactId>
+            <version>${easypoi.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-log4j12</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>cn.afterturn</groupId>
+            <artifactId>easypoi-web</artifactId>
+            <version>${easypoi.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.afterturn</groupId>
+            <artifactId>easypoi-annotation</artifactId>
+            <version>${easypoi.version}</version>
         </dependency>
         <!--spring-->
         <dependency>

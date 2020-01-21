@@ -60,7 +60,7 @@ public class UserPO extends BaseEntry {
     /**
      * 使用状态（Y正常 N非正常）
      */
-    private String status;
+    private String useStatus;
 
     /**
      * 头像地址
