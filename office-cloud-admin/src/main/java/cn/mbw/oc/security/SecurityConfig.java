@@ -2,7 +2,7 @@ package cn.mbw.oc.security;
 
 import cn.mbw.oc.filter.AfterCsrfFilter;
 import cn.mbw.oc.filter.BeforeLoginFilter;
-import cn.mbw.oc.service.user.DbUserDetailServiceImpl;
+import cn.mbw.oc.service.user.admin.DbUserDetailServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.authentication.AuthenticationManager;

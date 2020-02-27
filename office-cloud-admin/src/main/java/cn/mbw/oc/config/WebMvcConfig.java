@@ -1,12 +1,12 @@
 package cn.mbw.oc.config;
 
+import cn.mbw.oc.common.util.SpringUtil;
+import cn.mbw.oc.interceptor.SecurityInteceptor;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.HttpMessageConverter;
@@ -14,6 +14,7 @@ import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.thymeleaf.spring5.SpringTemplateEngine;
@@ -33,8 +34,6 @@ import java.util.List;
 @Slf4j
 @Configuration
 public class WebMvcConfig implements WebMvcConfigurer {
-    @Autowired
-    private ApplicationContext applicationContext;
 
     /**
      * 静态资源映射
@@ -42,6 +41,8 @@ public class WebMvcConfig implements WebMvcConfigurer {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/vue/**").addResourceLocations("classpath:/static/vue/");
+        registry.addResourceHandler("/layui/**").addResourceLocations("classpath:/static/layui/");
+        registry.addResourceHandler("/bootstrap/**").addResourceLocations("classpath:/static/bootstrap/");
         registry.addResourceHandler("/static/**").addResourceLocations("classpath:/static/");
     }
 
@@ -91,6 +92,11 @@ public class WebMvcConfig implements WebMvcConfigurer {
         return convert;
     }
 
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(new SecurityInteceptor());
+    }
+
     /**
      * 视图解析器
      * @return
@@ -123,7 +129,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
 
     private ITemplateResolver templateResolver() {
         SpringResourceTemplateResolver resolver = new SpringResourceTemplateResolver();
-        resolver.setApplicationContext(applicationContext);
+        resolver.setApplicationContext(SpringUtil.getApplicationContext());
         resolver.setPrefix("classpath:/templates/");
         resolver.setSuffix(".html");
         resolver.setCacheable(false);

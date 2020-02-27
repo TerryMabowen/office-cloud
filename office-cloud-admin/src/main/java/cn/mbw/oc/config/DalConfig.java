@@ -3,7 +3,6 @@
  */
 package cn.mbw.oc.config;
 
-import cn.mbw.oc.common.helper.SpringContextHelper;
 import com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceBuilder;
 import com.alibaba.druid.support.http.StatViewServlet;
 import com.alibaba.druid.support.http.WebStatFilter;
@@ -46,11 +45,6 @@ public class DalConfig {
 	@ConditionalOnBean(name = { "dataSource" })
 	public PlatformTransactionManager transactionManager(@Qualifier("dataSource") DataSource dataSource) {
 		return new DataSourceTransactionManager(dataSource);
-	}
-
-	@Bean
-	public SpringContextHelper springContextHelper() {
-		return new SpringContextHelper();
 	}
 
 	/**

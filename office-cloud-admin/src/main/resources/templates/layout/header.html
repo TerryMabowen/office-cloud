@@ -1,17 +1,21 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head th:fragment="sources">
     <meta charset="UTF-8">
-    <link href="/static/bootstrap/css/bootstrap.css" rel="stylesheet">
-    <link href="/static/bootstrap/css/bootstrap-grid.css" rel="stylesheet">
-    <link href="/static/bootstrap/css/bootstrap-reboot.css" rel="stylesheet">
-    <link href="/static/layui/css/layui.css" rel="stylesheet">
-    <link href="/static/layui/css/layui.mobile.css" rel="stylesheet">
+    <!--<link type="text/css" href="/static/bootstrap/css/bootstrap.css" rel="stylesheet">-->
+    <!--<link type="text/css" href="/static/bootstrap/css/bootstrap-grid.css" rel="stylesheet">-->
+    <!--<link type="text/css" href="/static/bootstrap/css/bootstrap-reboot.css" rel="stylesheet">-->
+    <link type="text/css" href="/static/layui/css/base.css" rel="stylesheet">
+    <link type="text/css" href="/static/layui/css/admin.css" rel="stylesheet">
+    <link type="text/css" href="/static/layui/css/layui.css" rel="stylesheet">
+    <link type="text/css" href="/static/layui/css/fastui.css" rel="stylesheet">
+    <link type="text/css" href="/static/layui/css/white.css" rel="stylesheet">
+    <!--<link type="text/css" href="/static/layui/css/layui.mobile.css" rel="stylesheet">-->
     <script src="/static/js/jquery-3.4.1.js"></script>
     <script src="/static/kindeditor/kindeditor-all.js"></script>
-    <script src="/static/bootstrap/js/bootstrap.js"></script>
-    <script src="/static/bootstrap/js/bootstrap.bundle.js"></script>
+    <!--<script src="/static/bootstrap/js/bootstrap.js"></script>-->
+    <!--<script src="/static/bootstrap/js/bootstrap.bundle.js"></script>-->
     <script src="/static/layui/layui.js"></script>
 </head>
 <body>
@@ -41,4 +45,11 @@
         </div>
     </header>
 </body>
+<script type="text/javascript">
+    layui.config({
+        base: "/static/layui/js/"
+    }).extend({
+        index: "../index"
+    }).use("element");
+</script>
 </html>

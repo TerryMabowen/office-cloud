@@ -1,4 +1,4 @@
-package cn.mbw.oc.service.user;
+package cn.mbw.oc.service.user.admin;
 
 import cn.mbw.oc.data.user.vo.UserVO;
 import lombok.extern.slf4j.Slf4j;

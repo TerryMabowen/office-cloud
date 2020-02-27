@@ -36,8 +36,8 @@ public class UserInterceptorConfig implements HandlerInterceptor {
     private void addUsernameAttribute(ModelAndView modelAndView) {
         try {
             BaseUser user = (BaseUser) SecurityUtils.getSubject().getPrincipal();
-            if (user != null && StringUtils.isNotBlank(user.getName())) {
-                modelAndView.addObject("username", user.getName());
+            if (user != null && StringUtils.isNotBlank(user.getLoginName())) {
+                modelAndView.addObject("username", user.getLoginName());
             }
         } catch (Exception ignored) {
         }

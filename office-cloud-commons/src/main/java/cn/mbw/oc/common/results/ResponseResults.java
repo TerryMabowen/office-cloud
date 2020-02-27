@@ -35,6 +35,12 @@ public class ResponseResults {
     public ResponseResults() {
     }
 
+    public ResponseResults(Integer code, String codeMsg, Object data) {
+        this.code = code;
+        this.codeMsg = codeMsg;
+        this.data = data;
+    }
+
     public static ResponseResults newSuccess() {
         ResponseResults rd = new ResponseResults(true, (Object)null);
         rd.setStatus(SUCCESS);

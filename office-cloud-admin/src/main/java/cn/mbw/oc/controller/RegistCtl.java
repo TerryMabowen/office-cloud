@@ -5,7 +5,7 @@ import cn.mbw.oc.common.throwable.ServiceException;
 import cn.mbw.oc.controller.base.BaseDataCtl;
 import cn.mbw.oc.controller.fb.RegisterUserFB;
 import cn.mbw.oc.data.user.dto.UserDTO;
-import cn.mbw.oc.service.user.UserService;
+import cn.mbw.oc.service.user.admin.UserService;
 import com.baidu.unbiz.fluentvalidator.Result;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

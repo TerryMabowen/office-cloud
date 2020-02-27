@@ -2,13 +2,11 @@ package cn.mbw.oc.controller;
 
 import cn.mbw.oc.controller.base.BaseCtl;
 import cn.mbw.oc.data.user.vo.UserVO;
+import com.google.gson.Gson;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.subject.Subject;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,17 +20,18 @@ import javax.servlet.http.HttpServletRequest;
 @Slf4j
 @Controller
 public class loginCtl extends BaseCtl {
-    @Autowired
-    private AuthenticationManager authenticationManager;
+//    @Autowired
+//    private AuthenticationManager authenticationManager;
 
     @GetMapping("/login")
     public String login(HttpServletRequest request) {
         UserVO currentLoginUser = getCurrentLoginUser();
         if (currentLoginUser != null) {
-            UsernamePasswordAuthenticationToken token =
-                    new UsernamePasswordAuthenticationToken(currentLoginUser.getUsername(), currentLoginUser.getPassword());
-            Authentication authentication = authenticationManager.authenticate(token);
-            SecurityContextHolder.getContext().setAuthentication(authentication);
+            System.out.println("loginUser: " + new Gson().toJson(currentLoginUser));
+            Subject subject = SecurityUtils.getSubject();
+            UsernamePasswordToken usernamePasswordToken = new UsernamePasswordToken(currentLoginUser.getLoginName(), currentLoginUser.getPasswordHash());
+            usernamePasswordToken.setRememberMe(true);
+            subject.login(usernamePasswordToken);
             return "redirect:/index";
         } else {
             return "login.html";
@@ -47,10 +46,9 @@ public class loginCtl extends BaseCtl {
         return "login.html";
     }
 
-    @PreAuthorize("isAuthenticated()")
     @GetMapping("logout")
     public String logout() {
-
+        SecurityUtils.getSubject().logout();
         return "redirect:/login";
     }
 }
