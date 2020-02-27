@@ -72,6 +72,7 @@
         <servlet.api.version>4.0.1</servlet.api.version>
         <apache.poi.version>4.1.0</apache.poi.version>
         <apache.httpclient.version>4.5.10</apache.httpclient.version>
+        <easypoi.version>3.3.0</easypoi.version>
     </properties>
 
     <dependencies>
@@ -409,6 +410,28 @@
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-exec</artifactId>
                 <version>${commons.exec.version}</version>
+            </dependency>
+            <!--easypoi-->
+            <dependency>
+                <groupId>cn.afterturn</groupId>
+                <artifactId>easypoi-base</artifactId>
+                <version>${easypoi.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.slf4j</groupId>
+                        <artifactId>slf4j-log4j12</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>cn.afterturn</groupId>
+                <artifactId>easypoi-web</artifactId>
+                <version>${easypoi.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.afterturn</groupId>
+                <artifactId>easypoi-annotation</artifactId>
+                <version>${easypoi.version}</version>
             </dependency>
             <!--log4j-->
             <dependency>
