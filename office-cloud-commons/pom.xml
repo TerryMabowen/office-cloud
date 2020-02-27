@@ -277,6 +277,11 @@
             <artifactId>dagger</artifactId>
             <version>${dagger.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.csource.fastdfs</groupId>
+            <artifactId>fastdfs</artifactId>
+            <version>${fastdfs.version}</version>
+        </dependency>
     </dependencies>
 
 </project>
