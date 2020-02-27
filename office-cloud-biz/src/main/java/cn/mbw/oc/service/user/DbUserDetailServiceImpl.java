@@ -17,6 +17,7 @@ import java.util.List;
  * @author Mabowen
  * @date 2019-12-26 09:17
  */
+@Deprecated
 @Slf4j
 @Service
 public class DbUserDetailServiceImpl implements UserDetailsService {

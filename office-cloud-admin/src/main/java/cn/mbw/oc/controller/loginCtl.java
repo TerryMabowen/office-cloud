@@ -10,6 +10,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import javax.servlet.http.HttpServletRequest;
@@ -34,9 +35,16 @@ public class loginCtl extends BaseCtl {
             SecurityContextHolder.getContext().setAuthentication(authentication);
             return "redirect:/index";
         } else {
-
             return "login.html";
         }
+    }
+
+    @GetMapping("/login_error")
+    public String loginError(Model model) {
+        model.addAttribute("loginError", true);
+        model.addAttribute("errorMsg", "登录失败,用户名或者密码错误!");
+
+        return "login.html";
     }
 
     @PreAuthorize("isAuthenticated()")

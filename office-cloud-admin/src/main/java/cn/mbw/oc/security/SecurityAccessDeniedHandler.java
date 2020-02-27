@@ -17,8 +17,9 @@ import java.io.IOException;
  * @author Mabowen
  * @date 2020-01-10 18:59
  */
+@Deprecated
 @Slf4j
-@Component
+//@Component
 public class SecurityAccessDeniedHandler implements AccessDeniedHandler {
     @Override
     public void handle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, AccessDeniedException e) throws IOException, ServletException {

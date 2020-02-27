@@ -10,6 +10,8 @@ import com.baidu.unbiz.fluentvalidator.Result;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 /**
@@ -22,7 +24,12 @@ public class RegistCtl extends BaseDataCtl {
     @Autowired
     private UserService userService;
 
-    @PostMapping("/register")
+    @GetMapping("/register")
+    public String registerHtml(Model model) {
+        return "register.html";
+    }
+
+    @PostMapping("/user/register")
     public ResponseResults register(RegisterUserFB userFB){
         try {
             Result result = validate(userFB);
@@ -36,7 +43,6 @@ public class RegistCtl extends BaseDataCtl {
 
             return ResponseResults.newSuccess("注册成功");
         } catch (ServiceException e) {
-            e.printStackTrace();
             log.error("注册失败" + e.getMessage(), e);
             return ResponseResults.newFailed(e.getMessage());
         }

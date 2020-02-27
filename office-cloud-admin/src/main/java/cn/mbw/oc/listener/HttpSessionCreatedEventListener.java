@@ -3,7 +3,6 @@ package cn.mbw.oc.listener;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.ApplicationListener;
 import org.springframework.security.web.session.HttpSessionCreatedEvent;
-import org.springframework.stereotype.Component;
 
 /**
  * 监听session创建对象
@@ -12,7 +11,7 @@ import org.springframework.stereotype.Component;
  * @date 2019-12-26 09:53
  */
 @Slf4j
-@Component
+//@Component
 public class HttpSessionCreatedEventListener implements ApplicationListener<HttpSessionCreatedEvent> {
     @Override
     public void onApplicationEvent(HttpSessionCreatedEvent event) {

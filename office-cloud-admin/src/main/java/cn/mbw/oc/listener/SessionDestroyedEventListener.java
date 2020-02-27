@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
  * @date 2019-12-26 09:55
  */
 @Slf4j
-@Component
+//@Component
 public class SessionDestroyedEventListener implements ApplicationListener<HttpSessionDestroyedEvent> {
     @Override
     public void onApplicationEvent(HttpSessionDestroyedEvent event) {

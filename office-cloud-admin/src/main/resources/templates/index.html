@@ -6,7 +6,7 @@
 </head>
 <body>
 <div th:include="layout/header::header"></div>
-
+<h1>首页</h1>
 
 <div th:include="layout/footer::footer"></div>
 </body>
@@ -20,7 +20,7 @@
                 token: /*[[${@qiniuConfig.getUploadToken(2)}]]*/'invalidToken',
                 'x:dir': 'kindeditor/',
                 'x:prefixPath': /*[[${@qiniuConfig.getPublicDomain()}]]*/'invalidPrefix'
-            },
+            }
         });
     });
 </script>

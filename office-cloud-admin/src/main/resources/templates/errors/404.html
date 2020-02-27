@@ -1,16 +1,13 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
-<head>
-    <meta charset="UTF-8">
-    <title>office-cloud</title>
+<head th:include="layout/header::sources">
+    <title>404</title>
 
 </head>
 <body>
 <div class="fastui-screen">
-    <div class="fastui-fixed-header">
-
-    </div>
+    <div th:include="layout/header::header"></div>
     <div class="fastui-content-style">
         <div class="fastui-erro-html">
             <img class="fastui-not-found" src="/static/images/404.png"/>

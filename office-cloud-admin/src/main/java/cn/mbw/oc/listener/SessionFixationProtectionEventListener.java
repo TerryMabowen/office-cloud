@@ -2,7 +2,6 @@ package cn.mbw.oc.listener;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.ApplicationListener;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
@@ -22,7 +21,7 @@ import java.util.List;
  * @date 2019-12-26 09:57
  */
 @Slf4j
-@Component
+//@Component
 public class SessionFixationProtectionEventListener implements ApplicationListener<SessionFixationProtectionEvent> {
     @Override
     public void onApplicationEvent(SessionFixationProtectionEvent event) {

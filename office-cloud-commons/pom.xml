@@ -60,13 +60,6 @@
             <artifactId>poi-scratchpad</artifactId>
             <version>${apache.poi.version}</version>
         </dependency>
-        <!--fastdfs-->
-        <!-- https://mvnrepository.com/artifact/org.csource/fastdfs-client-java -->
-<!--        <dependency>-->
-<!--            <groupId>org.csource.fastdfs</groupId>-->
-<!--            <artifactId>fastdfs</artifactId>-->
-<!--            <version>${fastdfs.version}</version>-->
-<!--        </dependency>-->
         <!--easypoi-->
         <dependency>
             <groupId>cn.afterturn</groupId>
@@ -277,6 +270,7 @@
             <artifactId>dagger</artifactId>
             <version>${dagger.version}</version>
         </dependency>
+        <!--fastdfs-->
         <dependency>
             <groupId>org.csource.fastdfs</groupId>
             <artifactId>fastdfs</artifactId>
