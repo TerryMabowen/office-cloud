@@ -2,16 +2,14 @@ server:
   servlet:
     session:
       persistent: true
-      timeout: 7200000
+#      timeout: 720000
+      timeout: PT2H
   port: 8082
 
 spring:
   datasource:
     druid:
       type: com.alibaba.druid.pool.DruidDataSource
-#      url: jdbc:mysql://192.168.1.200:3306/db_test?useUnicode=true&characterEncoding=UTF-8
-#      username: root
-#      password: qwerASDF1234?
       url: jdbc:mysql://127.0.0.1:3306/db_office-cloud?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
       username: root
       password: root
@@ -45,7 +43,7 @@ spring:
     type: redis
   #redis
   redis:
-    host: 192.168.1.200
+    host: 127.0.0.1
     port: 6379
 
 #thymeleaf
@@ -89,6 +87,7 @@ dubbo:
 
 #cat日志
 app:
-  logdir: /Users/apple_22/Desktop/logdir/office-cloud
+#  logdir: /Users/apple_22/Desktop/logdir/office-cloud
+  logdir: C:\Users\Administrator\Desktop\logdir\office-cloud
   cat:
     enabled: false
