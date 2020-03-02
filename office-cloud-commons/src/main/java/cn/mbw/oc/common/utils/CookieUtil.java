@@ -1,4 +1,4 @@
-package cn.mbw.oc.common.util;
+package cn.mbw.oc.common.utils;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;

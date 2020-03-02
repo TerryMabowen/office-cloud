@@ -1,4 +1,4 @@
-package cn.mbw.oc.common.util;
+package cn.mbw.oc.common.utils;
 
 import cn.mbw.oc.common.enums.CommonEnumStatus;
 import cn.mbw.oc.common.enums.EnumStatus;

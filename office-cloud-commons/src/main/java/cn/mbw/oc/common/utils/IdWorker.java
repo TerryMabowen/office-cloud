@@ -1,4 +1,4 @@
-package cn.mbw.oc.common.util;
+package cn.mbw.oc.common.utils;
 
 import java.lang.management.ManagementFactory;
 import java.net.InetAddress;

@@ -1,12 +1,14 @@
 package cn.mbw.oc.config;
 
-import cn.mbw.oc.common.util.SpringUtil;
+import at.pollux.thymeleaf.shiro.dialect.ShiroDialect;
+import cn.mbw.oc.common.utils.SpringUtil;
 import cn.mbw.oc.interceptor.SecurityInteceptor;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import lombok.extern.slf4j.Slf4j;
+import nz.net.ultraq.thymeleaf.LayoutDialect;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.HttpMessageConverter;
@@ -120,10 +122,8 @@ public class WebMvcConfig implements WebMvcConfigurer {
         engine.setEnableSpringELCompiler(true);
         engine.setTemplateResolver(templateResolver());
 
-//        engine.addDialect(new ShiroDialect());
-//        engine.addDialect(new LayoutDialect());
-//        engine.addDialect(new SmthitDialect());
-        //		engine.addDialect(new CmsDialect());
+        engine.addDialect(new ShiroDialect());
+        engine.addDialect(new LayoutDialect());
         return engine;
     }
 

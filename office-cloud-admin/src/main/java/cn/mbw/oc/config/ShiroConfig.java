@@ -1,6 +1,7 @@
 package cn.mbw.oc.config;
 
 
+import at.pollux.thymeleaf.shiro.dialect.ShiroDialect;
 import cn.mbw.oc.shiro.AdminRealm;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.mgt.SecurityManager;
@@ -26,6 +27,15 @@ public class ShiroConfig {
     @Bean
     public Realm adminRealm() {
         return new AdminRealm();
+    }
+
+    /**
+     * shiro方言  支持shiro标签
+     * 用于thymeleaf使用shiro标签
+     */
+    @Bean
+    public ShiroDialect shiroDialect() {
+        return new ShiroDialect();
     }
 
     @Bean

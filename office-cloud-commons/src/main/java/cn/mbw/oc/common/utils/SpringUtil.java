@@ -1,4 +1,4 @@
-package cn.mbw.oc.common.util;
+package cn.mbw.oc.common.utils;
 
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;

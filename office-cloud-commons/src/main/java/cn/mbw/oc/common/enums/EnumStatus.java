@@ -1,12 +1,7 @@
 package cn.mbw.oc.common.enums;
 
 import cn.mbw.oc.common.throwable.ServiceException;
-import cn.mbw.oc.common.util.EnumStatusUtils;
-import com.google.common.collect.Sets;
-
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Set;
+import cn.mbw.oc.common.utils.EnumStatusUtils;
 
 /**
  * @author Mabowen

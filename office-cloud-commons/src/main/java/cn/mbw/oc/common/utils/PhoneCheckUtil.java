@@ -1,4 +1,4 @@
-package cn.mbw.oc.common.util;
+package cn.mbw.oc.common.utils;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

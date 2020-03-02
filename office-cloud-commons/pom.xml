@@ -271,11 +271,17 @@
             <version>${dagger.version}</version>
         </dependency>
         <!--fastdfs-->
-        <dependency>
-            <groupId>org.csource.fastdfs</groupId>
-            <artifactId>fastdfs</artifactId>
-            <version>${fastdfs.version}</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.csource.fastdfs</groupId>-->
+<!--            <artifactId>fastdfs</artifactId>-->
+<!--            <version>${fastdfs.version}</version>-->
+<!--        </dependency>-->
+        <!-- https://mvnrepository.com/artifact/org.csource/fastdfs-client-java -->
+<!--        <dependency>-->
+<!--            <groupId>org.csource</groupId>-->
+<!--            <artifactId>fastdfs-client-java</artifactId>-->
+<!--            <version>${fastdfs.version}</version>-->
+<!--        </dependency>-->
     </dependencies>
 
 </project>

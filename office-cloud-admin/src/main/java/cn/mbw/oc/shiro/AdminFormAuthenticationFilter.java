@@ -4,7 +4,7 @@
 package cn.mbw.oc.shiro;
 
 import cn.mbw.oc.common.results.ResponseResults;
-import cn.mbw.oc.common.util.SpringUtil;
+import cn.mbw.oc.common.utils.SpringUtil;
 import cn.mbw.oc.constants.CacheKey;
 import cn.mbw.oc.data.role.vo.RoleVO;
 import cn.mbw.oc.data.user.vo.UserVO;

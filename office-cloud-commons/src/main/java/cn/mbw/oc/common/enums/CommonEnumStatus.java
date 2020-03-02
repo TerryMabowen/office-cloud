@@ -1,6 +1,6 @@
 package cn.mbw.oc.common.enums;
 
-import cn.mbw.oc.common.util.EnumStatusUtils;
+import cn.mbw.oc.common.utils.EnumStatusUtils;
 
 /**
  * @author Mabowen
