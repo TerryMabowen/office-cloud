@@ -10,6 +10,7 @@ import org.apache.shiro.subject.Subject;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -23,22 +24,24 @@ public class loginCtl extends BaseCtl {
 //    @Autowired
 //    private AuthenticationManager authenticationManager;
 
-    @GetMapping("/login")
+    @RequestMapping("/login")
     public String login(HttpServletRequest request) {
-        UserVO currentLoginUser = getCurrentLoginUser();
-        if (currentLoginUser != null) {
-            System.out.println("loginUser: " + new Gson().toJson(currentLoginUser));
-            Subject subject = SecurityUtils.getSubject();
-            UsernamePasswordToken usernamePasswordToken = new UsernamePasswordToken(currentLoginUser.getLoginName(), currentLoginUser.getPasswordHash());
-            usernamePasswordToken.setRememberMe(true);
-            subject.login(usernamePasswordToken);
-            return "redirect:/index";
-        } else {
-            return "login.html";
-        }
+//        UserVO currentLoginUser = getCurrentLoginUser();
+//        if (currentLoginUser != null) {
+//            System.out.println("loginUser: " + new Gson().toJson(currentLoginUser));
+//            Subject subject = SecurityUtils.getSubject();
+//            // TODO 暂时不加密
+//            UsernamePasswordToken usernamePasswordToken = new UsernamePasswordToken(currentLoginUser.getLoginName(), currentLoginUser.getPassword());
+//            usernamePasswordToken.setRememberMe(true);
+//            subject.login(usernamePasswordToken);
+//            return "redirect:/index";
+//        } else {
+//            return "login.html";
+//        }
+        return "login.html";
     }
 
-    @GetMapping("/login_error")
+    @RequestMapping("/login_error")
     public String loginError(Model model) {
         model.addAttribute("loginError", true);
         model.addAttribute("errorMsg", "登录失败,用户名或者密码错误!");
@@ -46,7 +49,7 @@ public class loginCtl extends BaseCtl {
         return "login.html";
     }
 
-    @GetMapping("logout")
+    @RequestMapping("logout")
     public String logout() {
         SecurityUtils.getSubject().logout();
         return "redirect:/login";

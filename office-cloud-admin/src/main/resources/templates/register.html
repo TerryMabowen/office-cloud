@@ -1,11 +1,9 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
-<head th:include="layout/header::sources">
-    <meta charset="UTF-8">
+<html layout:decorate="~{layout/content_layout}" xmlns:th="http://www.thymeleaf.org">
+<head>
     <title>注册</title>
 </head>
 <body>
-<header th:include="layout/header::header"></header>
+<header th:include="fragments/header::header"></header>
 </body>
 </html>

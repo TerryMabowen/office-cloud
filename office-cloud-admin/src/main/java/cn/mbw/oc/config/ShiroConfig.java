@@ -145,15 +145,14 @@ public class ShiroConfig {
         bean.setSecurityManager(securityManager);
         //当此用户是一个非认证用户,需要先登陆进行认证
         bean.setLoginUrl("/login");
+        bean.setSuccessUrl("/index");
         LinkedHashMap<String,String> fcMap = new LinkedHashMap<>();
         //下边表示允许匿名访问的文件夹 ， 前面为固定的文件夹的路径（根据自己的醒目而定例如图片等等）
-//        fcMap.put("/bower_components/**","anon");//anon表示允许匿名访问
-//        fcMap.put("/build/**", "anon");
-//        fcMap.put("/dist/**","anon");
-//        fcMap.put("/plugins/**","anon");
+        fcMap.put("/static/**", "anon");
         fcMap.put("/login","anon");
-        fcMap.put("/logout","logout");//"logout"表示退出
-        fcMap.put("/**", "authc");//必须授权才能访问
+        fcMap.put("/logout","logout");
+        //必须授权才能访问
+        fcMap.put("/**", "authc");
         bean.setFilterChainDefinitionMap(fcMap);
         return bean;
     }

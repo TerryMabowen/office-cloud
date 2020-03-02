@@ -1,13 +1,11 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
-<head th:include="layout/header::sources">
+<html layout:decorate="~{layout/content_layout}" xmlns:th="http://www.thymeleaf.org">
+<head>
     <title>403</title>
-
 </head>
 <body>
 <div class="fastui-screen">
-    <div th:include="layout/header::header"></div>
+    <div th:include="fragments/header::header"></div>
     <div class="fastui-content-style">
         <div class="fastui-erro-html">
             <img class="fastui-no-data" src="/static/images/403.png"/>

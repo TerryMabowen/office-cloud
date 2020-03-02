@@ -10,9 +10,11 @@ spring:
   datasource:
     druid:
       type: com.alibaba.druid.pool.DruidDataSource
-      url: jdbc:mysql://127.0.0.1:3306/db_office-cloud?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+#      url: jdbc:mysql://127.0.0.1:3306/db_office-cloud?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+      url: jdbc:mysql://192.168.1.200:3306/db_lightflow?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
       username: root
-      password: root
+#      password: root
+      password: qwerASDF1234?
       driver-class-name: com.mysql.cj.jdbc.Driver
       initial-size: 0
       max-active: 20

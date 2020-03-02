@@ -44,6 +44,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/vue/**").addResourceLocations("classpath:/static/vue/");
         registry.addResourceHandler("/layui/**").addResourceLocations("classpath:/static/layui/");
+        registry.addResourceHandler("/layui2/**").addResourceLocations("classpath:/static/layui2/");
         registry.addResourceHandler("/bootstrap/**").addResourceLocations("classpath:/static/bootstrap/");
         registry.addResourceHandler("/static/**").addResourceLocations("classpath:/static/");
     }

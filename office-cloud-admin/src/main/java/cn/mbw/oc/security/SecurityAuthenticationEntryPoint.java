@@ -3,8 +3,6 @@ package cn.mbw.oc.security;
 import cn.mbw.oc.common.results.ResponseResults;
 import com.google.gson.Gson;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.security.core.AuthenticationException;
-import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.ServletException;
@@ -20,13 +18,14 @@ import java.io.IOException;
 @Deprecated
 @Slf4j
 //@Component
-public class SecurityAuthenticationEntryPoint implements AuthenticationEntryPoint {
-    @Override
-    public void commence(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, AuthenticationException e) throws IOException, ServletException {
-        ResponseResults responseResults = ResponseResults.newFailed("没有权限，请先登陆");
-        httpServletResponse.setCharacterEncoding("utf-8");
-        httpServletResponse.setContentType("application/json;charset=utf-8");
-        httpServletResponse.getWriter().write(new Gson().toJson(responseResults));
-        httpServletResponse.setStatus(403);
-    }
+public class SecurityAuthenticationEntryPoint {
+//public class SecurityAuthenticationEntryPoint implements AuthenticationEntryPoint {
+//    @Override
+//    public void commence(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, AuthenticationException e) throws IOException, ServletException {
+//        ResponseResults responseResults = ResponseResults.newFailed("没有权限，请先登陆");
+//        httpServletResponse.setCharacterEncoding("utf-8");
+//        httpServletResponse.setContentType("application/json;charset=utf-8");
+//        httpServletResponse.getWriter().write(new Gson().toJson(responseResults));
+//        httpServletResponse.setStatus(403);
+//    }
 }

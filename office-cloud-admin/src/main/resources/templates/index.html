@@ -1,14 +1,13 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
-<head th:include="layout/header::sources">
+<html layout:decorate="~{layout/content_layout}" xmlns:th="http://www.thymeleaf.org">
+<head>
     <title>首页</title>
 </head>
 <body>
-<div th:include="layout/header::header"></div>
+<div th:include="fragments/header::header"></div>
 <h1>首页</h1>
 
-<div th:include="layout/footer::footer"></div>
+<div th:include="fragments/footer::footer"></div>
 </body>
 <script type="text/javascript">
     KindEditor.ready(function(K) {

@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-      xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
-<head th:include="layout/header::sources">
+<html layout:decorate="~{layout/content_layout}" xmlns:th="http://www.thymeleaf.org">
+<head>
     <title>登陆</title>
 </head>
 <body >
-<div th:include="layout/header::header"></div>
+<div th:include="fragments/header::header"></div>
 <div class="container">
     <form th:action="@{/login}" method="post">
         <h2>请登录</h2>

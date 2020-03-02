@@ -39,6 +39,9 @@ public class UserService {
     }
 
     public UserVO loadUser(String username) {
-        return new UserVO();
+        UserVO userVO = new UserVO();
+        userVO.setLoginName("lisi");
+        userVO.setPassword("123456");
+        return userVO;
     }
 }

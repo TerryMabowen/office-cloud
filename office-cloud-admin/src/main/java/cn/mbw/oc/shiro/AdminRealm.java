@@ -83,7 +83,7 @@ public class AdminRealm extends AuthorizingRealm {
 			} else {
 				SecurityUtils.getSubject().getSession().setAttribute("sessionSysUser", user);
 
-				return new SimpleAuthenticationInfo(user, user.getPasswordHash(), getName());
+				return new SimpleAuthenticationInfo(user, user.getPassword(), getName());
 			}
 		} catch (Exception e) {
 			throw new AuthenticationException(e.getMessage());

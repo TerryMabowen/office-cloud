@@ -5,6 +5,7 @@ package cn.mbw.oc.shiro;
 
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
+import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.authc.credential.CredentialsMatcher;
 
 /**
@@ -15,6 +16,10 @@ public class AdminCredentialsMatcher implements CredentialsMatcher {
 
 	@Override
 	public boolean doCredentialsMatch(AuthenticationToken token, AuthenticationInfo auth) {
+		String inputPswd = new String(((UsernamePasswordToken)token).getPassword());
+		System.out.println("inputPswd: " + inputPswd);
+//		String dbPswd = (String) auth.getCredentials();
+//		System.out.println("dbPswd: " + dbPswd);
 		return true;
 	}
 
