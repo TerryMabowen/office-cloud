@@ -1,4 +1,4 @@
-package cn.mbw.oc.common.utils;
+package cn.mbw.oc.common.helper;
 
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
@@ -7,16 +7,16 @@ import org.springframework.stereotype.Component;
 
 /**
  * @author Mabowen
- * @date 2020/02/27 23:34
+ * @date 2020-03-03 10:05
  */
 @Component
-public class SpringUtil implements ApplicationContextAware {
+public class ApplicationContextHelper implements ApplicationContextAware {
     private static ApplicationContext applicationContext;
 
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-        if(SpringUtil.applicationContext == null) {
-            SpringUtil.applicationContext = applicationContext;
+        if(ApplicationContextHelper.applicationContext == null) {
+            ApplicationContextHelper.applicationContext = applicationContext;
         }
     }
 

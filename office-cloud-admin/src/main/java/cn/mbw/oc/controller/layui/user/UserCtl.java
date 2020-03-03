@@ -1,4 +1,4 @@
-package cn.mbw.oc.controller.user;
+package cn.mbw.oc.controller.layui.user;
 
 import cn.mbw.oc.controller.base.BaseCtl;
 import lombok.extern.slf4j.Slf4j;
@@ -11,6 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @Slf4j
 @RestController
-@RequestMapping("")
+@RequestMapping("layui/user")
 public class UserCtl extends BaseCtl {
 }

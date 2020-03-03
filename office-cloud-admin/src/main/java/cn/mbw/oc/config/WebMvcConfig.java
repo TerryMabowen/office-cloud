@@ -1,7 +1,7 @@
 package cn.mbw.oc.config;
 
 import at.pollux.thymeleaf.shiro.dialect.ShiroDialect;
-import cn.mbw.oc.common.utils.SpringUtil;
+import cn.mbw.oc.common.helper.ApplicationContextHelper;
 import cn.mbw.oc.interceptor.SecurityInteceptor;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -130,7 +130,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
 
     private ITemplateResolver templateResolver() {
         SpringResourceTemplateResolver resolver = new SpringResourceTemplateResolver();
-        resolver.setApplicationContext(SpringUtil.getApplicationContext());
+        resolver.setApplicationContext(ApplicationContextHelper.getApplicationContext());
         resolver.setPrefix("classpath:/templates/");
         resolver.setSuffix(".html");
         resolver.setCacheable(false);

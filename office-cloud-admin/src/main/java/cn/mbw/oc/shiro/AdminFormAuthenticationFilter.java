@@ -3,8 +3,8 @@
  */
 package cn.mbw.oc.shiro;
 
+import cn.mbw.oc.common.helper.ApplicationContextHelper;
 import cn.mbw.oc.common.results.ResponseResults;
-import cn.mbw.oc.common.utils.SpringUtil;
 import cn.mbw.oc.constants.CacheKey;
 import cn.mbw.oc.data.role.vo.RoleVO;
 import cn.mbw.oc.data.user.vo.UserVO;
@@ -102,7 +102,7 @@ public class AdminFormAuthenticationFilter extends FormAuthenticationFilter {
 		//设置初始默认角色
 		HttpServletRequest servletRquest = (HttpServletRequest)request;
 		UserVO user = (UserVO) subject.getPrincipal();
-		UserService userService = SpringUtil.getBean(UserService.class);
+		UserService userService = ApplicationContextHelper.getBean(UserService.class);
 		List<RoleVO> roles = userService.getRoles(user.getId());
 		boolean isUpdate = true;
 		Long currenRoleId = null;

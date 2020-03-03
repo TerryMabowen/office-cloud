@@ -1,4 +1,4 @@
-package cn.mbw.oc.controller.fb;
+package cn.mbw.oc.controller.layui.fb;
 
 import lombok.Data;
 

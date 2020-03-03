@@ -1,4 +1,4 @@
-package cn.mbw.oc.controller.exception;
+package cn.mbw.oc.controller.layui.exception;
 
 import cn.mbw.oc.common.results.ResponseResults;
 import cn.mbw.oc.common.throwable.ServiceException;
@@ -25,8 +25,8 @@ import java.io.PrintWriter;
 public class ExceptionAdvice {
     final static String DEFAULT_ERROR_MSG = "当前请求出现错误,请重试或者联系管理员";
 
-    private static final String ERROR_403_VIEW = "errors/403.html";
-    private static final String ERROR_500_VIEW = "errors/500.html";
+    private static final String ERROR_403_VIEW = "layui/errors/403.html";
+    private static final String ERROR_500_VIEW = "layui/errors/500.html";
 
     @ExceptionHandler(AuthorizationException.class)
     public Object authorizationException(AuthorizationException exception, HttpServletRequest request, HttpServletResponse response) throws IOException {

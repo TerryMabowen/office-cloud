@@ -50,7 +50,7 @@ public class BaseDataCtl {
     }
 
     public UserVO getCurrentLoginUser() {
-//        UserVO principal = (UserVO) SecurityContextHolder
+//        UserVO userVO = (UserVO) SecurityContextHolder
 //                .getContext()
 //                .getAuthentication()
 //                .getPrincipal();

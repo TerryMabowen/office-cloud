@@ -1,4 +1,4 @@
-package cn.mbw.oc.controller.exception;
+package cn.mbw.oc.controller.layui.exception;
 
 import cn.mbw.oc.common.results.ResponseResults;
 import lombok.extern.slf4j.Slf4j;
@@ -26,8 +26,8 @@ import java.util.Map;
 @Controller
 public class CustomErrorCtl implements ErrorController {
 
-    private static final String ERROR_404_VIEW = "errors/404.html";
-    private static final String ERROR_500_VIEW = "errors/500.html";
+    private static final String ERROR_404_VIEW = "layui/errors/404.html";
+    private static final String ERROR_500_VIEW = "layui/errors/500.html";
 
     @Autowired
     private ErrorAttributes errorAttributes;

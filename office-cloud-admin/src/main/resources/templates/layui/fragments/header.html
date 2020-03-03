@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <header th:fragment="header" class="fastui-header">
+        <!--logo-->
+        <div class="layui-logo">
+
+        </div>
+        <!--导航栏-->
+        <ul class="layui-nav">
+            <li class="layui-nav-item">
+                <a href="#">首页</a>
+            </li>
+            <li class="layui-nav-item">
+                <a href="#">title1</a>
+            </li>
+            <li class="layui-nav-item">
+                <a href="#">title2</a>
+            </li>
+        </ul>
+        <ul class="layui-nav fastui-usercenter" lay-filter="user_operation">
+            <li class="layui-nav-item"><a href="javascript:void(0);" style="width: 40px;">消息<span class="layui-badge-dot"></span><!--<span class="layui-badge">9</span>--></a></li>
+            <!--角色头像-->
+            <!--<li class="layui-nav-item"><a href="javascript:void(0);"><img src="http://t.cn/RCzsdCq" th:src="@{/static/images/header2.png}" class="layui-nav-img">-->
+                <shiro:user><shiro:principal property="name"/></shiro:user>(<span th:text="${#httpServletRequest.getSession().getAttribute('currentRoleName')}"/>)</a>
+                <dl class="layui-nav-child" style="z-index: 9999999; height: 150px; top: 65px;">
+                    <dd>
+                        <a lay-event="changeRole">切换角色</a>
+                    </dd>
+                    <dd>
+                        <a href="javascript:void(0);">个人中心</a>
+                    </dd>
+                    <dd>
+                        <a href="javascript:void(0);">安全设置</a>
+                    </dd>
+                    <dd>
+                        <a href="../login.html" th:href="@{layui/logout}">退出系统</a>
+                    </dd>
+                </dl>
+            </li>
+        </ul>
+<!--        <div class="collapse navbar-collapse" id="navbarsContainer">-->
+<!--            &lt;!&ndash;导航栏&ndash;&gt;-->
+<!--            <ul class="navbar-nav mr-auto">-->
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link" th:href="@{~/users}">首页<span class="sr-only" th:text="${username}"></span></a>-->
+<!--                </li>-->
+<!--            </ul>-->
+<!--            &lt;!&ndash;登陆用户信息&ndash;&gt;-->
+<!--            <div class="row">-->
+<!--                <ul class="navbar-nav mr-auto">-->
+<!--                    <li class="navbar-item">-->
+<!--                        <span class="nav-link"></span>-->
+<!--                    </li>-->
+<!--                </ul>-->
+<!--                <form th:action="@{/logout}" method="post">-->
+<!--                    <input type="submit" class="btn btn-outline-success" value="退出">-->
+<!--                </form>-->
+<!--            </div>-->
+<!--            &lt;!&ndash;登陆&ndash;&gt;-->
+<!--            <div>-->
+<!--                <a type="submit" th:href="@{~/login}" class="btn btn-outline-success">登陆</a>-->
+<!--            </div>-->
+<!--        </div>-->
+    </header>
+</body>
+<script type="text/javascript">
+    layui.config({
+        base: "/static/layui/js/"
+    }).extend({
+        index: "../index"
+    }).use("element");
+</script>
+</html>

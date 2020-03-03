@@ -1,4 +1,4 @@
-package cn.mbw.oc.controller.user;
+package cn.mbw.oc.controller.layui.user;
 
 
 import cn.mbw.oc.controller.base.BaseDataCtl;
@@ -12,6 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @Slf4j
 @RestController
-@RequestMapping("")
+@RequestMapping("layui/user")
 public class UserDataCtl extends BaseDataCtl {
 }

@@ -1,4 +1,4 @@
-package cn.mbw.oc.controller;
+package cn.mbw.oc.controller.layui;
 
 import cn.mbw.oc.controller.base.BaseCtl;
 import cn.mbw.oc.data.user.vo.UserVO;
@@ -26,19 +26,18 @@ public class loginCtl extends BaseCtl {
 
     @RequestMapping("/login")
     public String login(HttpServletRequest request) {
-//        UserVO currentLoginUser = getCurrentLoginUser();
-//        if (currentLoginUser != null) {
-//            System.out.println("loginUser: " + new Gson().toJson(currentLoginUser));
-//            Subject subject = SecurityUtils.getSubject();
-//            // TODO 暂时不加密
-//            UsernamePasswordToken usernamePasswordToken = new UsernamePasswordToken(currentLoginUser.getLoginName(), currentLoginUser.getPassword());
-//            usernamePasswordToken.setRememberMe(true);
-//            subject.login(usernamePasswordToken);
-//            return "redirect:/index";
-//        } else {
-//            return "login.html";
-//        }
-        return "login.html";
+        UserVO currentLoginUser = getCurrentLoginUser();
+        if (currentLoginUser != null) {
+            System.out.println("loginUser: " + new Gson().toJson(currentLoginUser));
+            Subject subject = SecurityUtils.getSubject();
+            // TODO 暂时不加密
+            UsernamePasswordToken usernamePasswordToken = new UsernamePasswordToken(currentLoginUser.getLoginName(), currentLoginUser.getPassword());
+            usernamePasswordToken.setRememberMe(true);
+            subject.login(usernamePasswordToken);
+            return "redirect:/index";
+        } else {
+            return "layui/login.html";
+        }
     }
 
     @RequestMapping("/login_error")
@@ -46,7 +45,7 @@ public class loginCtl extends BaseCtl {
         model.addAttribute("loginError", true);
         model.addAttribute("errorMsg", "登录失败,用户名或者密码错误!");
 
-        return "login.html";
+        return "layui/login.html";
     }
 
     @RequestMapping("logout")

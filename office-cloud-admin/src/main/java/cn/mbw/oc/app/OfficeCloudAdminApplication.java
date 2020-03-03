@@ -1,8 +1,11 @@
 package cn.mbw.oc.app;
 
+import cn.mbw.oc.common.helper.ApplicationContextHelper;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.annotation.EnableCaching;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
@@ -16,6 +19,11 @@ public class OfficeCloudAdminApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(OfficeCloudAdminApplication.class, args);
+    }
+
+    @Bean
+    public ApplicationContextHelper contextHelper() {
+        return new ApplicationContextHelper();
     }
 
     /**

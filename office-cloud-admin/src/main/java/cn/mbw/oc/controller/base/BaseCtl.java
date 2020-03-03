@@ -13,7 +13,7 @@ import cn.mbw.oc.security.SecurityUtils;
 public abstract class BaseCtl {
 
     protected UserVO getCurrentLoginUser() {
-//        UserVO principal = (UserVO) SecurityContextHolder
+//        UserVO userVO = (UserVO) SecurityContextHolder
 //                .getContext()
 //                .getAuthentication()
 //                .getPrincipal();
