@@ -23,29 +23,19 @@ import java.util.List;
 @RequestMapping("dev")
 public class DevCtl extends BaseCtl {
 
-    @PostMapping("test1")
-    @ResponseBody
-    @NotBlank
-//    @RequiresPermissions(value = "quanxian/juese")
-    public ResponseResults test1(@RequestParam("str") String str) {
-        try {
-            AssertUtil.assertNotEmpty(str, "str不能为空");
+    @GetMapping("jodit/index")
+    public String indexHtml(Model model) {
 
-            List<String> list = ConvertUtil.convertStrToList(str);
-            return ResponseResults.newSuccess().setData(list);
+        return "jodit/index.html";
+    }
+
+    @PostMapping("jodit/upload")
+    public ResponseResults uploadArticle() {
+        try {
+
+            return ResponseResults.newSuccess();
         } catch (ServiceException e) {
-            log.error("test1失败：" + e.getMessage(), e);
-            return ResponseResults.newFailed(e.getMessage());
+            return ResponseResults.newFailed();
         }
     }
-
-    @GetMapping(value = {"", "/", "/index", "/index.html"})
-    @ResponseBody
-    public String test2(Model model) {
-        UserVO currentLoginUser = getCurrentLoginUser();
-        model.addAttribute("user", currentLoginUser);
-
-        return "index.html";
-    }
-
 }
