@@ -15,9 +15,9 @@ target/
 
 ### IntelliJ IDEA ###
 .idea
-*.iws
-*.iml
-*.ipr
+**/*.iws
+**/*.iml
+**/*.ipr
 
 ### NetBeans ###
 /nbproject/private/
@@ -25,9 +25,10 @@ target/
 /dist/
 /nbdist/
 /.nb-gradle/
-build/
+
 
 ### VS Code ###
 .vscode/
 
+**/.DS_Store
 .DS_Store
