@@ -10,7 +10,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.constraints.NotBlank;
 import java.util.List;
 
@@ -21,18 +23,19 @@ import java.util.List;
 @Slf4j
 @Controller
 @RequestMapping("dev")
-public class DevCtl extends BaseCtl {
+public class DevCtl {
 
-    @GetMapping("jodit/index")
-    public String indexHtml(Model model) {
-
-        return "jodit/index.html";
+    @GetMapping("index")
+    public String layuiIndex() {
+        return "layui/layedit.html";
     }
 
-    @PostMapping("jodit/upload")
-    public ResponseResults uploadArticle() {
+    @PostMapping("layedit/upload")
+    @ResponseBody
+    public ResponseResults layeditUploadArticle(MultipartFile file) {
         try {
 
+            System.out.println(file.getOriginalFilename());
             return ResponseResults.newSuccess();
         } catch (ServiceException e) {
             return ResponseResults.newFailed();

@@ -167,7 +167,7 @@ html{background-color: #f2f2f2; color: #666;}
 }
 
 /* 侧边收缩模式 */
-.layadmin-side-shrink .layui-layout-admin .layui-logo{width: 60px; background-image: url(../images/face/1.gif); /*background-size: 20px;)*/}
+.layadmin-side-shrink .layui-layout-admin .layui-logo{width: 60px; background-image: url(res/logo.png); /*background-size: 20px;)*/}
 .layadmin-side-shrink .layui-layout-admin .layui-logo span{display: none;}
 .layadmin-side-shrink .layui-side{left: 0; width: 60px;}
 .layadmin-side-shrink .layui-layout-admin .layui-layout-left,
@@ -412,8 +412,8 @@ html{background-color: #f2f2f2; color: #666;}
 .layui-anim-rl{-webkit-animation-name: layui-rl; animation-name: layui-rl;}
 
 @-webkit-keyframes layui-lr{ /* 从右往左滑入 */
-  from {-webkit-transform: translate3d(0, 0, 0); opacity: 1;}
-  to {-webkit-transform: translate3d(100%, 0, 0); opacity: 1;}
+  from {-webkit-transform: translate3d(0 0, 0); opacity: 1;}
+  to {-webkit-transform: translate3d(100%,, 0, 0); opacity: 1;}
 }
 @keyframes layui-lr{
   from {transform: translate3d(0, 0, 0);}
@@ -451,4 +451,5 @@ html{background-color: #f2f2f2; color: #666;}
 }
 
 
-body {font-size:12px;}
+
+

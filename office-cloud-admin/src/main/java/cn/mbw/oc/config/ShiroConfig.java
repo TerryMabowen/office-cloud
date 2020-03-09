@@ -2,8 +2,11 @@ package cn.mbw.oc.config;
 
 
 import at.pollux.thymeleaf.shiro.dialect.ShiroDialect;
+import cn.mbw.oc.shiro.AdminFormAuthenticationFilter;
 import cn.mbw.oc.shiro.AdminRealm;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.shiro.authz.Authorizer;
+import org.apache.shiro.authz.ModularRealmAuthorizer;
 import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.realm.Realm;
 import org.apache.shiro.spring.LifecycleBeanPostProcessor;
@@ -15,16 +18,17 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import java.util.LinkedHashMap;
+import java.util.Map;
 
 /**
  * @author Mabowen
  * @date 2019-12-26 09:20
  */
 @Slf4j
-//@Configuration
+@Configuration
 public class ShiroConfig {
     //将自己的验证方式加入容器
-//    @Bean
+    @Bean
     public Realm adminRealm() {
         return new AdminRealm();
     }
@@ -33,23 +37,23 @@ public class ShiroConfig {
      * shiro方言  支持shiro标签
      * 用于thymeleaf使用shiro标签
      */
-//    @Bean
+    @Bean
     public ShiroDialect shiroDialect() {
         return new ShiroDialect();
     }
 
-//    @Bean
-    public DefaultAdvisorAutoProxyCreator advisorAutoProxyCreator() {
-        DefaultAdvisorAutoProxyCreator advisorAutoProxyCreator = new DefaultAdvisorAutoProxyCreator();
-        advisorAutoProxyCreator.setProxyTargetClass(true);
-        return advisorAutoProxyCreator;
-    }
-
-//    @Bean
+    @Bean
     public AuthorizationAttributeSourceAdvisor authorizationAttributeSourceAdvisor(SecurityManager securityManager) {
         AuthorizationAttributeSourceAdvisor attributeSourceAdvisor = new AuthorizationAttributeSourceAdvisor();
         attributeSourceAdvisor.setSecurityManager(securityManager);
         return attributeSourceAdvisor;
+    }
+
+    @Bean
+    public DefaultAdvisorAutoProxyCreator advisorAutoProxyCreator() {
+        DefaultAdvisorAutoProxyCreator advisorAutoProxyCreator = new DefaultAdvisorAutoProxyCreator();
+        advisorAutoProxyCreator.setProxyTargetClass(true);
+        return advisorAutoProxyCreator;
     }
 
 //    @Bean
@@ -97,7 +101,15 @@ public class ShiroConfig {
 //
 //    }
 
-//    @Bean
+    @Bean
+    public Authorizer authorizer() {
+        // FIXME: 我也不知道怎么回事。在多个realm的情况下，不定义这个Bean会报错。这个Bean是不完整的
+        ModularRealmAuthorizer authorizer = new ModularRealmAuthorizer();
+
+        return authorizer;
+    }
+
+    @Bean
     public SecurityManager securityManager() {
         DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager();
         //设置自定义realm.
@@ -120,9 +132,9 @@ public class ShiroConfig {
 //    }
 
 //    @Bean
-    public LifecycleBeanPostProcessor lifecycleBeanPostProcessor() {
-        return new LifecycleBeanPostProcessor();
-    }
+//    public LifecycleBeanPostProcessor lifecycleBeanPostProcessor() {
+//        return new LifecycleBeanPostProcessor();
+//    }
 
 //    @Bean
 //    public SimpleCookie simpleCookie() {
@@ -139,18 +151,29 @@ public class ShiroConfig {
 //        return simpleCookie;
 //    }
 
-//    @Bean
+    @Bean
     public ShiroFilterFactoryBean shiroFilterFactoryBean(SecurityManager securityManager){//shiro 包
-        ShiroFilterFactoryBean bean=new ShiroFilterFactoryBean();
+        ShiroFilterFactoryBean bean = new ShiroFilterFactoryBean();
         bean.setSecurityManager(securityManager);
+        //权限验证
+        /**
+         * https://lists.apache.org/thread.html/189e4d001236062df286d11314fb96c818e93f9d34de245265aef6f8@%3Cdev.shiro.apache.org%3E
+         * 按照官方文档，至少只需要配置2个bean就可以了。一个realm的bean，一个filterChain的bean。我们需要重写authc过滤器，
+         * 本来自定义一个filter就行了，但不知道为什么没用。所以索性重写shiroFilterFactoryBean了。
+         */
+        bean.getFilters().put("authc", new AdminFormAuthenticationFilter());
         //当此用户是一个非认证用户,需要先登陆进行认证
         bean.setLoginUrl("/login");
         bean.setSuccessUrl("/index");
+        bean.setUnauthorizedUrl("/error/403");
         LinkedHashMap<String,String> fcMap = new LinkedHashMap<>();
-        //下边表示允许匿名访问的文件夹 ， 前面为固定的文件夹的路径（根据自己的醒目而定例如图片等等）
+        // 静态资源可直接访问
         fcMap.put("/static/**", "anon");
+        // 后端相关访问控制
+        fcMap.put("/dev/**", "anon");
         fcMap.put("/login","anon");
         fcMap.put("/logout","logout");
+        // 配置匿名访问
         //必须授权才能访问
         fcMap.put("/**", "authc");
         bean.setFilterChainDefinitionMap(fcMap);

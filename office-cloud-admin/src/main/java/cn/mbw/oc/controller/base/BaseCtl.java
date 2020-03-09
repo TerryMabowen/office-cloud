@@ -17,10 +17,7 @@ public abstract class BaseCtl {
 //                .getContext()
 //                .getAuthentication()
 //                .getPrincipal();
-        UserVO userVO = SecurityUtils.getSubject();
-        if (userVO == null) {
-            throw new ServiceException("用户未登录");
-        }
-        return userVO;
+
+        return SecurityUtils.getSubject();
     }
 }

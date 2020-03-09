@@ -142,13 +142,10 @@ public class AdminFormAuthenticationFilter extends FormAuthenticationFilter {
 	}
 
 	private void responseJson(ServletResponse response, Object data) throws IOException {
-		response.setContentType("text/plain;charset=UTF-8");
-		response.setCharacterEncoding("UTF-8");
-		PrintWriter out = response.getWriter();
-
-		out.print(new Gson().toJson(data));
-		out.flush();
-		out.close();
+		HttpServletResponse res = (HttpServletResponse) response;
+		res.setContentType("text/plain;charset=UTF-8");
+		res.setCharacterEncoding("UTF-8");
+		res.sendRedirect(new Gson().toJson(data));
 	}
 
 }

@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
-<html layout:decorate="~{layui/layout/content_layout}" xmlns:th="http://www.thymeleaf.org">
-<head>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="layui/layout/content_layout::sources">
     <title>首页</title>
 </head>
 <body>
@@ -10,17 +10,6 @@
 <div th:include="layui/fragments/footer::footer"></div>
 </body>
 <script type="text/javascript">
-    KindEditor.ready(function(K) {
-        window.editor = K.create('#editor_id', {
-            allowFileManager : true,
-            uploadJson : /*[[${@qiniuConfig.getZone()}]]*/'https://upload-z2.qiniup.com',
-            filePostName: 'file',
-            extraFileUploadParams: {
-                token: /*[[${@qiniuConfig.getUploadToken(2)}]]*/'invalidToken',
-                'x:dir': 'kindeditor/',
-                'x:prefixPath': /*[[${@qiniuConfig.getPublicDomain()}]]*/'invalidPrefix'
-            }
-        });
-    });
+
 </script>
 </html>

@@ -1,11 +1,14 @@
 package cn.mbw.oc.common.results;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.ToString;
 import lombok.experimental.Accessors;
 
 
 /**
+ * 后端返回前端数据响应类
  * @author Mabowen
  * @date 2019-12-20 17:24
  */
@@ -14,7 +17,7 @@ import lombok.experimental.Accessors;
 @Accessors(chain = true)
 public class ResponseResults {
     /**
-     * 网络请求的成功的状态
+     * 网络请求的状态码
      */
     public static final int OK = 0;
     public static final int SUCCESS = 200;
@@ -35,21 +38,21 @@ public class ResponseResults {
     public ResponseResults() {
     }
 
-    public ResponseResults(Integer code, String codeMsg, Object data) {
-        this.code = code;
-        this.codeMsg = codeMsg;
+    public ResponseResults(int status, String message, Object data) {
+        this.status = status;
+        this.message = message;
         this.data = data;
     }
 
     public static ResponseResults newSuccess() {
-        ResponseResults rd = new ResponseResults(true, (Object)null);
+        ResponseResults rd = new ResponseResults();
         rd.setStatus(SUCCESS);
         rd.setMessage("Success");
         return rd;
     }
 
     public static ResponseResults newSuccess(String message) {
-        ResponseResults rd = new ResponseResults(true, (Object)null);
+        ResponseResults rd = new ResponseResults();
         rd.setStatus(SUCCESS);
         rd.setMessage(message);
         return rd;
@@ -60,14 +63,14 @@ public class ResponseResults {
     }
 
     public static ResponseResults newSuccess(String message, Object data) {
-        ResponseResults rd = new ResponseResults(true, data);
+        ResponseResults rd = new ResponseResults();
         rd.setStatus(SUCCESS);
         rd.setMessage(message);
         return rd;
     }
 
     public static ResponseResults newFailed() {
-        ResponseResults rd = new ResponseResults(false, (Object)null);
+        ResponseResults rd = new ResponseResults();
         rd.message = "Failed";
         rd.data = "Failed";
         rd.setStatus(DEFAULT_ERROR);
@@ -75,7 +78,7 @@ public class ResponseResults {
     }
 
     public static ResponseResults newFailed(String message) {
-        ResponseResults rd = new ResponseResults(false, (Object)null);
+        ResponseResults rd = new ResponseResults();
         rd.message = message;
         rd.data = message;
         rd.setStatus(DEFAULT_ERROR);
@@ -87,16 +90,11 @@ public class ResponseResults {
     }
 
     public static ResponseResults newFailed(String message, Object data) {
-        ResponseResults rd = new ResponseResults(false, data);
+        ResponseResults rd = new ResponseResults();
         rd.message = message;
         rd.data = data;
         rd.setStatus(DEFAULT_ERROR);
         return rd;
-    }
-
-    private ResponseResults(boolean success, Object data) {
-        this.success = success;
-        this.data = data;
     }
 
     /**
@@ -105,9 +103,6 @@ public class ResponseResults {
      * @return true:成功；false：失败
      */
     public boolean isSuccess() {
-        if (code == OK) {
-            return true;
-        }
-        return false;
+        return this.code == OK;
     }
 }

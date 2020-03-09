@@ -8,6 +8,7 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
+ * 分页类---后端业务分页
  * @author Mabowen
  * @date 2020-01-08 15:19
  */
@@ -16,24 +17,28 @@ import java.util.List;
 @Accessors(chain = true)
 public class PageBean<T> implements Serializable {
     private static final long serialVersionUID = -5644250102100789603L;
+    // 默认从第几页开始
+    private static final int DEFAULT_CURRENT_PAGE = 1;
     // 默认的每页展示条数
-    private static final long DEFAULT_PAGE_SIZE = 20L;
+    private static final int DEFAULT_PAGE_SIZE = 20;
 
     // 当前第几页
-    private long currentPageNum;
+    private Integer currentPageNum = DEFAULT_CURRENT_PAGE;
     // 每页展示条数
-    private long pageSize = DEFAULT_PAGE_SIZE;
+    private Integer pageSize = DEFAULT_PAGE_SIZE;
     // 总页数
     private long totalPage;
     // 总数据量
     private long totalCount;
     // 分页数据
     private List<T> data;
+    // 开始数据位置
+    private int startIndex;
 
     public PageBean() {
     }
 
-    public PageBean(long currentPageNum, long pageSize) {
+    public PageBean(int currentPageNum, int pageSize) {
         this.currentPageNum = currentPageNum;
         this.pageSize = pageSize;
     }
@@ -55,7 +60,7 @@ public class PageBean<T> implements Serializable {
 
     // 是否是第一页
     public boolean isFirst() {
-        return (this.currentPageNum == 1L) || (this.totalCount == 0);
+        return (this.currentPageNum == 1) || (this.totalCount == 0);
     }
 
     // 是否是最后一页
@@ -70,7 +75,7 @@ public class PageBean<T> implements Serializable {
 
     // 是否有上一页
     public boolean isHasPrev() {
-        return this.currentPageNum > 1L;
+        return this.currentPageNum > 1;
     }
 
     // 下一页
@@ -78,14 +83,14 @@ public class PageBean<T> implements Serializable {
         if (this.currentPageNum >= getPageCount()) {
             return getPageCount();
         }
-        return this.currentPageNum + 1L;
+        return this.currentPageNum + 1;
     }
 
     // 上一页
     public long getPrevPage() {
-        if (this.currentPageNum <= 1L) {
-            return 1L;
+        if (this.currentPageNum <= 1) {
+            return 1;
         }
-        return this.currentPageNum - 1L;
+        return this.currentPageNum - 1;
     }
 }

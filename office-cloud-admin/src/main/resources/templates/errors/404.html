@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="layui/layout/content_layout::sources">
+    <title>404</title>
+
+</head>
+<body>
+<div class="fastui-screen">
+    <div th:include="layui/fragments/header::header"></div>
+    <div class="fastui-content-style">
+        <div class="fastui-erro-html">
+            <img class="fastui-not-found" src="/static/layui/images/404.png"/>
+            <p>页面走丢了，找不到了哦!</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

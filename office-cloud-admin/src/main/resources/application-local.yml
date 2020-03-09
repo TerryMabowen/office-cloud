@@ -89,7 +89,7 @@ dubbo:
 
 #cat日志
 app:
-#  logdir: /Users/apple_22/Desktop/logdir/office-cloud
-  logdir: C:\Users\Administrator\Desktop\logdir\office-cloud
+  logdir: /Users/apple_22/Desktop/logdir/office-cloud
+#  logdir: C:\Users\Administrator\Desktop\logdir\office-cloud
   cat:
     enabled: false

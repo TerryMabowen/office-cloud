@@ -45,7 +45,7 @@ public class AdminRealm extends AuthorizingRealm {
 			Long currentRoleId = (Long) SecurityUtils.getSubject().getSession().getAttribute(CacheKey.CURRENT_ROLE_ID);
 			List<PermissionVO> permissions = permissionService.getPermissionByRoleId(currentRoleId);
 			permissions.forEach(permission -> {
-//				info.addStringPermission(permission.getCode());
+				info.addStringPermission(permission.getCode());
 				String [] pers = permission.getCode().split("\\.");
 				if(pers.length > 0) {
 					String per = null;

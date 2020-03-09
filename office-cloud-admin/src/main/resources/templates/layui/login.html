@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html layout:decorate="~{layui/layout/content_layout}" xmlns:th="http://www.thymeleaf.org">
-<head>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="layui/layout/content_layout::sources">
     <title>登陆</title>
 </head>
 <body >
@@ -19,9 +19,9 @@
         <div class="form-group col-md-5">
             <button type="submit" class="btn btn-primary">登陆</button>
         </div>
-<!--        <div class="col-md-5" th:if="${loginError}">-->
-<!--            <p th:text="${errorMsg}"></p>-->
-<!--        </div>-->
+        <div class="col-md-5" th:if="${loginError}">
+            <p th:text="${errorMsg}"></p>
+        </div>
     </form>
 </div>
 </body>

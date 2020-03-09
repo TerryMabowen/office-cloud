@@ -1,8 +1,5 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-</head>
 <body>
     <header th:fragment="header" class="fastui-header">
         <!--logo-->
@@ -21,27 +18,28 @@
                 <a href="#">title2</a>
             </li>
         </ul>
-        <ul class="layui-nav fastui-usercenter" lay-filter="user_operation">
-            <li class="layui-nav-item"><a href="javascript:void(0);" style="width: 40px;">消息<span class="layui-badge-dot"></span><!--<span class="layui-badge">9</span>--></a></li>
-            <!--角色头像-->
-            <!--<li class="layui-nav-item"><a href="javascript:void(0);"><img src="http://t.cn/RCzsdCq" th:src="@{/static/images/header2.png}" class="layui-nav-img">-->
-                <shiro:user><shiro:principal property="name"/></shiro:user>(<span th:text="${#httpServletRequest.getSession().getAttribute('currentRoleName')}"/>)</a>
-                <dl class="layui-nav-child" style="z-index: 9999999; height: 150px; top: 65px;">
-                    <dd>
-                        <a lay-event="changeRole">切换角色</a>
-                    </dd>
-                    <dd>
-                        <a href="javascript:void(0);">个人中心</a>
-                    </dd>
-                    <dd>
-                        <a href="javascript:void(0);">安全设置</a>
-                    </dd>
-                    <dd>
-                        <a href="../login.html" th:href="@{layui/logout}">退出系统</a>
-                    </dd>
-                </dl>
-            </li>
-        </ul>
+<!--        <ul class="layui-nav fastui-usercenter" lay-filter="user_operation">-->
+<!--            <li class="layui-nav-item"><a href="javascript:void(0);" style="width: 40px;">消息<span class="layui-badge-dot"></span>&lt;!&ndash;<span class="layui-badge">9</span>&ndash;&gt;</a></li>-->
+<!--            &lt;!&ndash;角色头像&ndash;&gt;-->
+<!--            &lt;!&ndash;<li class="layui-nav-item"><a href="javascript:void(0);"><img src="http://t.cn/RCzsdCq" th:src="@{/static/images/header2.png}" class="layui-nav-img">&ndash;&gt;-->
+<!--                <shiro:user><shiro:principal property="name"/></shiro:user>(<span th:text="${#httpServletRequest.getSession().getAttribute('currentRoleName')}"/>)</a>-->
+<!--                <dl class="layui-nav-child" style="z-index: 9999999; height: 150px; top: 65px;">-->
+<!--                    <dd>-->
+<!--                        <a lay-event="changeRole">切换角色</a>-->
+<!--                    </dd>-->
+<!--                    <dd>-->
+<!--                        <a href="javascript:void(0);">个人中心</a>-->
+<!--                    </dd>-->
+<!--                    <dd>-->
+<!--                        <a href="javascript:void(0);">安全设置</a>-->
+<!--                    </dd>-->
+<!--                    <dd>-->
+<!--                        <a href="../login.html" th:href="@{layui/logout}">退出系统</a>-->
+<!--                    </dd>-->
+<!--                </dl>-->
+<!--            </li>-->
+<!--        </ul>-->
+
 <!--        <div class="collapse navbar-collapse" id="navbarsContainer">-->
 <!--            &lt;!&ndash;导航栏&ndash;&gt;-->
 <!--            <ul class="navbar-nav mr-auto">-->
@@ -71,7 +69,14 @@
     layui.config({
         base: "/static/layui/js/"
     }).extend({
-        index: "../index"
-    }).use("element");
+        index: "../index",
+        jquery: '/lay/modules/jquery',
+        element: '/lay/modules/element',
+        util: '/lay/modules/util',
+        tinymce: '/lay/modules/tinymce/tinymce.js'
+    }).use(["jquery", "element"], function () {
+        var $ = layui.jquery,
+            element = layui.element;
+    });
 </script>
 </html>
