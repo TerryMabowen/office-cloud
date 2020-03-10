@@ -25,10 +25,10 @@ import java.util.Map;
  * @date 2019-12-26 09:20
  */
 @Slf4j
-@Configuration
+//@Configuration
 public class ShiroConfig {
     //将自己的验证方式加入容器
-    @Bean
+//    @Bean
     public Realm adminRealm() {
         return new AdminRealm();
     }
@@ -37,19 +37,19 @@ public class ShiroConfig {
      * shiro方言  支持shiro标签
      * 用于thymeleaf使用shiro标签
      */
-    @Bean
+//    @Bean
     public ShiroDialect shiroDialect() {
         return new ShiroDialect();
     }
 
-    @Bean
+//    @Bean
     public AuthorizationAttributeSourceAdvisor authorizationAttributeSourceAdvisor(SecurityManager securityManager) {
         AuthorizationAttributeSourceAdvisor attributeSourceAdvisor = new AuthorizationAttributeSourceAdvisor();
         attributeSourceAdvisor.setSecurityManager(securityManager);
         return attributeSourceAdvisor;
     }
 
-    @Bean
+//    @Bean
     public DefaultAdvisorAutoProxyCreator advisorAutoProxyCreator() {
         DefaultAdvisorAutoProxyCreator advisorAutoProxyCreator = new DefaultAdvisorAutoProxyCreator();
         advisorAutoProxyCreator.setProxyTargetClass(true);
@@ -101,7 +101,7 @@ public class ShiroConfig {
 //
 //    }
 
-    @Bean
+//    @Bean
     public Authorizer authorizer() {
         // FIXME: 我也不知道怎么回事。在多个realm的情况下，不定义这个Bean会报错。这个Bean是不完整的
         ModularRealmAuthorizer authorizer = new ModularRealmAuthorizer();
@@ -109,7 +109,7 @@ public class ShiroConfig {
         return authorizer;
     }
 
-    @Bean
+//    @Bean
     public SecurityManager securityManager() {
         DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager();
         //设置自定义realm.
@@ -151,7 +151,7 @@ public class ShiroConfig {
 //        return simpleCookie;
 //    }
 
-    @Bean
+//    @Bean
     public ShiroFilterFactoryBean shiroFilterFactoryBean(SecurityManager securityManager){//shiro 包
         ShiroFilterFactoryBean bean = new ShiroFilterFactoryBean();
         bean.setSecurityManager(securityManager);

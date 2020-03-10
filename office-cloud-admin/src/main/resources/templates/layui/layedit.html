@@ -2,6 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:include="layui/layout/content_layout::sources">
     <title>首页</title>
+    <script type="text/javascript" src="../../static/tinymce/tinymce.js" th:src="@{/static/tinymce/tinymce.js?v=1.0.0}"></script>
     <style type="text/css">
         #edit {
             width: 100%;
@@ -26,7 +27,7 @@
     <div th:include="layui/fragments/footer::footer"></div>
 </body>
 <script type="text/javascript">
-    layui.use(["layer", "layedit", 'tinymce', 'util'], function ($) {
+    layui.use(["layer", "layedit", 'util'], function ($) {
         var layer = layui.layer,
             layedit = layui.layedit,
             tinymce = layui.tinymce,
