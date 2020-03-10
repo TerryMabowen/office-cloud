@@ -8,6 +8,7 @@ import java.util.Hashtable;
 import java.util.List;
 
 /**
+ * 枚举类工具类
  * @author Mabowen
  * @date 2019-12-20 17:08
  */

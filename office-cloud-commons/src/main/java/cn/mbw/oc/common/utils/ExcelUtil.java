@@ -1,5 +1,6 @@
 package cn.mbw.oc.common.utils;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.poi.hssf.usermodel.*;
 import org.apache.poi.hssf.util.HSSFColor;
 import org.apache.poi.ss.usermodel.*;
@@ -19,6 +20,7 @@ import static org.apache.poi.ss.usermodel.CellType.NUMERIC;
 import static org.apache.poi.ss.usermodel.CellType.STRING;
 
 /**
+ * excel工具类，生成导出等
  * @author Mabowen
  * @date 2020/01/11 22:07
  */
@@ -75,27 +77,27 @@ public class ExcelUtil {
      * @return
      */
     public static Workbook getWorkBook(MultipartFile file) {
-
         String xls = "xls";
         String xlsx = "xlsx";
-
-        //获得文件名
-        String fileName = file.getOriginalFilename();
         //创建Workbook工作薄对象，表示整个excel
         Workbook workbook = null;
-        try {
-            //获取excel文件的io流
-            InputStream is = file.getInputStream();
-            //根据文件后缀名不同(xls和xlsx)获得不同的Workbook实现类对象
-            if (fileName.endsWith(xls)) {
-                //2003
-                workbook = new HSSFWorkbook(is);
-            } else if (fileName.endsWith(xlsx)) {
-                //2007
-                workbook = new XSSFWorkbook(is);
+        //获得文件名
+        String fileName = file.getOriginalFilename();
+        if (StringUtils.isNotBlank(fileName)) {
+            try {
+                //获取excel文件的io流
+                InputStream is = file.getInputStream();
+                //根据文件后缀名不同(xls和xlsx)获得不同的Workbook实现类对象
+                if (fileName.endsWith(xls)) {
+                    //2003
+                    workbook = new HSSFWorkbook(is);
+                } else if (fileName.endsWith(xlsx)) {
+                    //2007
+                    workbook = new XSSFWorkbook(is);
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-        } catch (IOException e) {
-            e.printStackTrace();
         }
         return workbook;
     }
@@ -187,8 +189,7 @@ public class ExcelUtil {
             style2.setFont(headerFont1); // 为标题样式设置字体样式
 
             HSSFCell cell1 = row1.createCell(0);// 创建标题第一列
-            sheet.addMergedRegion(new CellRangeAddress(0, 0, 0,
-                    columnNumber - 1)); // 合并列标题
+            sheet.addMergedRegion(new CellRangeAddress(0, 0, 0, columnNumber - 1)); // 合并列标题
             cell1.setCellValue(titleName); // 设置值标题
             cell1.setCellStyle(style2); // 设置标题样式
 
@@ -239,8 +240,7 @@ public class ExcelUtil {
                 // 为数据内容设置特点新单元格样式2 自动换行 上下居中左右也居中
                 HSSFCellStyle zidonghuanhang2 = wb.createCellStyle();
                 zidonghuanhang2.setWrapText(true);// 设置自动换行
-                zidonghuanhang2
-                        .setVerticalAlignment(VerticalAlignment.CENTER); // 创建一个上下居中格式
+                zidonghuanhang2.setVerticalAlignment(VerticalAlignment.CENTER); // 创建一个上下居中格式
                 zidonghuanhang2.setAlignment(HorizontalAlignment.CENTER);// 左右居中
 
                 // 设置边框
@@ -260,10 +260,8 @@ public class ExcelUtil {
             // 第六步，将文件存到浏览器设置的下载位置
             String filename = fileName + ".xls";
             response.setContentType("application/ms-excel;charset=UTF-8");
-            response.setHeader("Content-Disposition", "attachment;filename="
-                    .concat(String.valueOf(URLEncoder.encode(filename, "GBK"))));
-            OutputStream out = response.getOutputStream();
-            try {
+            response.setHeader("Content-Disposition", "attachment;filename=".concat(String.valueOf(URLEncoder.encode(filename, "GBK"))));
+            try (OutputStream out = response.getOutputStream()) {
                 wb.write(out);// 将数据写出去
                 String str = "导出" + fileName + "成功！";
                 System.out.println(str);
@@ -271,8 +269,6 @@ public class ExcelUtil {
                 e.printStackTrace();
                 String str1 = "导出" + fileName + "失败！";
                 System.out.println(str1);
-            } finally {
-                out.close();
             }
         } else {
             System.out.println("列数目长度名称三个数组长度要一致");

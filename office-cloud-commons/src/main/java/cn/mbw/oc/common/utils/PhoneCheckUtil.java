@@ -5,10 +5,13 @@ import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 
 /**
+ * 手机号校验工具类
  * @author Mabowen
  * @date 2020/01/11 23:21
  */
 public class PhoneCheckUtil {
+    private static Pattern CHINA_PHONE_LEGAL = Pattern.compile("^((13[0-9])|(15[^4])|(18[0,2,3,5-9])|(17[0-8])|(147))\\d{8}$");
+    private static Pattern HK_PHONE_LEGAL = Pattern.compile("^([5689])\\d{7}$");
 
     /**
      * 大陆号码或香港号码均可
@@ -27,19 +30,19 @@ public class PhoneCheckUtil {
      * 147
      */
     public static boolean isChinaPhoneLegal(String str) throws PatternSyntaxException {
-        String regExp = "^((13[0-9])|(15[^4])|(18[0,2,3,5-9])|(17[0-8])|(147))\\d{8}$";
-        Pattern p = Pattern.compile(regExp);
-        Matcher m = p.matcher(str);
-        return m.matches();
+        if (null == str || "".equals(str)) {
+            return false;
+        }
+        return CHINA_PHONE_LEGAL.matcher(str).matches();
     }
 
     /**
      * 香港手机号码8位数，5|6|8|9开头+7位任意数
      */
-    public static boolean isHKPhoneLegal(String str)throws PatternSyntaxException {
-        String regExp = "^(5|6|8|9)\\d{7}$";
-        Pattern p = Pattern.compile(regExp);
-        Matcher m = p.matcher(str);
-        return m.matches();
+    public static boolean isHKPhoneLegal(String str) throws PatternSyntaxException {
+        if (null == str || "".equals(str)) {
+            return false;
+        }
+        return HK_PHONE_LEGAL.matcher(str).matches();
     }
 }

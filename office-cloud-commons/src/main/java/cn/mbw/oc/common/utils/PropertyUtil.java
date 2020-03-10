@@ -10,6 +10,7 @@ import java.lang.reflect.Field;
 import java.util.regex.Pattern;
 
 /**
+ * 类属性相关工具类
  * @author Mabowen
  * @date 2020-03-10 10:10
  */

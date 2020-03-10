@@ -5,7 +5,7 @@ import java.net.InetAddress;
 import java.net.NetworkInterface;
 
 /**
- *  * <p>名称：IdWorker.java</p>
+ * <p>名称：IdWorker.java</p>
  * <p>描述：分布式自增长ID</p>
  * <pre>
  *     Twitter的 Snowflake　JAVA实现方案
