@@ -13,17 +13,6 @@ public interface EnumStatus extends BaseEnumStatus<Integer> {
         return getEnumStatus(this.getClass(), value);
     }
 
-    /** @deprecated */
-    @Deprecated
-    default EnumStatus getEnumStatus(Class<?> typeClass, Integer value) {
-        EnumStatus status = EnumStatusUtils.getStatusByValue(typeClass, value);
-        if (status == null) {
-            throw new ServiceException("枚举值未定义, typeClass = " + typeClass.getCanonicalName() + ", Value = " + value);
-        } else {
-            return status;
-        }
-    }
-
     static EnumStatus getEnumStatus(Class<?> typeClass, int value) {
         EnumStatus status = EnumStatusUtils.getStatusByValue(typeClass, value);
         if (status == null) {

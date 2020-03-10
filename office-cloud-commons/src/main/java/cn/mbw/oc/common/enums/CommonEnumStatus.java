@@ -7,6 +7,9 @@ import cn.mbw.oc.common.utils.EnumStatusUtils;
  * @date 2019-12-20 17:14
  */
 public enum CommonEnumStatus implements EnumStatus{
+    /**
+     * 未知状态
+     */
     UNKOWN(-10000, "未知状态");
 
     private Integer value;
