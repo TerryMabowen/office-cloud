@@ -1,6 +1,8 @@
 package cn.mbw.oc.common.thread;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.lang.NonNull;
+import org.springframework.lang.NonNullApi;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.util.concurrent.ListenableFuture;
 
@@ -14,13 +16,10 @@ import java.util.concurrent.ThreadPoolExecutor;
  */
 @Slf4j
 public class VisibleThreadPoolTaskExecutor extends ThreadPoolTaskExecutor {
+    private static final long serialVersionUID = 1297953143548833738L;
 
     private void showThreadPoolInfo(String prefix){
         ThreadPoolExecutor threadPoolExecutor = getThreadPoolExecutor();
-
-        if(null==threadPoolExecutor){
-            return;
-        }
 
         log.info("{}, {},taskCount [{}], completedTaskCount [{}], activeCount [{}], queueSize [{}]",
                 this.getThreadNamePrefix(),
@@ -32,37 +31,37 @@ public class VisibleThreadPoolTaskExecutor extends ThreadPoolTaskExecutor {
     }
 
     @Override
-    public void execute(Runnable task) {
+    public void execute(@NonNull Runnable task) {
         showThreadPoolInfo("1. do execute");
         super.execute(task);
     }
 
     @Override
-    public void execute(Runnable task, long startTimeout) {
+    public void execute(@NonNull Runnable task, long startTimeout) {
         showThreadPoolInfo("2. do execute");
         super.execute(task, startTimeout);
     }
 
     @Override
-    public Future<?> submit(Runnable task) {
+    public Future<?> submit(@NonNull Runnable task) {
         showThreadPoolInfo("1. do submit");
         return super.submit(task);
     }
 
     @Override
-    public <T> Future<T> submit(Callable<T> task) {
+    public <T> Future<T> submit(@NonNull Callable<T> task) {
         showThreadPoolInfo("2. do submit");
         return super.submit(task);
     }
 
     @Override
-    public ListenableFuture<?> submitListenable(Runnable task) {
+    public ListenableFuture<?> submitListenable(@NonNull Runnable task) {
         showThreadPoolInfo("1. do submitListenable");
         return super.submitListenable(task);
     }
 
     @Override
-    public <T> ListenableFuture<T> submitListenable(Callable<T> task) {
+    public <T> ListenableFuture<T> submitListenable(@NonNull Callable<T> task) {
         showThreadPoolInfo("2. do submitListenable");
         return super.submitListenable(task);
     }
