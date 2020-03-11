@@ -21,12 +21,8 @@
     <properties>
         <java.version>1.8</java.version>
         <springboot.version>2.1.5.RELEASE</springboot.version>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <maven.test.skip>true</maven.test.skip>
-        <maven.javadoc.skip>true</maven.javadoc.skip>
-        <maven.javadoc.failOnError>false</maven.javadoc.failOnError>
         <apache.maven.plugin.compiler.version>3.1</apache.maven.plugin.compiler.version>
+        <apache.maven.plugin.resources.version>2.6</apache.maven.plugin.resources.version>
         <apache.maven.plugin.release.version>2.5.3</apache.maven.plugin.release.version>
         <mysql.connector.version>8.0.13</mysql.connector.version>
         <druid.version>1.1.21</druid.version>
@@ -92,6 +88,13 @@
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${springboot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-amqp</artifactId>
@@ -602,6 +605,14 @@
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>${apache.maven.plugin.resources.version}</version>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-release-plugin</artifactId>
                 <version>${apache.maven.plugin.release.version}</version>
                 <configuration>
@@ -611,5 +622,26 @@
             </plugin>
         </plugins>
     </build>
+
+    <repositories>
+        <repository>
+            <id>maven-bell-snapshot</id>
+            <name>maven-bell-snapshot</name>
+            <url>http://maven.legotown.cn:8081/repository/bell-snapshot/</url>
+        </repository>
+        <repository>
+            <id>maven-bell-release</id>
+            <name>maven-bell-release</name>
+            <url>http://maven.legotown.cn:8081/repository/bell-release</url>
+        </repository>
+        <repository>
+            <id>maven-repo1</id>
+            <url>https://repo1.maven.org/maven2/</url>
+        </repository>
+        <repository>
+            <id>unidal.releases</id>
+            <url>http://unidal.org/nexus/content/repositories/releases/</url>
+        </repository>
+    </repositories>
 
 </project>
