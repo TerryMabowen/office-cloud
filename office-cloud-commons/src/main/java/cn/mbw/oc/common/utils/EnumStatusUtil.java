@@ -12,8 +12,8 @@ import java.util.List;
  * @author Mabowen
  * @date 2019-12-20 17:08
  */
-public class EnumStatusUtils {
-    public EnumStatusUtils() {
+public class EnumStatusUtil {
+    public EnumStatusUtil() {
     }
 
     public static EnumStatus getStatusByValue(Class<?> enums, Integer value) {

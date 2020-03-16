@@ -1,7 +1,7 @@
 package cn.mbw.oc.common.enums;
 
 import cn.mbw.oc.common.throwable.ServiceException;
-import cn.mbw.oc.common.utils.EnumStatusUtils;
+import cn.mbw.oc.common.utils.EnumStatusUtil;
 
 /**
  * @author Mabowen
@@ -14,7 +14,7 @@ public interface EnumStatus extends BaseEnumStatus<Integer> {
     }
 
     static EnumStatus getEnumStatus(Class<?> typeClass, int value) {
-        EnumStatus status = EnumStatusUtils.getStatusByValue(typeClass, value);
+        EnumStatus status = EnumStatusUtil.getStatusByValue(typeClass, value);
         if (status == null) {
             throw new ServiceException("枚举值未定义, typeClass = " + typeClass.getCanonicalName() + ", Value = " + value);
         } else {

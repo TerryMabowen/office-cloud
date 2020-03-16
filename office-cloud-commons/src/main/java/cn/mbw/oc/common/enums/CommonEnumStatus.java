@@ -1,6 +1,6 @@
 package cn.mbw.oc.common.enums;
 
-import cn.mbw.oc.common.utils.EnumStatusUtils;
+import cn.mbw.oc.common.utils.EnumStatusUtil;
 
 /**
  * @author Mabowen
@@ -17,7 +17,7 @@ public enum CommonEnumStatus implements EnumStatus{
 
     @Override
     public EnumStatus getEnumStatus(int value) {
-        return EnumStatusUtils.getStatusByValue(CommonEnumStatus.class, value);
+        return EnumStatusUtil.getStatusByValue(CommonEnumStatus.class, value);
     }
 
     @Override

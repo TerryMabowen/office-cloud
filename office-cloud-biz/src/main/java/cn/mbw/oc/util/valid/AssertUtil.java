@@ -2,7 +2,7 @@ package cn.mbw.oc.util.valid;
 
 import cn.mbw.oc.common.enums.EnumStatus;
 import cn.mbw.oc.common.throwable.AssertException;
-import cn.mbw.oc.common.utils.EnumStatusUtils;
+import cn.mbw.oc.common.utils.EnumStatusUtil;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.Objects;
@@ -94,7 +94,7 @@ public class AssertUtil {
     }
 
     public static void assertEnumExist(int status, Class<? extends EnumStatus> cls, String tips) {
-        EnumStatus value = EnumStatusUtils.getStatusByValue(cls, status);
+        EnumStatus value = EnumStatusUtil.getStatusByValue(cls, status);
         if (Objects.isNull(value)) {
             throw new AssertException(StringUtils.isEmpty(tips) ? "验证失败, 枚举类型不存在" : tips);
         }

@@ -30,7 +30,7 @@ import java.util.Map;
  * @author Mabowen
  * @date 2020/01/11 23:05
  */
-public class HttpClient {
+public class HttpClientUtil {
     private String url;
     private Map<String, String> param;
     private int statusCode;
@@ -54,12 +54,12 @@ public class HttpClient {
         this.xmlParam = xmlParam;
     }
 
-    public HttpClient(String url, Map<String, String> param) {
+    public HttpClientUtil(String url, Map<String, String> param) {
         this.url = url;
         this.param = param;
     }
 
-    public HttpClient(String url) {
+    public HttpClientUtil(String url) {
         this.url = url;
     }
 
