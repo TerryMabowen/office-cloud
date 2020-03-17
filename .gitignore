@@ -32,3 +32,4 @@ target/
 
 **/.DS_Store
 .DS_Store
+/office-cloud-sso/.mvn/**

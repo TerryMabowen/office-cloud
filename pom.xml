@@ -16,6 +16,7 @@
         <module>office-cloud-commons</module>
         <module>office-cloud-biz</module>
         <module>office-cloud-admin</module>
+        <module>office-cloud-sso</module>
     </modules>
 
     <properties>
