@@ -2,23 +2,19 @@ package cn.mbw.oc.web.config;
 
 
 import at.pollux.thymeleaf.shiro.dialect.ShiroDialect;
-import cn.mbw.oc.shiro.AdminFormAuthenticationFilter;
-import cn.mbw.oc.shiro.AdminRealm;
+import cn.mbw.oc.web.shiro.AdminFormAuthenticationFilter;
+import cn.mbw.oc.web.shiro.AdminRealm;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.authz.Authorizer;
 import org.apache.shiro.authz.ModularRealmAuthorizer;
 import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.realm.Realm;
-import org.apache.shiro.spring.LifecycleBeanPostProcessor;
 import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
 import org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 
 import java.util.LinkedHashMap;
-import java.util.Map;
 
 /**
  * @author Mabowen

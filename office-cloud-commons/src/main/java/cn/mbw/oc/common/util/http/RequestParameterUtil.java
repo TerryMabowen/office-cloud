@@ -1,7 +1,6 @@
-package cn.mbw.oc.common.utils;
+package cn.mbw.oc.common.util.http;
 
 import java.util.Arrays;
-import java.util.Iterator;
 import java.util.Map;
 
 /**

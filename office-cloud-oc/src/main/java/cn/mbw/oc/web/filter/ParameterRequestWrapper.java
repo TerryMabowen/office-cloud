@@ -1,7 +1,6 @@
 package cn.mbw.oc.web.filter;
 
-import cn.mbw.oc.common.utils.MapUtil;
-import cn.mbw.oc.common.utils.RequestParameterUtil;
+import cn.mbw.oc.common.util.http.RequestParameterUtil;
 import com.google.common.collect.Maps;
 
 import javax.servlet.http.HttpServletRequest;

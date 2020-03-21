@@ -1,6 +1,6 @@
-package cn.mbw.oc.biz.util.sms;
+package cn.mbw.oc.common.util.sms;
 
-import cn.mbw.oc.util.valid.AssertUtil;
+import cn.mbw.oc.common.util.valid.AssertUtil;
 import org.apache.commons.httpclient.Header;
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.NameValuePair;

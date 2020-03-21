@@ -2,7 +2,7 @@ package cn.mbw.oc.web.config;
 
 import at.pollux.thymeleaf.shiro.dialect.ShiroDialect;
 import cn.mbw.oc.common.helper.ApplicationContextHelper;
-import cn.mbw.oc.interceptor.SecurityInteceptor;
+import cn.mbw.oc.web.interceptor.SecurityInteceptor;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;

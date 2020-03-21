@@ -4,7 +4,7 @@
 package cn.mbw.oc.web.security;
 
 
-import cn.mbw.oc.data.user.vo.UserVO;
+import cn.mbw.oc.spi.data.user.vo.UserVO;
 
 /**
  * @author Mabowen

@@ -3,12 +3,12 @@
  */
 package cn.mbw.oc.web.shiro;
 
-import cn.mbw.oc.constants.CacheKey;
-import cn.mbw.oc.data.permission.vo.PermissionVO;
-import cn.mbw.oc.data.role.vo.RoleVO;
-import cn.mbw.oc.data.user.vo.UserVO;
-import cn.mbw.oc.service.user.admin.PermissionService;
-import cn.mbw.oc.service.user.admin.UserService;
+import cn.mbw.oc.web.constants.CacheKey;
+import cn.mbw.oc.spi.data.permission.vo.PermissionVO;
+import cn.mbw.oc.spi.data.role.vo.RoleVO;
+import cn.mbw.oc.biz.service.user.admin.PermissionService;
+import cn.mbw.oc.biz.service.user.admin.UserService;
+import cn.mbw.oc.spi.data.user.vo.UserVO;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationException;

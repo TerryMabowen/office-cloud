@@ -1,7 +1,7 @@
 package cn.mbw.oc.web.controller;
 
-import cn.mbw.oc.controller.base.BaseDataCtl;
-import cn.mbw.oc.service.user.admin.UserService;
+import cn.mbw.oc.web.controller.base.BaseDataCtl;
+import cn.mbw.oc.biz.service.user.admin.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

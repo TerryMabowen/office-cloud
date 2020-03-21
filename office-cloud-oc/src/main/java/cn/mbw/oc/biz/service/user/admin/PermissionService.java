@@ -1,12 +1,11 @@
 package cn.mbw.oc.biz.service.user.admin;
 
-import cn.mbw.oc.data.permission.vo.PermissionVO;
+import cn.mbw.oc.spi.data.permission.vo.PermissionVO;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.compress.utils.Lists;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Collections;
 import java.util.List;
 
 /**

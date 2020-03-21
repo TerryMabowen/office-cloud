@@ -1,9 +1,8 @@
 package cn.mbw.oc.web.controller.base;
 
 import cn.mbw.oc.common.throwable.ServiceException;
-import cn.mbw.oc.data.user.BaseUser;
-import cn.mbw.oc.data.user.vo.UserVO;
-import cn.mbw.oc.security.SecurityUtils;
+import cn.mbw.oc.web.security.SecurityUtils;
+import cn.mbw.oc.spi.data.user.vo.UserVO;
 import com.baidu.unbiz.fluentvalidator.FluentValidator;
 import com.baidu.unbiz.fluentvalidator.Result;
 import com.baidu.unbiz.fluentvalidator.jsr303.HibernateSupportedValidator;

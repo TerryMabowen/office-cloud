@@ -1,12 +1,10 @@
 package cn.mbw.oc.web.controller;
 
-import cn.mbw.oc.controller.base.BaseCtl;
-import cn.mbw.oc.data.user.vo.UserVO;
+import cn.mbw.oc.web.controller.base.BaseCtl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * @author Mabowen

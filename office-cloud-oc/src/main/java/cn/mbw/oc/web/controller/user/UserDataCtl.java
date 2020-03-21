@@ -1,7 +1,7 @@
 package cn.mbw.oc.web.controller.user;
 
 
-import cn.mbw.oc.controller.base.BaseDataCtl;
+import cn.mbw.oc.web.controller.base.BaseDataCtl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

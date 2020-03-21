@@ -1,4 +1,4 @@
-package cn.mbw.oc.biz.util.valid;
+package cn.mbw.oc.common.util.valid;
 
 import org.apache.commons.lang3.StringUtils;
 

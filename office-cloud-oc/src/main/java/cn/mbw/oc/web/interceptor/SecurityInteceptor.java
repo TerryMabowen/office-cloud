@@ -3,9 +3,9 @@
  */
 package cn.mbw.oc.web.interceptor;
 
-import cn.mbw.oc.data.user.vo.UserVO;
-import cn.mbw.oc.interceptor.annotations.Auth;
-import cn.mbw.oc.security.SecurityUtils;
+import cn.mbw.oc.spi.data.user.vo.UserVO;
+import cn.mbw.oc.web.interceptor.annotations.Auth;
+import cn.mbw.oc.web.security.SecurityUtils;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;

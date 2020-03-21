@@ -1,4 +1,4 @@
-package cn.mbw.oc.common.utils;
+package cn.mbw.oc.common.util.uuid;
 
 import java.lang.management.ManagementFactory;
 import java.net.InetAddress;

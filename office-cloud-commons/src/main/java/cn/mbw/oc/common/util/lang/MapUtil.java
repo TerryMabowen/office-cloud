@@ -1,10 +1,9 @@
-package cn.mbw.oc.common.utils;
+package cn.mbw.oc.common.util.lang;
 
 import com.google.common.collect.Maps;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.Collection;
-import java.util.Collections;
 import java.util.Iterator;
 import java.util.Map;
 

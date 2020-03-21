@@ -1,6 +1,6 @@
 package cn.mbw.oc.web.controller.exception;
 
-import cn.mbw.oc.controller.base.BaseCtl;
+import cn.mbw.oc.web.controller.base.BaseCtl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

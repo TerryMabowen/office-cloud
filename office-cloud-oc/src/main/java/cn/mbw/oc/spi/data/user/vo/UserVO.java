@@ -1,6 +1,6 @@
 package cn.mbw.oc.spi.data.user.vo;
 
-import cn.mbw.oc.data.user.BaseUser;
+import cn.mbw.oc.spi.data.user.BaseUser;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;

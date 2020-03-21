@@ -1,6 +1,6 @@
 package cn.mbw.oc.web.interceptor;
-import cn.mbw.oc.controller.base.BaseCtl;
-import cn.mbw.oc.data.user.BaseUser;
+import cn.mbw.oc.web.controller.base.BaseCtl;
+import cn.mbw.oc.spi.data.user.BaseUser;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.SecurityUtils;

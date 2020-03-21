@@ -2,19 +2,13 @@ package cn.mbw.oc.web.controller.dev;
 
 import cn.mbw.oc.common.results.ResponseResults;
 import cn.mbw.oc.common.throwable.ServiceException;
-import cn.mbw.oc.controller.base.BaseCtl;
-import cn.mbw.oc.data.user.vo.UserVO;
-import cn.mbw.oc.util.valid.AssertUtil;
-import cn.mbw.oc.util.data.ConvertUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.validation.constraints.NotBlank;
-import java.util.List;
 
 /**
  * @author Mabowen

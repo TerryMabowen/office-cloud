@@ -1,4 +1,4 @@
-package cn.mbw.oc.biz.util.security;
+package cn.mbw.oc.common.util.security;
 
 import cn.mbw.oc.data.user.vo.UserVO;
 import io.jsonwebtoken.Claims;

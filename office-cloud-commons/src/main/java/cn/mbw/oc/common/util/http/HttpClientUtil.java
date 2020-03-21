@@ -1,4 +1,4 @@
-package cn.mbw.oc.common.utils;
+package cn.mbw.oc.common.util.http;
 
 import org.apache.http.Consts;
 import org.apache.http.HttpEntity;

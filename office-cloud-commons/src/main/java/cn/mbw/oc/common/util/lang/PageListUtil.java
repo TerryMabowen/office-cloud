@@ -1,4 +1,4 @@
-package cn.mbw.oc.common.utils;
+package cn.mbw.oc.common.util.lang;
 
 import cn.mbw.oc.common.results.PageBean;
 

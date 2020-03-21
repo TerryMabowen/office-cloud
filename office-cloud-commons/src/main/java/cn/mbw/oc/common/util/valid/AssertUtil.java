@@ -1,8 +1,8 @@
-package cn.mbw.oc.biz.util.valid;
+package cn.mbw.oc.common.util.valid;
 
 import cn.mbw.oc.common.enums.EnumStatus;
 import cn.mbw.oc.common.throwable.AssertException;
-import cn.mbw.oc.common.utils.EnumStatusUtil;
+import cn.mbw.oc.common.util.lang.EnumStatusUtil;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.Objects;

@@ -1,6 +1,4 @@
-package cn.mbw.oc.common.utils;
-
-import org.apache.commons.io.FilenameUtils;
+package cn.mbw.oc.common.util.lang;
 
 /**
  * @author Mabowen

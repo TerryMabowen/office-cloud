@@ -1,4 +1,4 @@
-package cn.mbw.oc.biz.util.uuid;
+package cn.mbw.oc.common.util.uuid;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Scheduled;

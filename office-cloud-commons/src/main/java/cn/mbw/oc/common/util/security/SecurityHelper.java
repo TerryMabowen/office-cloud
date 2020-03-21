@@ -1,4 +1,4 @@
-package cn.mbw.oc.biz.util.security;
+package cn.mbw.oc.common.util.security;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
