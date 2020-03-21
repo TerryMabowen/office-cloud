@@ -11,12 +11,9 @@
     <description>Demo project for Spring Boot</description>
 
     <modules>
-        <module>office-cloud-dal</module>
-        <module>office-cloud-spi</module>
         <module>office-cloud-commons</module>
-        <module>office-cloud-biz</module>
-        <module>office-cloud-admin</module>
         <module>office-cloud-sso</module>
+        <module>office-cloud-oc</module>
     </modules>
 
     <properties>
