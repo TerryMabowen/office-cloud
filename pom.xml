@@ -3,7 +3,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>cn.mbw</groupId>
+    <groupId>cn.mbw.oc</groupId>
     <artifactId>office-cloud</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>office-cloud</name>
@@ -11,9 +11,9 @@
     <description>Demo project for Spring Boot</description>
 
     <modules>
-        <module>office-cloud-commons</module>
+        <module>office-cloud-common</module>
         <module>office-cloud-sso</module>
-        <module>office-cloud-oc</module>
+        <module>office-cloud-spy</module>
     </modules>
 
     <properties>
