@@ -26,7 +26,7 @@
         select id,name from user where id = #{id};
     </select>
     <select id="methodName2" resultMap="">
-
+        select * from user where name like concat('%',#{name},'%')
     </select>
     <insert id="methodName3" keyProperty="">
 
@@ -43,4 +43,10 @@
     <resultMap id="methodName2Result" type="">
 
     </resultMap>
+    <!--
+    <sql> 公用代码片段
+    -->
+    <sql id="sql1">
+
+    </sql>
 </mapper>
