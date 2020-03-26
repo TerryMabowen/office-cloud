@@ -7,14 +7,20 @@
     <!--<select> 查询标签，与之类似的有<update>/<insert>/<delete>-->
     <!--
     id为XxxMapper.java中的方法名.
+
     parameterType为参数类型,这个属性可选，mybatis可以通过TypeHandler推断出参数具体类型
+    parameterMap也是参数类型，不推荐，与java对象的映射
+
     resultType为返回值类型，mapper.xml和domain路径一致可以写类名，
     一般推荐写全类名，无返回值不用加这条属性.
-    resultMap结果集的映射，不能与resultType同时使用.
-    #{xxx}获取参数.
+    resultMap结果集与Java对象的映射，不能与resultType同时使用.
+
     flushCache将其设置true,会导致本地缓存和二级缓存都被清空，默认false
     useCache将其设置为true，会将本条语句的结果被二级缓存，默认值，对select语句为true
+
     keyProperty针对insert和update的属性
+    #{}具有预编译效果，where xxx = ?
+    ${}没有预编译效果，where xxx = xxx
     -->
     <select id="methodName1" parameterType="java.lang.Long" resultType="Xxx">
         select id,name from user where id = #{id};
@@ -22,4 +28,19 @@
     <select id="methodName2" resultMap="">
 
     </select>
+    <insert id="methodName3" keyProperty="">
+
+    </insert>
+    <delete id="methodName4" parameterType="java.lang.Long">
+
+    </delete>
+    <update id="methodName5" parameterMap="updateParams">
+
+    </update>
+    <parameterMap id="methodName5Params" type="">
+        <parameter property="id" />
+    </parameterMap>
+    <resultMap id="methodName2Result" type="">
+
+    </resultMap>
 </mapper>
