@@ -3,13 +3,8 @@ import Vuex from "vuex";
 
 Vue.use(Vuex);
 
-const state = {
-  topNavState: 'home',
-  leftNavState: 'home'
-};
-
 export default new Vuex.Store({
-  state: {state},
+  state: {},
   mutations: {},
   actions: {},
   modules: {}
