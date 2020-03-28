@@ -38,6 +38,13 @@
                 </exclusion>
             </exclusions>
         </dependency>
+        <!--lombok 完成get set toString注册-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <optional>true</optional>
+        </dependency>
         <!-- ehcache需要的依赖 -->
         <dependency>
             <groupId>org.springframework</groupId>

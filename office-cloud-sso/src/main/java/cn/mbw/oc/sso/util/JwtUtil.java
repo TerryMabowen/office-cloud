@@ -1,6 +1,7 @@
-package cn.mbw.oc.common.util.security;
+package cn.mbw.oc.sso.util;
 
-import cn.mbw.oc.data.user.vo.UserVO;
+
+import cn.mbw.oc.sso.spi.data.user.vo.UserVO;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;

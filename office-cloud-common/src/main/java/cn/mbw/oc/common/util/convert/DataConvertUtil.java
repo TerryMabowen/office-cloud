@@ -1,7 +1,8 @@
 package cn.mbw.oc.common.util.convert;
 
+import cn.mbw.oc.common.enums.EnumDataType;
 import cn.mbw.oc.common.throwable.ServiceException;
-import cn.mbw.oc.enums.EnumDataType;
+
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 

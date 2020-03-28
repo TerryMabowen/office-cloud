@@ -1,0 +1,72 @@
+<header xmlns:th="http://www.thymeleaf.org">
+	<div class="nav-bgc"></div>
+	<div class="navbar nav-bg">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span> 
+					<span class="icon-bar"></span> 
+					<span class="icon-bar"></span> 
+					<span class="icon-bar"></span>
+				</button>
+				<a href="#" class="roboa-logo">
+					<img src="../../static/image/logo.png" th:src="@{/static/image/logo.png}" alt="sso logo" title="sso logo">
+				</a>
+			</div>
+			<div th:with="locationPathname = ${#httpServletRequest.getServletPath()}" class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav roboa-nav">
+					<li>
+						<a href="/">
+							首页 
+							<i th:if="${locationPathname} == '/' or ${#strings.contains(locationPathname,'/index')}" class="underLine"></i>
+						</a>
+					</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle aboutRA" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+							用户管理
+							<i th:if="${locationPathname} == '/ra_activity.html' or ${locationPathname} == '/travels.html'"	class="underLine"></i>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="/ra_activity.html">RA活动</a></li>
+							<li><a href="/travels.html">游学活动</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="/news" class='zixun'> 
+							组织架构
+							<i th:if="${locationPathname} == '/news'" class="underLine"></i>
+						</a>
+					</li>
+					<li>
+						<a href="/signup_now"> 
+							应用管理
+							<i th:if="${locationPathname} == '/signup_now'" class="underLine"></i>
+						</a>
+					</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle lijie" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> 
+							历届活动
+					 		<i th:if="${locationPathname} == '/history_matchs' or ${locationPathname} == '/history_travels'" class="underLine"></i>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="/history_matchs">历届RA活动</a></li>
+							<li><a href="/history_travels">历届游学活动</a></li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li>
+						<a class="login-bst" href="/login" th:if="${session.sessionUser == null}"> 
+							<img src="/assets/image/user.png" alt="点击登录" title="点击登录">登录
+						</a>
+						<div class="layui-col-lg3 layui-col-md2 roboa-login-school"	style="width: 200px" th:if="${session.sessionUser != null}">
+							<a class="layui-col-xs8" href="login" th:href="@{/home}" th:if="${session.sessionUser?.orgName !=null}" th:title="${session.sessionUser?.orgName}" th:text="${session.sessionUser?.orgName}">参赛单位名称</a> 
+							<a class="layui-col-xs8" href="score_result.html" th:href="@{/score_result.html}" th:if="${session.sessionUser?.orgName ==null}" th:text="${session.sessionUser?.name}"></a> 
+							<a class="layui-col-xs4" th:href="@{/logout}">退出</a>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</header>

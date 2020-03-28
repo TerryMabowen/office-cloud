@@ -8,7 +8,7 @@ import redis.clients.jedis.JedisCluster;
  * @author Mabowen
  * @date 2020/03/22 23:17
  */
-@Service
+//@Service
 public class JedisClientCluster implements JedisClient{
     @Autowired
     private JedisCluster jedisCluster;

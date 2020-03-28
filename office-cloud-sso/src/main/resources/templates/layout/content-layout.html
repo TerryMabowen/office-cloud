@@ -6,15 +6,8 @@
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <link rel="stylesheet" type="text/css" href="../../static/layui/css/layui.css" th:href="@{/static/layui/css/layui.css?v=2.5.6}"/>
-    <link rel="stylesheet" type="text/css" href="../../static/style/admin.css" th:href="@{/static/style/admin.css?v=2.5.6}"/>
-    <link rel="stylesheet" type="text/css" href="../../static/style/login.css" th:href="@{/static/style/login.css?v=2.5.6}"/>
-    <link rel="stylesheet" type="text/css" href="../../static/style/dropdown.css" th:href="@{/static/style/dropdown.css?v=2.5.6}"/>
-    <link rel="stylesheet" type="text/css" href="../../static/style/dtree.css" th:href="@{/static/style/dtree.css?v=2.5.6}"/>
-    <link rel="stylesheet" type="text/css" href="../../static/style/template.css" th:href="@{/static/style/template.css?v=2.5.6}"/>
-    <link rel="stylesheet" type="text/css" href="../../static/style/treeTable.css" th:href="@{/static/style/treeTable.css?v=2.5.6}"/>
-    <link rel="stylesheet" type="text/css" href="../../static/style/viewer.css" th:href="@{/static/style/viewer.css?v=2.5.6}"/>
-    <script src="../../static/layui/layui.js" th:src="@{/static/layui/layui.js?v=2.5.6}"  type="text/javascript" charset="utf-8"></script>
+    <link rel="stylesheet" type="text/css" href="../../static/layui/css/layui.css" th:href="@{/static/layui/css/layui.css}"/>
+    <script src="../../static/layui/layui.js" th:src="@{/static/layui/layui.js}"  type="text/javascript" charset="utf-8"></script>
     <script type="text/javascript">
         layui.config({
             base: '/static/', //静态资源所在路径
@@ -26,7 +19,9 @@
 </head>
 <body>
     <div class="LAY_app">
+        <el-header th:replace="../fragments/header::header"></el-header>
         <div layout:fragment="content"></div>
+        <el-footer th:replace="../fragments/footer::footer"></el-footer>
     </div>
 </body>
 </html>

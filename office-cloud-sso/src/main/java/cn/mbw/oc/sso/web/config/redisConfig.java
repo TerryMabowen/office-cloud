@@ -12,9 +12,9 @@ import redis.clients.jedis.JedisPoolConfig;
  * @author Mabowen
  * @date 2020-03-17 20:50
  */
-@Configuration
+//@Configuration
 public class redisConfig {
-    @Value("${spring.redis.maxTotal}")
+    @Value("${spring.redis.jedis.pool.max-active}")
     public Integer maxTotal;
 
     @Value("${spring.redis.host}")

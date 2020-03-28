@@ -9,7 +9,7 @@ import redis.clients.jedis.JedisPool;
  * @author Mabowen
  * @date 2020/03/22 23:15
  */
-@Service
+//@Service
 public class JedisClientSingle implements JedisClient{
     @Autowired
     private JedisPool jedisPool;
