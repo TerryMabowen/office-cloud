@@ -12,9 +12,9 @@ Vue.config.productionTip = false;
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 Vue.use(ElementUI);
-// 引入 axios,与后端数据交互
-import axios from 'axios';
-Vue.prototype.axios = axios;
+// 引入 axios封装类,与后端数据交互
+import AxiosUtil from './unit/axiosUtil';
+Vue.use(AxiosUtil);
 
 new Vue({
   router,

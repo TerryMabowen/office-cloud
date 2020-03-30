@@ -1,3 +1,33 @@
-<el-header th:fragment="header">
-zheshi header<span th:text="${username}"></span>
-</el-header>
+<header class="layui-header" th:fragment="header">
+    <div class="layui-logo">
+
+    </div>
+    <ul class="layui-nav">
+        <li class="layui-nav-item">
+            <a href="/index"> 首页</a>
+        </li>
+        <li class="layui-nav-item">
+            <a href="#">用户管理</a>
+            <dl class="layui-nav-child">
+                <a href="#">用户管理</a>
+                <a href="#">角色管理</a>
+                <a href="#">权限管理</a>
+            </dl>
+        </li>
+        <li class="layui-nav-item">
+            <a href="#">部门管理</a>
+        </li>
+        <li class="layui-nav-item">
+            <a href="#">法人公司管理</a>
+        </li>
+        <li class="layui-nav-item">
+            <a href="#">应用管理</a>
+        </li>
+    </ul>
+    <script type="text/javascript">
+        //注意：导航 依赖 element 模块，否则无法进行功能性操作
+        layui.use('element', function () {
+            var element = layui.element;
+        })
+    </script>
+</header>
