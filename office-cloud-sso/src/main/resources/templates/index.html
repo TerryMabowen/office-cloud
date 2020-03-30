@@ -3,17 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>首页</title>
+    <link rel="stylesheet" type="text/css" href="../static/layui/css/layui.css" th:href="@{/static/layui/css/layui.css}"/>
+    <link rel="stylesheet" type="text/css" href="../assets/style/admin.css" th:href="@{/assets/style/admin.css}"/>
+    <link rel="stylesheet" type="text/css" href="../assets/style/fastui.css" th:href="@{/assets/style/fastui.css}"/>
+    <script src="../static/layui/layui.js" th:src="@{/static/layui/layui.js}"  type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+        layui.config({
+            base: '/static/', //静态资源所在路径
+            version: new Date().getTime()
+        }).use('element');
+    </script>
 </head>
 <body>
-    <div class="layui-card">
+    <div class="layui-row">
         <header th:replace="/fragments/header::header"></header>
-        <div class="layui-row">
-            <div class="layui-form">
-                <div class="layui-form-item">
-
-                </div>
-            </div>
-        </div>
         <div class="layui-row">
 
         </div>

@@ -12,16 +12,12 @@
         layui.config({
             base: '/static/', //静态资源所在路径
             version: new Date().getTime()
-        }).extend({
-            index: 'module/index' //主入口模块
         }).use('index');
     </script>
 </head>
 <body>
     <div class="LAY_app">
-        <el-header th:replace="/fragments/header::header"></el-header>
-        <div layout:fragment="content"></div>
-        <el-footer th:replace="/fragments/footer::footer"></el-footer>
+        <div th:fragment="content"></div>
     </div>
 </body>
 </html>

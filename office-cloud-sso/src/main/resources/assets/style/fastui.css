@@ -6,3 +6,49 @@
 .fastui-role {
 
 }
+
+.fastui-header {
+    background-color: #393D49;
+    position: relative;
+    height: 48px;
+    min-width: 1200px;
+}
+
+.fastui-header .logo {
+    display: inline-block;
+    height: 48px;
+    line-height: 48px;
+    width: 180px;
+    color: #FFF;
+    text-align: center;
+}
+
+.fastui-header .fastui-menubar {
+    position: absolute;
+    top: 0px;
+    left: 180px;
+}
+
+.fastui-sidebar {
+    position: absolute;
+    bottom: 0;
+    z-index: 999;
+    width: 200px;
+    top: 48px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.fastui-btn.layui-btn {
+    background-color: #1E9FFF;
+}
+
+.laydate-theme-date-color.layui-laydate .layui-this {
+    background-color: #1E9FFF !important;
+}
+
+.fastui-header .fastui-usercenter {
+    position: absolute;
+    top: 0;
+    right: 0;
+}

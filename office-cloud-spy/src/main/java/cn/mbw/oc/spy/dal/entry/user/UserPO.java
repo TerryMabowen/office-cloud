@@ -1,6 +1,6 @@
 package cn.mbw.oc.spy.dal.entry.user;
 
-import cn.mbw.oc.entry.base.BaseEntry;
+import cn.mbw.oc.spy.dal.entry.base.BaseEntry;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 

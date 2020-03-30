@@ -1,6 +1,6 @@
 package cn.mbw.oc.spy.spi.data.user.dto;
 
-import cn.mbw.oc.data.user.BaseUser;
+import cn.mbw.oc.spy.spi.data.user.BaseUser;
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;

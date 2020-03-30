@@ -19,9 +19,9 @@
 <body>
     <div class="LAY_app">
         <div class="layui-layout layui-layout-admin">
-            <div class="layui-header">
-
-            </div>
+            <header th:replace="/fragments/header::header"></header>
+            <div th:fragment="content"></div>
+            <footer th:replace="/fragments/footer::footer"></footer>
         </div>
     </div>
 </body>

@@ -5,10 +5,10 @@ package cn.mbw.oc.spy.web.shiro;
 
 import cn.mbw.oc.common.helper.ApplicationContextHelper;
 import cn.mbw.oc.common.results.ResponseResults;
-import cn.mbw.oc.constants.CacheKey;
-import cn.mbw.oc.data.role.vo.RoleVO;
-import cn.mbw.oc.data.user.vo.UserVO;
-import cn.mbw.oc.service.user.admin.UserService;
+import cn.mbw.oc.spy.biz.service.user.admin.UserService;
+import cn.mbw.oc.spy.spi.data.role.vo.RoleVO;
+import cn.mbw.oc.spy.spi.data.user.vo.UserVO;
+import cn.mbw.oc.spy.web.constants.CacheKey;
 import com.google.gson.Gson;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.authc.AuthenticationException;

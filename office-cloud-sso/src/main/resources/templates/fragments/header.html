@@ -1,33 +1,139 @@
-<header class="layui-header" th:fragment="header">
-    <div class="layui-logo">
-
+<!--<header class="layui-header" th:fragment="header">-->
+<!--    <div class="layui-fluid" id="LAY_component-nav">-->
+<!--        <div class="layui-row layui-col-space15">-->
+<!--            <div class="layui-col-xs12 fastui-nav-top">-->
+<!--                <div class="layui-card">-->
+<!--                    <div class="layui-card-body">-->
+<!--                        <ul class="layui-nav" lay-filter="component-nav">-->
+<!--                            <li class="layui-nav-item">-->
+<!--                                <a href="javascript:;">-->
+<!--                                    <div class="layui-logo">-->
+<!--                                        <img src="image/logo.png" th:src="@{/static/image/logo.png}" style="width: 60px; height: 60px;"/>-->
+<!--                                    </div>-->
+<!--                                </a>-->
+<!--                            </li>-->
+<!--                            <li class="layui-nav-item layui-this">-->
+<!--                                <a href="javascript:;">产品<span class="layui-nav-more"></span></a>-->
+<!--                                <dl class="layui-nav-child">-->
+<!--                                    <dd><a href="javascript:;">选项1</a></dd>-->
+<!--                                    <dd><a href="javascript:;">选项2</a></dd>-->
+<!--                                    <dd><a href="javascript:;">选项3</a></dd>-->
+<!--                                </dl>-->
+<!--                            </li>-->
+<!--                            <li class="layui-nav-item"><a href="javascript:;">大数据</a></li>-->
+<!--                            <li class="layui-nav-item">-->
+<!--                                <a href="javascript:;">解决方案<span class="layui-nav-more"></span></a>-->
+<!--                                <dl class="layui-nav-child">-->
+<!--                                    <dd><a href="javascript:;">移动模块</a></dd>-->
+<!--                                    <dd><a href="javascript:;">后台模版</a></dd>-->
+<!--                                    <dd class="layui-this"><a href="javascript:;">选中项</a></dd>-->
+<!--                                    <dd><a href="javascript:;">电商平台</a></dd>-->
+<!--                                </dl>-->
+<!--                            </li>-->
+<!--                            <li class="layui-nav-item"><a href="javascript:;">社区</a></li>-->
+<!--                            <span class="layui-nav-bar" style="width: 0px; left: 0px; opacity: 0;"></span></ul>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="layui-col-xs3">-->
+<!--                <div class="layui-card">-->
+<!--                    <div class="layui-card-body">-->
+<!--                        <ul class="layui-nav layui-nav-tree layui-inline" lay-filter="component-nav-active" style="margin-right: 10px;">-->
+<!--                            <li class="layui-nav-item layui-nav-itemed">-->
+<!--                                <a href="javascript:;">默认展开<span class="layui-nav-more"></span></a>-->
+<!--                                <dl class="layui-nav-child">-->
+<!--                                    <dd><a href="javascript:;">选项一</a></dd>-->
+<!--                                    <dd><a href="javascript:;">选项二</a></dd>-->
+<!--                                    <dd><a href="javascript:;">选项三</a></dd>-->
+<!--                                    <dd><a href="javascript:;">跳转项</a></dd>-->
+<!--                                </dl>-->
+<!--                            </li>-->
+<!--                            <li class="layui-nav-item">-->
+<!--                                <a href="javascript:;">解决方案<span class="layui-nav-more"></span></a>-->
+<!--                                <dl class="layui-nav-child">-->
+<!--                                    <dd><a href="javascript:;">移动模块</a></dd>-->
+<!--                                    <dd><a href="javascript:;">后台模版</a></dd>-->
+<!--                                    <dd><a href="javascript:;">电商平台</a></dd>-->
+<!--                                </dl>-->
+<!--                            </li>-->
+<!--                            <li class="layui-nav-item"><a href="javascript:;">云市场</a></li>-->
+<!--                            <li class="layui-nav-item"><a href="javascript:;">社区</a></li>-->
+<!--                            <span class="layui-nav-bar" style="top: 22.5px; height: 0px; opacity: 0;"></span></ul>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--&lt;!&ndash;    <ul class="layui-nav" lay-filter="">&ndash;&gt;-->
+<!--&lt;!&ndash;        <li class="layui-nav-item">&ndash;&gt;-->
+<!--&lt;!&ndash;            <a href="/index"> 首页</a>&ndash;&gt;-->
+<!--&lt;!&ndash;        </li>&ndash;&gt;-->
+<!--&lt;!&ndash;        <li class="layui-nav-item">&ndash;&gt;-->
+<!--&lt;!&ndash;            <a href="#">用户管理</a>&ndash;&gt;-->
+<!--&lt;!&ndash;            <dl class="layui-nav-child">&ndash;&gt;-->
+<!--&lt;!&ndash;                <a href="#">用户管理</a>&ndash;&gt;-->
+<!--&lt;!&ndash;                <a href="#">角色管理</a>&ndash;&gt;-->
+<!--&lt;!&ndash;                <a href="#">权限管理</a>&ndash;&gt;-->
+<!--&lt;!&ndash;            </dl>&ndash;&gt;-->
+<!--&lt;!&ndash;        </li>&ndash;&gt;-->
+<!--&lt;!&ndash;        <li class="layui-nav-item">&ndash;&gt;-->
+<!--&lt;!&ndash;            <a href="#">部门管理</a>&ndash;&gt;-->
+<!--&lt;!&ndash;        </li>&ndash;&gt;-->
+<!--&lt;!&ndash;        <li class="layui-nav-item">&ndash;&gt;-->
+<!--&lt;!&ndash;            <a href="#">法人公司管理</a>&ndash;&gt;-->
+<!--&lt;!&ndash;        </li>&ndash;&gt;-->
+<!--&lt;!&ndash;        <li class="layui-nav-item">&ndash;&gt;-->
+<!--&lt;!&ndash;            <a href="#">应用管理</a>&ndash;&gt;-->
+<!--&lt;!&ndash;        </li>&ndash;&gt;-->
+<!--&lt;!&ndash;    </ul>&ndash;&gt;-->
+<!--    <script type="text/javascript">-->
+<!--        //注意：导航 依赖 element 模块，否则无法进行功能性操作-->
+<!--        layui.use('element', function () {-->
+<!--            var element = layui.element;-->
+<!--        })-->
+<!--    </script>-->
+<!--</header>-->
+<header class="fastui-header" th:fragment="header">
+    <div class="logo">
+        <span class="title">RA赛事后台</span>
+        <span class="version">Beta1.0</span>
     </div>
-    <ul class="layui-nav">
-        <li class="layui-nav-item">
-            <a href="/index"> 首页</a>
-        </li>
-        <li class="layui-nav-item">
-            <a href="#">用户管理</a>
-            <dl class="layui-nav-child">
-                <a href="#">用户管理</a>
-                <a href="#">角色管理</a>
-                <a href="#">权限管理</a>
+    <!--
+        <img src="static/images/logo.png" th:src="@{/static/images/logo.png}" alt="logo" style="height: 60px;" />
+     -->
+    <ul lay-filter="fastui-menubar" class="layui-nav fastui-menubar">
+        <li class="layui-nav-item"><a href="javascript:;">快捷导航</a></li>
+        <li class="layui-nav-item layui-this"><a href="javascript:;">系统管理</a></li>
+        <li class="layui-nav-item"><a href="javascript:;">注册单位</a></li>
+        <li class="layui-nav-item"><a href="javascript:;">活动中心</a></li>
+        <li class="layui-nav-item"><a href="javascript:;">内容管理</a></li>
+        <span class="layui-nav-bar" style="left: 372px; top: 43px; width: 0; opacity: 0;"></span>
+    </ul>
+    <!--
+    <shiro:hasAnyRoles name="admin,user">test</shiro:hasAnyRoles>
+     -->
+    <ul class="layui-nav fastui-usercenter" lay-filter="user_operation">
+        <li class="layui-nav-item"><a href="javascript:void(0);" style="width: 40px;">消息<span class="layui-badge-dot"></span>
+            <!--<span class="layui-badge">9</span>--></a></li>
+        <li class="layui-nav-item"><a href="javascript:void(0);">
+            <img src="/static/image/photo.png" th:src="@{/static/image/photo.png}" class="layui-nav-img">
+            管理员(<span>系统管理员</span>)<span class="layui-nav-more"></span></a>
+            <dl class="layui-nav-child layui-anim layui-anim-upbit" style="z-index: 9999999; height: 150px; top: 65px;">
+                <dd>
+                    <a lay-event="changeRole">切换角色</a>
+                </dd>
+                <dd>
+                    <a href="javascript:void(0);">个人中心</a>
+                </dd>
+                <dd>
+                    <a href="javascript:void(0);">安全设置</a>
+                </dd>
+                <dd>
+                    <a href="/logout">退出系统</a>
+                </dd>
             </dl>
         </li>
-        <li class="layui-nav-item">
-            <a href="#">部门管理</a>
-        </li>
-        <li class="layui-nav-item">
-            <a href="#">法人公司管理</a>
-        </li>
-        <li class="layui-nav-item">
-            <a href="#">应用管理</a>
-        </li>
+        <span class="layui-nav-bar" style="left: 193px; top: 43px; width: 0; opacity: 0;"></span>
     </ul>
-    <script type="text/javascript">
-        //注意：导航 依赖 element 模块，否则无法进行功能性操作
-        layui.use('element', function () {
-            var element = layui.element;
-        })
-    </script>
 </header>
+<div style="position: relative; margin-top: -2px; height: 2px; background: #009688;"></div>
