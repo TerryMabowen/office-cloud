@@ -1,9 +1,13 @@
 package cn.mbw.oc.common.util.upload;
 
+import cn.afterturn.easypoi.excel.ExcelImportUtil;
+import cn.afterturn.easypoi.excel.entity.ImportParams;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -34,5 +38,58 @@ public class UploadFileUtil {
         file.transferTo(serverFile);
         //返回文件保存路径
         return uploadDir + filename;
+    }
+
+    /**
+     * 导入excel文件
+     * @author Mabowen
+     * @date 19:27 2020-03-30
+     * @param filePath
+     * @param titleRows
+     * @param headerRows
+     * @param pojoClass
+     * @return
+     */
+    public  <T> List<T> importExcel(String filePath, Integer titleRows, Integer headerRows, Class<T> pojoClass){
+        if (StringUtils.isBlank(filePath)){
+            return null;
+        }
+        ImportParams params = new ImportParams();
+        params.setTitleRows(titleRows);
+        params.setHeadRows(headerRows);
+        List<T> list = null;
+        try {
+            list = ExcelImportUtil.importExcel(new File(filePath), pojoClass, params);
+        }catch (Exception e) {
+            e.printStackTrace();
+
+        }
+        return list;
+    }
+
+    /**
+     * 导入excel文件
+     * @author Mabowen
+     * @date 19:27 2020-03-30
+     * @param file
+     * @param titleRows
+     * @param headerRows
+     * @param pojoClass
+     * @return
+     */
+    public  <T> List<T> importExcel(MultipartFile file, Integer titleRows, Integer headerRows, Class<T> pojoClass){
+        if (file == null){
+            return null;
+        }
+        ImportParams params = new ImportParams();
+        params.setTitleRows(titleRows);
+        params.setHeadRows(headerRows);
+        List<T> list = null;
+        try {
+            list = ExcelImportUtil.importExcel(file.getInputStream(), pojoClass, params);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
     }
 }
