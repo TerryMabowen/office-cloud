@@ -1,26 +1,86 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>首页</title>
-    <link rel="stylesheet" type="text/css" href="../static/layui/css/layui.css" th:href="@{/static/layui/css/layui.css}"/>
-    <link rel="stylesheet" type="text/css" href="../assets/style/admin.css" th:href="@{/assets/style/admin.css}"/>
-    <link rel="stylesheet" type="text/css" href="../assets/style/fastui.css" th:href="@{/assets/style/fastui.css}"/>
-    <script src="../static/layui/layui.js" th:src="@{/static/layui/layui.js}"  type="text/javascript" charset="utf-8"></script>
-    <script type="text/javascript">
-        layui.config({
-            base: '/static/', //静态资源所在路径
-            version: new Date().getTime()
-        }).use('element');
-    </script>
-</head>
-<body>
-    <div class="layui-row">
-        <header th:replace="/fragments/header::header"></header>
-        <div class="layui-row">
-
+<div th:replace="/fragments/header::header">&nbsp;</div>
+<div th:replace="/fragments/header::margin-style">&nbsp;</div>
+<div class="fastui-sidebar fastui-bg-black transition">
+    <div class="title">
+        <span class="glyphicon glyphicon-option-vertical"></span>
+    </div>
+    <div class="fastui-sidemenu-wrapper">
+        <ul lay-filter="left_sub_menu" class="layui-nav layui-nav-tree fastui-sidemenu">
+            <li class="layui-nav-item layui-nav-itemed layui-tree fastui-sidemenu-group">
+                <a href="javascript:;"><i class="">
+                    </i><cite>赛事管理</cite><span class="layui-nav-more"></span>
+                </a>
+                <dl class="layui-nav-child">
+                    <dd>
+                        <a data-target="iframe" data-id="match.mgr.matchmetas" href="javascript:void(0);" class="fastui-menuitem" data-href="/admin/match/matchmetas.html"><i class=""></i><cite>赛事信息总表</cite></a>
+                    </dd>
+                </dl>
+            </li>
+            <li class="layui-nav-item layui-nav-itemed layui-tree fastui-sidemenu-group">
+                <a href="javascript:;"><i class=""></i><cite>比赛管理</cite><span class="layui-nav-more"></span></a>
+                <dl class="layui-nav-child">
+                    <dd>
+                        <a data-target="iframe" data-id="match.mgr.matchs" href="javascript:void(0);" class="fastui-menuitem" data-href="/admin/match/matchs.html"><i class=""></i><cite>比赛信息总表</cite></a>
+                    </dd>
+                    <dd>
+                        <a data-target="iframe" data-id="match.mgr.orgs" href="javascript:void(0);" class="fastui-menuitem" data-href="/admin/match/match_reisinfos.html"><i class=""></i><cite>注册比赛总表</cite></a>
+                    </dd>
+                    <dd>
+                        <a data-target="iframe" data-id="match.mgr.members" href="javascript:void(0);" class="fastui-menuitem" data-href="/admin/match/memberEngage"><i class=""></i><cite>参赛队员总表</cite></a>
+                    </dd>
+                    <dd>
+                        <a data-target="iframe" data-id="match.mgr.escorts" href="javascript:void(0);" class="fastui-menuitem" data-href="/admin/match/memberEscort"><i class=""></i><cite>陪同人员总表</cite></a>
+                    </dd>
+                </dl>
+            </li>
+        </ul>
+    </div>
+</div>
+<div id="container"	class="layui-tab layui-tab-brief fastui-maincontent" lay-filter="fastui-maincontent" lay-allowClose="true">
+    <ul style="z-index: 100; background-color: #fff;" class="layui-tab-title">
+        <li class="layui-this" lay-allowClose="false" lay-id="dashboard">快速引导</li>
+    </ul>
+    <div class="layui-tab-content">
+        <div class="layui-tab-item layui-show">
+            <div class="fastui-tab-wrapper">
+                <fieldset class="layui-elem-field layui-field-title" style="padding-right: 20px; font-size: 14px;">
+                    <legend>
+                        <a style="font-size: 16px;" name="docend">常用入口</a>
+                    </legend>
+                    <button class="layui-btn" style="float: right;" id='exportTravel'>导出游学excel表</button>
+                    <button class="layui-btn" style="float: right; margin-right: 20px" id='exportMatch'>导出比赛excel表</button>
+                </fieldset>
+                <div class="layui-row layui-col-space20" style="margin: 0 20px;">
+                    <div class="layui-col-xs6">
+                        <div class="layui-card fastui-card">
+                            <div class="layui-card-header">大赛待审核退赛人员统计</div>
+                            <div class="layui-card-body">
+                                <div class="layui-row fastui-money-stat fastui-tab-con">
+                                    <div class="layui-col-xs6">
+                                        <p>申请队员总数</p><strong style="color: #5582E9;"></strong>
+                                    </div>
+                                    <div class="layui-col-xs6">
+                                        <p>陪同人员总数</p><strong style="color: #ff9865;"></strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div shiro:hasPermission="activity.travelManager" class="layui-col-xs6">
+                        <div class="layui-card fastui-card">
+                            <div class="layui-card-header">游学待审核退赛人员统计</div>
+                            <div class="layui-card-body">
+                                <div class="layui-row fastui-money-stat fastui-tab-con">
+                                    <div class="layui-col-xs12">
+                                        <p>申请人员总数</p><strong style="color: #5582E9;"></strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-
-</body>
-</html>
+</div>
+<div th:replace="/fragments/footer::footer" class="fastui-footer"></div>

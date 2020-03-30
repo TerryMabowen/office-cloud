@@ -1,54 +1,706 @@
-/**
- * by mbw
- * version 1.0.0
- */
-
-.fastui-role {
-
+.clearfix:after {
+	clear: both;
+	content: "\0020";
+	display: block;
+	height: 0;
 }
 
+.fastui-min-width {
+	min-width: 1200px;
+}
+
+/*fastui common style*/
+.fastui-bg-black {
+	background: #393D49;
+}
+
+/*fastui header*/
 .fastui-header {
-    background-color: #393D49;
-    position: relative;
-    height: 48px;
-    min-width: 1200px;
-}
-
-.fastui-header .logo {
-    display: inline-block;
-    height: 48px;
-    line-height: 48px;
-    width: 180px;
-    color: #FFF;
-    text-align: center;
+	background-color: #393D49;
+	position: relative;
+	height: 48px;
+	min-width: 1200px;
 }
 
 .fastui-header .fastui-menubar {
-    position: absolute;
-    top: 0px;
-    left: 180px;
-}
-
-.fastui-sidebar {
-    position: absolute;
-    bottom: 0;
-    z-index: 999;
-    width: 200px;
-    top: 48px;
-    overflow-x: hidden;
-    overflow-y: auto;
-}
-
-.fastui-btn.layui-btn {
-    background-color: #1E9FFF;
-}
-
-.laydate-theme-date-color.layui-laydate .layui-this {
-    background-color: #1E9FFF !important;
+	position: absolute;
+	top: 0px;
+	left: 180px;
 }
 
 .fastui-header .fastui-usercenter {
-    position: absolute;
-    top: 0;
-    right: 0;
+	position: absolute;
+	top: 0px;
+	right: 0px;
 }
+
+.fastui-logo {
+	color: #FFFFFF;
+	height: 48px;
+	line-height: 48px;
+	font-size: 18px;
+	margin-left: 20px;
+}
+
+.fastui-header .logo {
+	display: inline-block; 
+	height: 48px; 
+	line-height: 48px;
+	width: 180px; 
+	color: #FFF; 
+	text-align: center;
+}
+
+.fastui-header .logo .title {
+	font-size:18px;
+}
+
+.fastui-header .logo .version {
+	font-size:10px;
+}
+
+
+/*fastui content*/
+.fastui-maincontent {
+	position: absolute;
+	left: 200px;
+	top: 48px;
+	right: 0;
+	bottom: 0px;
+	margin: 0;
+	min-width: 1000px;
+	overflow: hidden;
+}
+
+.fastui-maincontent>.layui-tab-content>.layui-tab-item {
+	min-width: 1000px;
+	position: absolute;
+	bottom: 0;
+	top: 41px;
+	left: 0;
+	right: 0;
+}
+
+/*fastui footer*/
+.fastui-footer {
+	left: 0;
+	padding: 0;
+	position: fixed;
+	bottom: 0;
+	text-align: center;
+	width: 100%;
+	line-height: 30px;
+	height: 30px;
+	background: #eee;
+	color: #666;
+	display: none;
+}
+
+/*begin sidebar*/
+.fastui-sidebar {
+	position: absolute;
+	bottom: 0px;
+	z-index: 999;
+	width: 200px;
+	top: 48px;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+.fastui-sidebar .title {
+	height: 30px;
+	line-height: 30px !important;
+	background: #394555;
+	color: #aeb9c2;
+	text-align: center;
+}
+
+.fastui-sidebar a cite {
+	padding: 0 10px;
+}
+
+.fastui-sidebar a i {
+	width: 15px;
+	height: 15px;
+	display: inline-block;
+}
+
+.fastui-sidebar .layui-nav-child dd {
+	padding-left: 10px;
+}
+
+.fastui-sidebar-full {
+	
+}
+
+.fastui-sidebar-min {
+	width: 48px;
+}
+
+.fastui-sidebar-min .layui-nav-child dd {
+	padding-left: 0;
+}
+
+.fastui-sidebar-min+.fastui-maincontent {
+	left: 48px;
+}
+
+.fastui-sidebar-min cite {
+	display: none;
+}
+
+.fastui-sidebar-min .layui-nav-child a {
+	padding: 0 12px;
+}
+
+.fastui-sidebar-min .layui-nav .layui-nav-item a {
+	padding: 0 12px;
+	position: relative;
+}
+
+.fastui-sidemenu {
+	display: none;
+}
+
+.fastui-sidemenu:first-of-type {
+	display: block;
+}
+
+/*end sidebar*/
+.fastui-product .fastui-product-items {
+	display: none;
+	position: absolute;
+	top: 60px;
+	left: 0;
+	background: #FFFFFF;
+	border: 1px solid #EEEEEE;
+	z-index: 9999999;
+	width: 260px;
+	margin-top: 5px;
+}
+
+.fastui-product .fastui-product-items li {
+	display: inline;
+}
+
+.fastui-usercenter .fastui-product .fastui-product-items li a {
+	color: #000000;
+	display: inline;
+}
+
+.transition {
+	-webkit-transition: all .2s linear;
+	-moz-transition: all .2s linear;
+	-o-transition: all .2s linear;
+	transition: all .2s linear
+}
+
+#container>ul>li:first-child i {
+	display: none;
+}
+
+.fastui-header .layui-this {
+	background: #009688;
+}
+
+.fastui-header .layui-this:after {
+	content: "";
+	background: #009688 !important;
+}
+
+.fastui-header .layui-nav-bar {
+	content: "";
+	background: #009688 !important;
+}
+
+.fastui-show {
+	position: absolute;
+	top: 40px;
+	bottom: 0px;
+	left: 0;
+	right: 0;
+	padding: 0px;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+/*fastui-sidemenu-content*/
+.fastui-sidemenu-content {
+	margin: 15px 0 0 15px;
+}
+
+/******fastui-table****/
+.fastui-table {
+	min-width: 970px;
+}
+
+.fastui-table .layui-table, .layui-table-view {
+	margin: 0px;
+}
+
+.fastui-table .layui-table td {
+	padding: 1px 0;
+}
+
+.fastui-table .layui-table-header {
+	border-width: 0;
+}
+
+/**********fastui-seacher-bar************/
+.fastui-seacher-bar {
+	padding: 5px 0;
+	min-width: 970px;
+}
+
+.fastui-seacher-bar select {
+	height: 30px;
+	border: 1px solid #e2e2e2;
+	border-radius: 2px;
+	margin-left: 10px;
+	padding-left: 10px;
+	font-size: 12px;
+}
+
+.fastui-seacher-bar input {
+	height: 30px;
+	line-height: 30px;
+	border-radius: 2px;
+	font-size: 12px;
+}
+
+.fastui-seacher-btn {
+	display: inline;
+}
+
+.fastui-seacher-btn button {
+	float: right;
+	margin: 0 5px;
+}
+
+.fastui-seacher-input {
+	display: inline;
+}
+
+.fastui-department {
+	float: left;
+	border-top: 1px solid #EEEEEE;
+	padding: 10px;
+}
+
+.fastui-department-table {
+	width: 65%;
+	float: left;
+}
+
+.fastui-btn-more-wrapper {
+	position: relative;
+	display: inline-block;
+	vertical-align: middle;
+	line-height: 30px;
+}
+
+.fastui-btn-more-wrapper dd {
+	padding: 4px;
+}
+
+.layerDemo {
+	display: inline;
+}
+
+.fastui-department-nav {
+	background: #fff;
+	padding: 10px;
+}
+
+.fastui-department-child {
+	text-indent: 14px;
+	display: none;
+}
+
+.fastui-department-nav li a {
+	display: inline-block;
+	width: 100%;
+	padding: 5px 0;
+}
+
+.fastui-department-nav li a:hover {
+	background: #dddddd;
+}
+
+.fastui-off-btn {
+	position: relative;
+	z-index: 999999;
+}
+
+.fastui-btn-child {
+	position: absolute;
+	top: 36px;
+	left: 0;
+	background: #FFF;
+	z-index: 999999;
+	width: 100%;
+	border: 1px solid #e2e2e2;
+	display: none;
+	line-height: 30px;
+	padding: 10px;
+}
+
+.fastui-btn-child li:hover {
+	background: #DDDDDD;
+}
+
+.fastui-money-time {
+	border: 1px solid #E2E2E2;
+	height: 30px;
+}
+
+.fastui-money-time .layui-select-group select {
+	border: none;
+}
+
+.fastui-money-time .layui-input-inline input {
+	border-top: none;
+	border-right: none;
+	border-bottom: none;
+}
+
+/*****fastui-general-tab******/
+.fastui-general {
+	background: #F0F0F0;
+	padding: 10px 20px 40px;
+	min-width: 1000px;
+}
+
+.fastui-branch {
+	background: #fff;
+	height: 60px;
+	margin-bottom: 10px;
+}
+
+.fastui-branch>form {
+	float: right;
+	margin-top: 12px;
+}
+
+.fastui-general .layui-tab-title .layui-this:after {
+	border: none;
+}
+
+.fastui-general .layui-tab-title .layui-this {
+	color: #FFFFFF;
+	background: #009688;
+}
+
+.fastui-general .layui-tab-title .layui-this:first-child {
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+}
+
+.fastui-general .layui-tab-title .layui-this:last-child {
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+
+.fastui-general .layui-tab-title {
+	border: 1px solid #D2D2D2;
+	border-radius: 10px;
+	width: 287px;
+	height: 30px;
+	margin-left: 15px;
+}
+
+.fastui-general .layui-tab {
+	margin: 0px;
+}
+
+.fastui-general .layui-tab-title li {
+	border-right: 1px solid #D2D2D2;
+	text-align: center;
+	line-height: 30px;
+}
+
+.fastui-general .layui-tab-title li:last-child {
+	border-right: none;
+}
+
+.fastui-general .layui-this {
+	color: #000000;
+}
+
+.fastui-general .layui-tab-content {
+	padding: 0;
+}
+
+.fastui-general-all {
+	background: #FFFFFF;
+	padding-top: 20px;
+}
+
+.fastui-general-tab {
+	position: relative;
+}
+
+.fastui-general-con {
+	background: #F0F0F0;
+	height: 100%;
+	position: relative;
+	right: 0;
+	bottom: 0;
+}
+
+.fastui-echart-bg {
+	background: #F0F0F0;
+	height: 600px;
+	position: relative;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	top: 0;
+	padding: 0 20px;
+	min-width: 1000px;
+}
+
+.fastui-echart {
+	background: #FFFFFF;
+	height: 280px;
+	margin: 0;
+	float: left;
+	padding: 40px;
+	position: relative;
+}
+
+.fastui-echart .fastui-echart-tab.layui-tab-title {
+	position: absolute;
+	top: 15px;
+	left: initial;
+	right: 15px;
+	width: 130px;
+	border: 1px solid #C2C2C2;
+	height: 30px;
+	border-radius: 10px;
+}
+
+.fastui-echart .layui-tab-title li {
+	height: 30px;
+	line-height: 30px;
+	min-width: 35px;
+}
+
+.fastui-echart .layui-tab-title li:last-child {
+	border-left: 1px solid #C2C2C2;
+}
+
+.fastui-echart .layui-tab-title .layui-this:after {
+	border: none;
+}
+
+.fastui-echart .layui-tab-title .layui-this {
+	color: #FFFFFF;
+	background: #009688;
+}
+
+.fastui-echart .layui-this:first-child {
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+}
+
+.fastui-echart .layui-this:last-child {
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+
+.fastui-echart-all {
+	/*height: 380px;*/
+	
+}
+
+.fastui-frist-con {
+	background: #FFFFFF;
+	height: 200px;
+	min-width: 1000px;
+}
+
+.fastui-frist-total {
+	/*padding: 0 80px;*/
+	text-align: center;
+	color: #393D49;
+	border-right: 1px solid #D2D2D2;
+	display: inline-block;
+}
+
+.fastui-frist-total:last-child {
+	border-right: none;
+}
+
+.fastui-frist-total i {
+	font-size: 38px;
+}
+
+.fastui-frist-total p {
+	color: #393D49;
+	margin-top: 10px;
+}
+
+.fastui-frist-total p span {
+	display: block;
+	margin: 10px 0;
+	font-size: 22px;
+	color: #2F4056;
+}
+
+.fastui-customer {
+	text-align: center;
+	width: 245px;
+	float: left;
+	border-right: 1px solid #F0F0F0;
+	margin-top: 100px;
+}
+
+.fastui-customer:last-child {
+	border-right: none;
+}
+
+.fastui-customer i {
+	font-size: 24px;
+	color: #009688;
+}
+
+.fastui-customer p {
+	color: #009688;
+	font-size: 16px;
+	margin-top: 10px;
+}
+
+.fastui-customer p span {
+	font-size: 32px;
+	display: block;
+	color: #FF5722;
+	margin-top: 10px;
+}
+
+.fastui-echart-branch {
+	margin: 0 20px;
+	background: #FFF;
+	padding: 0 20px;
+	position: relative;
+}
+
+.fastui-echart-branch h1 {
+	padding: 20px 20px;;
+	font-size: 16px;
+	font-weight: bold;
+	margin-bottom: 10px;
+	float: left;
+}
+
+.fastui-echart-branch table a {
+	color: #009688;
+}
+
+.fastui-table-btn {
+	float: right;
+}
+
+.fastui-echart-branch .layui-tab-title {
+	position: absolute;
+	top: 22px;
+	left: initial;
+	right: 15px;
+	border: 1px solid #C2C2C2;
+	height: 30px;
+	border-radius: 10px;
+}
+
+.fastui-echart-branch .layui-tab-title li {
+	height: 30px;
+	line-height: 30px;
+	min-width: 35px;
+}
+
+.fastui-echart-branch .layui-tab-title li {
+	border-right: 1px solid #C2C2C2;
+}
+
+.fastui-echart-branch .layui-tab-title li:last-child {
+	border-right: none;
+}
+
+.fastui-echart-branch .layui-tab-title .layui-this:after {
+	border: none;
+}
+
+.fastui-echart-branch .layui-tab-title .layui-this {
+	color: #FFFFFF;
+	background: #009688;
+}
+
+.fastui-echart-branch .layui-this:first-child {
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+}
+
+.fastui-echart-branch .layui-this:last-child {
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+
+.fastui-echart-branch .layui-tab-item {
+	padding: 0 20px;
+	margin-top: 10px;
+}
+
+/** fastui-echart-wrapper **/
+.fastui-echart-wrapper {
+	margin: auto;
+}
+
+/*****fastui-general-tab******/
+.fastui-tab-wrapper {
+	position: absolute;
+	padding: 0px;
+	top: 0px;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	overflow-y: auto;
+}
+
+.fastui-loading {
+	display: block;
+	margin: 20px auto;
+	width: 100%;
+	text-align: center;
+}
+
+/**layui-ext treeselect*/
+.layui-form-select .layui-tree {
+	display: none;
+	position: absolute;
+	left: 0;
+	top: 42px;
+	padding: 5px 0;
+	z-index: 999;
+	min-width: 100%;
+	border: 1px solid #d2d2d2;
+	max-height: 150px;
+	overflow-y: auto;
+	background-color: #fff;
+	border-radius: 2px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, .12);
+	box-sizing: border-box;
+}
+
+.layui-form-selected .layui-tree {
+	display: block;
+}
+
+
+.fast-form-view { 
+  		float: left;
+    		display: block;
+    		padding: 9px 15px;
+    		font-weight: 400;
+    		line-height: 20px;
+  		border-bottom:solid 1px #CCC;
+  		text-align:left;
+  }
