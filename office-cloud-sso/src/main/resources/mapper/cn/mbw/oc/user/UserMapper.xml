@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.mbw.oc.mapper.XxxMapper">
+<mapper namespace="cn.mbw.oc.sso.biz.mapper.user.UserMapper">
     <!--namespace mapper.xml文件全类名-->
     <!--<select> 查询标签，与之类似的有<update>/<insert>/<delete>-->
     <!--
