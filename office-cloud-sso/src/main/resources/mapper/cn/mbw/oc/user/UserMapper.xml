@@ -22,31 +22,31 @@
     #{}具有预编译效果，where xxx = ?
     ${}没有预编译效果，where xxx = xxx
     -->
-    <select id="methodName1" parameterType="java.lang.Long" resultType="Xxx">
-        select id,name from user where id = #{id};
-    </select>
-    <select id="methodName2" resultMap="">
-        select * from user where name like concat('%',#{name},'%')
-    </select>
-    <insert id="methodName3" keyProperty="">
+<!--    <select id="methodName1" parameterType="java.lang.Long" resultType="Xxx">-->
+<!--        select id,name from user where id = #{id};-->
+<!--    </select>-->
+<!--    <select id="methodName2" resultMap="">-->
+<!--        select * from user where name like concat('%',#{name},'%')-->
+<!--    </select>-->
+<!--    <insert id="methodName3" keyProperty="">-->
 
-    </insert>
-    <delete id="methodName4" parameterType="java.lang.Long">
+<!--    </insert>-->
+<!--    <delete id="methodName4" parameterType="java.lang.Long">-->
 
-    </delete>
-    <update id="methodName5" parameterMap="updateParams">
+<!--    </delete>-->
+<!--    <update id="methodName5" parameterMap="updateParams">-->
 
-    </update>
-    <parameterMap id="methodName5Params" type="">
-        <parameter property="id" />
-    </parameterMap>
-    <resultMap id="methodName2Result" type="">
+<!--    </update>-->
+<!--    <parameterMap id="methodName5Params" type="">-->
+<!--        <parameter property="id" />-->
+<!--    </parameterMap>-->
+<!--    <resultMap id="methodName2Result" type="">-->
 
-    </resultMap>
+<!--    </resultMap>-->
     <!--
     <sql> 公用代码片段
     -->
-    <sql id="sql1">
+<!--    <sql id="sql1">-->
 
-    </sql>
+<!--    </sql>-->
 </mapper>

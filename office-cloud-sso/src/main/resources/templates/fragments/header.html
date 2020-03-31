@@ -1,3 +1,48 @@
+<header class="fastui-header" th:fragment="header">
+    <div class="logo">
+        <span class="title">RA赛事后台</span>
+        <span class="version">Beta1.0</span>
+    </div>
+    <!--
+        <img src="static/images/logo.png" th:src="@{/static/images/logo.png}" alt="logo" style="height: 60px;" />
+     -->
+    <ul lay-filter="fastui-menubar" class="layui-nav fastui-menubar">
+        <li class="layui-nav-item"><a href="javascript:;">快捷导航</a></li>
+        <li class="layui-nav-item layui-this"><a href="javascript:;">系统管理</a></li>
+        <li class="layui-nav-item"><a href="javascript:;">注册单位</a></li>
+        <li class="layui-nav-item"><a href="javascript:;">活动中心</a></li>
+        <li class="layui-nav-item"><a href="javascript:;">内容管理</a></li>
+        <span class="layui-nav-bar" style="left: 372px; top: 43px; width: 0; opacity: 0;"></span>
+    </ul>
+    <!--
+    <shiro:hasAnyRoles name="admin,user">test</shiro:hasAnyRoles>
+     -->
+    <ul class="layui-nav fastui-usercenter" lay-filter="user_operation">
+        <li class="layui-nav-item"><a href="javascript:void(0);" style="width: 40px;">消息<span class="layui-badge-dot"></span>
+            <span class="layui-badge">9</span></a></li>
+        <li class="layui-nav-item"><a href="javascript:void(0);">
+            <img src="/static/image/photo.png" th:src="@{/static/image/photo.png}" class="layui-nav-img">
+            管理员(<span>系统管理员</span>)<span class="layui-nav-more"></span></a>
+            <dl class="layui-nav-child layui-anim layui-anim-upbit" style="z-index: 9999999; height: 150px; top: 65px;">
+                <dd>
+                    <a lay-event="changeRole">切换角色</a>
+                </dd>
+                <dd>
+                    <a href="javascript:void(0);">个人中心</a>
+                </dd>
+                <dd>
+                    <a href="javascript:void(0);">安全设置</a>
+                </dd>
+                <dd>
+                    <a href="/logout">退出系统</a>
+                </dd>
+            </dl>
+        </li>
+        <span class="layui-nav-bar" style="left: 193px; top: 43px; width: 0; opacity: 0;"></span>
+    </ul>
+</header>
+<div th:fragment="margin-style" style="position: relative; margin-top: -2px; height: 2px; background: #009688;"></div>
+
 <!--<header class="layui-header" th:fragment="header">-->
 <!--    <div class="layui-fluid" id="LAY_component-nav">-->
 <!--        <div class="layui-row layui-col-space15">-->
@@ -93,47 +138,3 @@
 <!--        })-->
 <!--    </script>-->
 <!--</header>-->
-<header class="fastui-header" th:fragment="header">
-    <div class="logo">
-        <span class="title">RA赛事后台</span>
-        <span class="version">Beta1.0</span>
-    </div>
-    <!--
-        <img src="static/images/logo.png" th:src="@{/static/images/logo.png}" alt="logo" style="height: 60px;" />
-     -->
-    <ul lay-filter="fastui-menubar" class="layui-nav fastui-menubar">
-        <li class="layui-nav-item"><a href="javascript:;">快捷导航</a></li>
-        <li class="layui-nav-item layui-this"><a href="javascript:;">系统管理</a></li>
-        <li class="layui-nav-item"><a href="javascript:;">注册单位</a></li>
-        <li class="layui-nav-item"><a href="javascript:;">活动中心</a></li>
-        <li class="layui-nav-item"><a href="javascript:;">内容管理</a></li>
-        <span class="layui-nav-bar" style="left: 372px; top: 43px; width: 0; opacity: 0;"></span>
-    </ul>
-    <!--
-    <shiro:hasAnyRoles name="admin,user">test</shiro:hasAnyRoles>
-     -->
-    <ul class="layui-nav fastui-usercenter" lay-filter="user_operation">
-        <li class="layui-nav-item"><a href="javascript:void(0);" style="width: 40px;">消息<span class="layui-badge-dot"></span>
-            <!--<span class="layui-badge">9</span>--></a></li>
-        <li class="layui-nav-item"><a href="javascript:void(0);">
-            <img src="/static/image/photo.png" th:src="@{/static/image/photo.png}" class="layui-nav-img">
-            管理员(<span>系统管理员</span>)<span class="layui-nav-more"></span></a>
-            <dl class="layui-nav-child layui-anim layui-anim-upbit" style="z-index: 9999999; height: 150px; top: 65px;">
-                <dd>
-                    <a lay-event="changeRole">切换角色</a>
-                </dd>
-                <dd>
-                    <a href="javascript:void(0);">个人中心</a>
-                </dd>
-                <dd>
-                    <a href="javascript:void(0);">安全设置</a>
-                </dd>
-                <dd>
-                    <a href="/logout">退出系统</a>
-                </dd>
-            </dl>
-        </li>
-        <span class="layui-nav-bar" style="left: 193px; top: 43px; width: 0; opacity: 0;"></span>
-    </ul>
-</header>
-<div th:fragment="margin-style" style="position: relative; margin-top: -2px; height: 2px; background: #009688;"></div>
