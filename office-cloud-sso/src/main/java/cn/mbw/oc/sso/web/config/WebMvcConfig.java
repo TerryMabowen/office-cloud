@@ -69,11 +69,6 @@ public class WebMvcConfig implements WebMvcConfigurer {
     }
 
     @Bean
-    public ApplicationContext applicationContext() {
-        return ApplicationContextHelper.getApplicationContext();
-    }
-
-    @Bean
     public HttpMessageConverter<String> responseBodyConverter() {
         return new StringHttpMessageConverter(StandardCharsets.UTF_8);
     }
