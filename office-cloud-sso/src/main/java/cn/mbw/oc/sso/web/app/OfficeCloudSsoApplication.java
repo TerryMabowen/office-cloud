@@ -13,7 +13,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @EnableCaching(proxyTargetClass = true)
 @SpringBootApplication
 @ServletComponentScan
-@ComponentScan(basePackages = { "cn.mbw.oc" })
+@ComponentScan(basePackages = { "cn.mbw.oc.sso" })
 @EnableScheduling
 public class OfficeCloudSsoApplication {
 

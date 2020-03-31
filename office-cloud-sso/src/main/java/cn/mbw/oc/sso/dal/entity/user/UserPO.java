@@ -1,6 +1,6 @@
-package cn.mbw.oc.sso.dal.entry.user;
+package cn.mbw.oc.sso.dal.entity.user;
 
-import cn.mbw.oc.sso.dal.entry.base.BaseEntry;
+import cn.mbw.oc.sso.dal.entity.base.BaseEntry;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 

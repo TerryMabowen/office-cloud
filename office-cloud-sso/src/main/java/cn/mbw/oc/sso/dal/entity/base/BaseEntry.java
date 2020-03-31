@@ -1,4 +1,4 @@
-package cn.mbw.oc.sso.dal.entry.base;
+package cn.mbw.oc.sso.dal.entity.base;
 
 import jdk.nashorn.internal.ir.annotations.Ignore;
 import lombok.Data;
