@@ -5,7 +5,7 @@ import store from "./store";
 //
 import router from './router';
 // 引入配置
-import config from "./config";
+import config from "../config";
 // 阻止启动生产消息
 Vue.config.productionTip = false;
 // 引入 element-ui
