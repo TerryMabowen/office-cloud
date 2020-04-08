@@ -1,4 +1,4 @@
-package cn.mbw.oc.sso.util;
+package cn.mbw.oc.sso.biz.util;
 
 
 import cn.mbw.oc.sso.spi.data.user.vo.UserVO;
