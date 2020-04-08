@@ -612,7 +612,12 @@
             </plugin>
         </plugins>
     </build>
-
+    <scm>
+        <connection>scm:git:https://github.com/TerryMabowen/office-cloud.git</connection>
+        <url>https://github.com/TerryMabowen/office-cloud.git</url>
+        <developerConnection>https://github.com/TerryMabowen/office-cloud.git</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
     <repositories>
         <repository>
             <id>maven-bell-snapshot</id>
