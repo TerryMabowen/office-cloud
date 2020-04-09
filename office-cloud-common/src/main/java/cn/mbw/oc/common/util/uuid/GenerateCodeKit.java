@@ -1,7 +1,6 @@
 package cn.mbw.oc.common.util.uuid;
 
 import cn.mbw.oc.common.util.date.DateKit;
-import com.smthit.lang.utils.DateUtils;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.Date;

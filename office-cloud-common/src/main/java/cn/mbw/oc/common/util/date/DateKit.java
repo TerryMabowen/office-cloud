@@ -1,7 +1,10 @@
 package cn.mbw.oc.common.util.date;
 
+import cn.mbw.oc.common.throwable.OCException;
+import cn.mbw.oc.common.util.valid.AssertUtil;
 import org.apache.commons.lang3.StringUtils;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -29,13 +32,26 @@ public class DateKit {
         return sdf.format(date);
     }
 
+    /**
+     * TODO
+     * @author Mabowen
+     * @date 09:50 2020-04-09
+     */
     public static Date parse(String str, String pattern) {
         if (StringUtils.isBlank(pattern)) {
             pattern = PATTERN;
         }
 
         if (StringUtils.isBlank(str)) {
+            throw new OCException("传入的时间字符串不能为空");
+        }
 
+        SimpleDateFormat sdf = new SimpleDateFormat(pattern);
+        try {
+            return sdf.parse(str);
+        } catch (ParseException e) {
+            e.printStackTrace();
+            throw new OCException("解析时间字符串异常：" + e.getMessage(), e);
         }
     }
 }
