@@ -1,6 +1,6 @@
 package cn.mbw.oc.sso.biz.service.user.admin;
 
-import cn.mbw.oc.common.util.valid.AssertUtil;
+import cn.mbw.oc.common.kit.valid.AssertUtil;
 import cn.mbw.oc.sso.spi.data.role.vo.RoleVO;
 import cn.mbw.oc.sso.spi.data.user.dto.UserDTO;
 import cn.mbw.oc.sso.spi.data.user.vo.UserVO;

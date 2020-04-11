@@ -1,6 +1,6 @@
 package cn.mbw.oc.spy.web.filter;
 
-import cn.mbw.oc.common.util.http.RequestParameterUtil;
+import cn.mbw.oc.common.kit.http.RequestParameterUtil;
 import com.google.common.collect.Maps;
 
 import javax.servlet.http.HttpServletRequest;

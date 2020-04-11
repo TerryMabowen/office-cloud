@@ -3,7 +3,7 @@ package cn.mbw.oc.spy.biz.service.user.admin;
 import cn.mbw.oc.spy.spi.data.role.vo.RoleVO;
 import cn.mbw.oc.spy.spi.data.user.dto.UserDTO;
 import cn.mbw.oc.spy.spi.data.user.vo.UserVO;
-import cn.mbw.oc.common.util.valid.AssertUtil;
+import cn.mbw.oc.common.kit.valid.AssertUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
