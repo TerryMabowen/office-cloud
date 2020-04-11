@@ -12,6 +12,7 @@ import java.util.List;
  * @author Mabowen
  * @date 2019-12-20 17:08
  */
+@Deprecated
 public class EnumStatusUtil {
     public EnumStatusUtil() {
     }

@@ -7,6 +7,7 @@ import cn.mbw.oc.common.kit.lang.EnumStatusUtil;
  * @author Mabowen
  * @date 2019-12-20 17:08
  */
+@Deprecated
 public interface EnumStatus extends BaseEnumStatus<Integer> {
 
     default EnumStatus getEnumStatus(int value) {

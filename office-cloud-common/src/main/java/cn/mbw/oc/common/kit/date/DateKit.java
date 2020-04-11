@@ -27,6 +27,11 @@ public class DateKit {
         if (StringUtils.isBlank(pattern)) {
             pattern = PATTERN;
         }
+
+        if (null == date) {
+            throw new OCException("date can not is null");
+        }
+
         SimpleDateFormat sdf = new SimpleDateFormat(pattern);
         return sdf.format(date);
     }
@@ -42,7 +47,7 @@ public class DateKit {
         }
 
         if (StringUtils.isBlank(str)) {
-            throw new OCException("传入的时间字符串不能为空");
+            throw new OCException("date str can not is empty");
         }
 
         SimpleDateFormat sdf = new SimpleDateFormat(pattern);
@@ -50,7 +55,7 @@ public class DateKit {
             return sdf.parse(str);
         } catch (ParseException e) {
             e.printStackTrace();
-            throw new OCException("解析时间字符串异常：" + e.getMessage(), e);
+            throw new OCException("parse date str exception：" + e.getMessage(), e);
         }
     }
 }
