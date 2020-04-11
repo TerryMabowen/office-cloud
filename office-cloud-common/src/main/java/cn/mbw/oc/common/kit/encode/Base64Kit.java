@@ -1,4 +1,4 @@
-package cn.mbw.oc.common.util.encode;
+package cn.mbw.oc.common.kit.encode;
 
 import cn.mbw.oc.common.throwable.OCException;
 import org.apache.commons.lang3.StringUtils;

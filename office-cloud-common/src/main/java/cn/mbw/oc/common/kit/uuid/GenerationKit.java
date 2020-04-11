@@ -1,6 +1,6 @@
-package cn.mbw.oc.common.util.uuid;
+package cn.mbw.oc.common.kit.uuid;
 
-import cn.mbw.oc.common.util.date.DateKit;
+import cn.mbw.oc.common.kit.date.DateKit;
 
 import java.util.*;
 

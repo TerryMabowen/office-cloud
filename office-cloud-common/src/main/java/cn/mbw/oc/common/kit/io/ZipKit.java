@@ -1,4 +1,4 @@
-package cn.mbw.oc.common.util.io;
+package cn.mbw.oc.common.kit.io;
 
 import cn.mbw.oc.common.throwable.OCException;
 import lombok.extern.slf4j.Slf4j;
