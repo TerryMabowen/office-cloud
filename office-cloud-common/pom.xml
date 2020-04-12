@@ -20,21 +20,23 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>${lombok.version}</version>
             <optional>true</optional>
         </dependency>
         <!--dom4j-->
         <dependency>
             <groupId>org.dom4j</groupId>
             <artifactId>dom4j</artifactId>
-            <version>${dom4j.version}</version>
+        </dependency>
+        <!--XPath引擎依赖-->
+        <dependency>
+            <groupId>jaxen</groupId>
+            <artifactId>jaxen</artifactId>
         </dependency>
         <!--servlet-->
         <!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
-            <version>${servlet.api.version}</version>
             <scope>provided</scope>
         </dependency>
         <!--apache.poi-->
@@ -42,37 +44,31 @@
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi</artifactId>
-            <version>${apache.poi.version}</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.apache.poi/poi-excelant -->
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi-excelant</artifactId>
-            <version>${apache.poi.version}</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi-ooxml</artifactId>
-            <version>${apache.poi.version}</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml-schemas -->
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi-ooxml-schemas</artifactId>
-            <version>${apache.poi.version}</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.apache.poi/poi-scratchpad -->
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi-scratchpad</artifactId>
-            <version>${apache.poi.version}</version>
         </dependency>
         <!--easypoi-->
         <dependency>
             <groupId>cn.afterturn</groupId>
             <artifactId>easypoi-base</artifactId>
-            <version>${easypoi.version}</version>
             <exclusions>
                 <exclusion>
                     <groupId>org.slf4j</groupId>
@@ -83,42 +79,30 @@
         <dependency>
             <groupId>cn.afterturn</groupId>
             <artifactId>easypoi-web</artifactId>
-            <version>${easypoi.version}</version>
         </dependency>
         <dependency>
             <groupId>cn.afterturn</groupId>
             <artifactId>easypoi-annotation</artifactId>
-            <version>${easypoi.version}</version>
         </dependency>
         <!--spring-->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-web</artifactId>
-            <version>${spring.version}</version>
         </dependency>
         <!--apache.httpclient-->
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpclient</artifactId>
-            <version>${apache.httpclient.version}</version>
-        </dependency>
-        <!--XPath引擎依赖-->
-        <dependency>
-            <groupId>jaxen</groupId>
-            <artifactId>jaxen</artifactId>
-            <version>${xpath.jaxen.version}</version>
         </dependency>
         <!--德鲁伊连接池-->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid</artifactId>
-            <version>${druid.version}</version>
         </dependency>
         <!--shiro-->
         <dependency>
             <groupId>org.apache.shiro</groupId>
             <artifactId>shiro-all</artifactId>
-            <version>${shiro.version}</version>
             <exclusions>
                 <exclusion>
                     <groupId>commons-collections</groupId>
@@ -134,7 +118,6 @@
         <dependency>
             <groupId>redis.clients</groupId>
             <artifactId>jedis</artifactId>
-            <version>${redis.version}</version>
         </dependency>
         <!--commons-->
         <dependency>
@@ -193,70 +176,58 @@
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
-            <version>${log4j.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-api</artifactId>
-            <version>${log4j.version}</version>
         </dependency>
         <!--slf4j-->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
-            <version>${slf4j.version}</version>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
-            <version>${slf4j.version}</version>
         </dependency>
         <!--jackson-->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-annotations</artifactId>
-            <version>${jackson.version}</version>
             <scope>compile</scope>
         </dependency>
         <!--zookeeper-->
         <dependency>
             <groupId>org.apache.zookeeper</groupId>
             <artifactId>zookeeper</artifactId>
-            <version>${zookeeper.version}</version>
         </dependency>
         <!--apache.dubbo + curator-->
         <dependency>
             <groupId>org.apache.dubbo</groupId>
             <artifactId>dubbo-spring-boot-starter</artifactId>
-            <version>${apache.dubbo.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.curator</groupId>
             <artifactId>curator-framework</artifactId>
-            <version>${curator.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.curator</groupId>
             <artifactId>curator-recipes</artifactId>
-            <version>${curator.version}</version>
         </dependency>
         <!--gson-->
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
-            <version>${gson.version}</version>
         </dependency>
         <!--quartz-->
         <dependency>
             <groupId>org.quartz-scheduler</groupId>
             <artifactId>quartz</artifactId>
-            <version>${quartz.version}</version>
         </dependency>
         <!--baidu.validator-->
         <dependency>
             <groupId>com.baidu.unbiz</groupId>
             <artifactId>fluent-validator</artifactId>
-            <version>${baidu.validator.version}</version>
             <exclusions>
                 <exclusion>
                     <groupId>org.slf4j</groupId>
@@ -267,7 +238,6 @@
         <dependency>
             <groupId>com.baidu.unbiz</groupId>
             <artifactId>fluent-validator-jsr303</artifactId>
-            <version>${baidu.validator.jsr303.version}</version>
             <exclusions>
                 <exclusion>
                     <groupId>org.slf4j</groupId>
@@ -279,20 +249,12 @@
         <dependency>
             <groupId>com.google.dagger</groupId>
             <artifactId>dagger</artifactId>
-            <version>${dagger.version}</version>
         </dependency>
         <!--fastdfs-->
-<!--        <dependency>-->
-<!--            <groupId>org.csource.fastdfs</groupId>-->
-<!--            <artifactId>fastdfs</artifactId>-->
-<!--            <version>${fastdfs.version}</version>-->
-<!--        </dependency>-->
-        <!-- https://mvnrepository.com/artifact/org.csource/fastdfs-client-java -->
-<!--        <dependency>-->
-<!--            <groupId>org.csource</groupId>-->
-<!--            <artifactId>fastdfs-client-java</artifactId>-->
-<!--            <version>${fastdfs.version}</version>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>org.csource</groupId>
+            <artifactId>fastdfs-client-java</artifactId>
+        </dependency>
     </dependencies>
 
 </project>

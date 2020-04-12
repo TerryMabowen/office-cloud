@@ -42,41 +42,28 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>${lombok.version}</version>
             <optional>true</optional>
         </dependency>
         <!--springboot-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-dependencies</artifactId>
-            <version>${springboot.version}</version>
-            <type>pom</type>
-            <scope>import</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-            <version>${springboot.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-logging</artifactId>
-            <version>${springboot.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-aop</artifactId>
-            <version>${springboot.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis</artifactId>
-            <version>${springboot.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
-            <version>${springboot.version}</version>
             <scope>test</scope>
             <exclusions>
                 <exclusion>
@@ -89,65 +76,141 @@
         <dependency>
             <groupId>io.jsonwebtoken</groupId>
             <artifactId>jjwt</artifactId>
-            <version>${jjwt.version}</version>
         </dependency>
         <!--mysql driver-->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>${mysql.connector.version}</version>
             <scope>runtime</scope>
         </dependency>
         <!--德鲁伊连接池-->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid-spring-boot-starter</artifactId>
-            <version>${druid.version}</version>
         </dependency>
         <!--缺少此jar包，导致@Mapper注解无效-->
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
             <artifactId>mybatis-spring-boot-starter</artifactId>
-            <version>${mybatis.spring.boot.starter.version}</version>
         </dependency>
         <!--mybatis-->
         <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis</artifactId>
-            <version>${mybatis-version}</version>
         </dependency>
         <!--redis-->
         <dependency>
             <groupId>redis.clients</groupId>
             <artifactId>jedis</artifactId>
-            <version>${redis.version}</version>
         </dependency>
         <!--thymeleaf-->
         <dependency>
             <groupId>org.thymeleaf</groupId>
             <artifactId>thymeleaf</artifactId>
-            <version>${thymeleaf.version}</version>
         </dependency>
         <dependency>
             <groupId>org.thymeleaf</groupId>
             <artifactId>thymeleaf-spring5</artifactId>
-            <version>${thymeleaf.version}</version>
         </dependency>
         <dependency>
             <groupId>nz.net.ultraq.thymeleaf</groupId>
             <artifactId>thymeleaf-layout-dialect</artifactId>
-            <version>${thymeleaf-layout-dialect.version}</version>
         </dependency>
         <!--thymeleaf和shiro整合-->
         <dependency>
             <groupId>com.github.theborakompanioni</groupId>
             <artifactId>thymeleaf-extras-shiro</artifactId>
-            <version>${thymeleaf-extras-shiro.version}</version>
+        </dependency>
+        <!--swagger-->
+        <dependency>
+            <groupId>com.spring4all</groupId>
+            <artifactId>swagger-spring-boot-starter</artifactId>
         </dependency>
     </dependencies>
 
     <build>
         <plugins>
+            <plugin>
+                <!--压缩JS和CSS文件-->
+                <groupId>net.alchim31.maven</groupId>
+                <artifactId>yuicompressor-maven-plugin</artifactId>
+                <version>1.5.1</version>
+                <executions>
+                    <execution>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>compress</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <!-- 读取js,css文件采用UTF-8编码默认就是utf-8 -->
+                    <encoding>UTF-8</encoding>
+                    <!-- 不显示js可能的错误 -->
+                    <jswarn>false</jswarn>
+                    <!-- 若存在已压缩的文件，会先对比源文件是否有改动 有改动便压缩，无改动就不压缩 -->
+                    <force>true</force>
+                    <!-- 在指定的列号后插入新行 -->
+                    <linebreakpos>-1</linebreakpos>
+                    <!-- 压缩之前先执行聚合文件操作 -->
+                    <preProcessAggregates>true</preProcessAggregates>
+                    <!-- 压缩后保存文件后缀 无后缀 -->
+                    <nosuffix>true</nosuffix>
+                    <!-- 源目录，即需压缩的根目录 -->
+                    <sourceDirectory>src/main/static</sourceDirectory>
+                    <outputDirectory>target/classes</outputDirectory>
+                    <force>true</force>
+                    <!-- 压缩js和css文件 -->
+                    <includes>
+                        <include>*/js/**/*.js</include>
+                        <include>*/css/**/*.css</include>
+                    </includes>
+                    <excludes>
+                        <exclude>**/*.min.js</exclude>
+                        <exclude>**/*-min.js</exclude>
+                        <exclude>**/index/carousel.js</exclude>
+                        <exclude>**/3dprint/layer/**/*.js</exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+            <plugin>
+                <!--为前端代码自动添加版本号-->
+                <groupId>com.google.code.maven-replacer-plugin</groupId>
+                <artifactId>replacer</artifactId>
+                <version>1.5.3</version>
+                <executions>
+                    <execution>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>replace</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <includes>
+                        <include>${basedir}/target/classes/templates/*.html</include>
+                        <include>${basedir}/target/classes/templates/**/*.html</include>
+                    </includes>
+                    <replacements>
+                        <replacement>
+                            <token>\.css\"</token>
+                            <value>.css?v=${maven.build.timestamp}\"</value>
+                        </replacement>
+                        <replacement>
+                            <token>\.css\'</token>
+                            <value>.css?v=${maven.build.timestamp}\'</value>
+                        </replacement>
+                        <replacement>
+                            <token>\.js\"</token>
+                            <value>.js?v=${maven.build.timestamp}\"</value>
+                        </replacement>
+                        <replacement>
+                            <token>\.js\'</token>
+                            <value>.js?v=${maven.build.timestamp}\'</value>
+                        </replacement>
+                    </replacements>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>

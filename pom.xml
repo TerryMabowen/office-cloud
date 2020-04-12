@@ -66,14 +66,14 @@
         <spring.security.jwt.version>1.0.10.RELEASE</spring.security.jwt.version>
         <spring.security.oauth2.autoconfigure.version>2.1.4.RELEASE</spring.security.oauth2.autoconfigure.version>
         <jjwt.version>0.9.1</jjwt.version>
-<!--        <fastdfs.version>1.27-RELEASE</fastdfs.version>-->
-<!--        <fastdfs.version>1.2</fastdfs.version>-->
+        <fastdfs.version>1.27-RELEASE</fastdfs.version>
         <servlet.api.version>4.0.1</servlet.api.version>
         <apache.poi.version>4.1.2</apache.poi.version>
         <apache.httpclient.version>4.5.10</apache.httpclient.version>
         <easypoi.version>4.1.3</easypoi.version>
         <mybatis-version>3.5.4</mybatis-version>
         <mybatis.spring.boot.starter.version>2.1.1</mybatis.spring.boot.starter.version>
+        <swagger.version>1.9.0.RELEASE</swagger.version>
     </properties>
 
     <dependencyManagement>
@@ -149,12 +149,36 @@
                 <artifactId>thymeleaf-layout-dialect</artifactId>
                 <version>${thymeleaf-layout-dialect.version}</version>
             </dependency>
+            <!--thymeleaf和shiro整合-->
+            <dependency>
+                <groupId>com.github.theborakompanioni</groupId>
+                <artifactId>thymeleaf-extras-shiro</artifactId>
+                <version>${thymeleaf-extras-shiro.version}</version>
+            </dependency>
             <!-- thymeleaf和Security整合依赖 -->
 <!--            <dependency>-->
 <!--                <groupId>org.thymeleaf.extras</groupId>-->
 <!--                <artifactId>thymeleaf-extras-springsecurity4</artifactId>-->
 <!--                <version>${thymeleaf.version}</version>-->
 <!--            </dependency>-->
+            <!--缺少此jar包，导致@Mapper注解无效-->
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${mybatis.spring.boot.starter.version}</version>
+            </dependency>
+            <!--mybatis-->
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis</artifactId>
+                <version>${mybatis-version}</version>
+            </dependency>
+            <!--redis-->
+            <dependency>
+                <groupId>redis.clients</groupId>
+                <artifactId>jedis</artifactId>
+                <version>${redis.version}</version>
+            </dependency>
             <!--jwt-->
             <dependency>
                 <groupId>io.jsonwebtoken</groupId>
@@ -213,11 +237,11 @@
             </dependency>
             <!--fastdfs-->
             <!-- https://mvnrepository.com/artifact/org.csource/fastdfs-client-java -->
-<!--            <dependency>-->
-<!--                <groupId>org.csource.fastdfs</groupId>-->
-<!--                <artifactId>fastdfs</artifactId>-->
-<!--                <version>${fastdfs.version}</version>-->
-<!--            </dependency>-->
+            <dependency>
+                <groupId>org.csource</groupId>
+                <artifactId>fastdfs-client-java</artifactId>
+                <version>${fastdfs.version}</version>
+            </dependency>
             <!--apache.poi-->
             <!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
             <dependency>
@@ -366,6 +390,11 @@
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
                 <version>${druid.version}</version>
             </dependency>
             <!--commons-->
@@ -560,6 +589,11 @@
                 </exclusions>
             </dependency>
             <dependency>
+                <groupId>com.spring4all</groupId>
+                <artifactId>swagger-spring-boot-starter</artifactId>
+                <version>${swagger.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>org.springframework.amqp</groupId>
                 <artifactId>spring-rabbit-test</artifactId>
                 <version>${springboot.version}</version>
@@ -654,10 +688,32 @@
         <repository>
             <id>maven-repo1</id>
             <url>https://repo1.maven.org/maven2/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
         </repository>
         <repository>
             <id>unidal.releases</id>
             <url>http://unidal.org/nexus/content/repositories/releases/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>yonyoucloud</id>
+            <url>http://maven.yonyoucloud.com/nexus/content/repositories/releases/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
         </repository>
     </repositories>
 
