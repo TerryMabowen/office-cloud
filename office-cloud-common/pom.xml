@@ -255,6 +255,11 @@
             <groupId>org.csource</groupId>
             <artifactId>fastdfs-client-java</artifactId>
         </dependency>
+        <!--codehaus.jackson-->
+        <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-core-asl</artifactId>
+        </dependency>
     </dependencies>
 
 </project>

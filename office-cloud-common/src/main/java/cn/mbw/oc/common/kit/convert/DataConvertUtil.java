@@ -40,7 +40,7 @@ public class DataConvertUtil {
                     throw new ServiceException("将字符串解析成时间类型异常：" + e.getMessage());
                 }
             } else if (EnumDataType.BOOL.getValue().equals(type)) {
-                 if ("true".equals(value)) {
+                 if ("true".equals(value.toLowerCase())) {
                      map.put(variate, Boolean.TRUE);
                  } else {
                      map.put(variate, Boolean.FALSE);
