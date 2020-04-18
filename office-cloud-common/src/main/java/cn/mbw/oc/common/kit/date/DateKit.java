@@ -58,4 +58,17 @@ public class DateKit {
             throw new OCException("parse date str exception：" + e.getMessage(), e);
         }
     }
+
+    /**
+     * 获取当前时间戳---精确到毫秒
+     * @author bowen.M
+     * @param
+     * @date 2020/02/20 14:57
+     * @return
+     */
+    public static String getCurrentTimestamp() {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd_HHmmssSSS");
+        Date date = new Date();
+        return sdf.format(date);
+    }
 }

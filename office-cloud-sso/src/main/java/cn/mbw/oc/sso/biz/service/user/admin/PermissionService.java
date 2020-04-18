@@ -1,8 +1,8 @@
 package cn.mbw.oc.sso.biz.service.user.admin;
 
 import cn.mbw.oc.sso.spi.data.permission.vo.PermissionVO;
+import com.google.common.collect.Lists;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.compress.utils.Lists;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
