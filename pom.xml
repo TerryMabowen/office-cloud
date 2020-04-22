@@ -45,6 +45,7 @@
         <spring.version>5.1.7.RELEASE</spring.version>
         <jackson.version>2.10.1</jackson.version>
         <alibaba.dubbo.version>2.0.0</alibaba.dubbo.version>
+        <alibaba.fastjson.version>1.2.68</alibaba.fastjson.version>
         <apache.dubbo.version>2.7.3</apache.dubbo.version>
         <zookeeper.version>3.4.14</zookeeper.version>
         <curator.version>4.2.0</curator.version>
@@ -66,6 +67,7 @@
         <spring.security.jwt.version>1.0.10.RELEASE</spring.security.jwt.version>
         <spring.security.oauth2.autoconfigure.version>2.1.4.RELEASE</spring.security.oauth2.autoconfigure.version>
         <jjwt.version>0.9.1</jjwt.version>
+        <jwt.version>3.3.0</jwt.version>
         <fastdfs.version>1.27-RELEASE</fastdfs.version>
         <servlet.api.version>4.0.1</servlet.api.version>
         <apache.poi.version>4.1.2</apache.poi.version>
@@ -180,7 +182,13 @@
                 <artifactId>jedis</artifactId>
                 <version>${redis.version}</version>
             </dependency>
-            <!--jwt-->
+            <!--jwt依赖包-->
+            <dependency>
+                <groupId>com.auth0</groupId>
+                <artifactId>java-jwt</artifactId>
+                <version>${jwt.version}</version>
+            </dependency>
+            <!--jjwt-->
             <dependency>
                 <groupId>io.jsonwebtoken</groupId>
                 <artifactId>jjwt</artifactId>
@@ -285,6 +293,12 @@
                 <groupId>com.alibaba.spring.boot</groupId>
                 <artifactId>dubbo-spring-boot-starter</artifactId>
                 <version>${alibaba.dubbo.version}</version>
+            </dependency>
+            <!--alibaba.fastjson-->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${alibaba.fastjson.version}</version>
             </dependency>
             <!--apache.dubbo-->
             <dependency>
