@@ -1,4 +1,4 @@
-package cn.mbw.oc.spy.web.app;
+package cn.mbw.oc.blog.web.app;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -10,12 +10,12 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @EnableCaching(proxyTargetClass = true)
 @SpringBootApplication
 @ServletComponentScan
-@ComponentScan(basePackages = { "cn.mbw.oc.spy" })
+@ComponentScan(basePackages = { "cn.mbw.oc.blog" })
 @EnableScheduling
-public class OfficeCloudOcApplication {
+public class OfficeCloudBlogApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(OfficeCloudOcApplication.class, args);
+        SpringApplication.run(OfficeCloudBlogApplication.class, args);
     }
 
 }
