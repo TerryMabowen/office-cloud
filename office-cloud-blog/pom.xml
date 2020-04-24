@@ -19,6 +19,18 @@
 
     <dependencies>
         <dependency>
+            <groupId>ai.bell.org</groupId>
+            <artifactId>bell-org-client-starter</artifactId>
+            <!--            <version>1.0.4</version>-->
+            <version>1.0.5-SNAPSHOT</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-log4j12</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
             <groupId>cn.mbw.oc</groupId>
             <artifactId>office-cloud-common</artifactId>
             <version>1.0.0-SNAPSHOT</version>
