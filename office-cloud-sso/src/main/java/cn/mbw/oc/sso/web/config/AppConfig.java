@@ -1,6 +1,6 @@
 package cn.mbw.oc.sso.web.config;
 
-import cn.mbw.oc.common.helper.ApplicationContextHelper;
+import com.mbw.commons.lang.helper.ApplicationContextHelper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

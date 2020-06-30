@@ -32,7 +32,7 @@ public class JwtUtil {
      * @return
      */
     public static String generateJsonWebToken(UserVO user) {
-        if (user.getId() == null || user.getName() == null || user.getFaceImage() == null) {
+        if (user.getId() == null || user.getName() == null || user.getHeadPic() == null) {
             return null;
         }
 
@@ -45,7 +45,7 @@ public class JwtUtil {
                 .setClaims(map)
                 .claim("id", user.getId())
                 .claim("name", user.getName())
-                .claim("img", user.getFaceImage())
+                .claim("img", user.getHeadPic())
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(System.currentTimeMillis() + EXPIRITION))
                 .signWith(SignatureAlgorithm.HS256, APP_SECRET_KEY).compact();

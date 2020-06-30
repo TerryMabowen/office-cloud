@@ -78,10 +78,17 @@
         <mybatis.spring.boot.starter.version>2.1.1</mybatis.spring.boot.starter.version>
         <springfox.swagger2>2.2.2</springfox.swagger2>
         <codehaus.jackson.version>1.9.13</codehaus.jackson.version>
+        <com.mbw.spring.common.version>1.0.0-SNAPSHOT</com.mbw.spring.common.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
+            <!--com.mbw.spring.common-->
+            <dependency>
+                <groupId>com.mbw.spring.common</groupId>
+                <artifactId>common-all</artifactId>
+                <version>${com.mbw.spring.common.version}</version>
+            </dependency>
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>

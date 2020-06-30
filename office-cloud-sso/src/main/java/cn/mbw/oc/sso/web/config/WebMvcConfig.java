@@ -1,13 +1,12 @@
 package cn.mbw.oc.sso.web.config;
 
 import at.pollux.thymeleaf.shiro.dialect.ShiroDialect;
-import cn.mbw.oc.common.helper.ApplicationContextHelper;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import com.mbw.commons.lang.helper.ApplicationContextHelper;
 import nz.net.ultraq.thymeleaf.LayoutDialect;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.HttpMessageConverter;

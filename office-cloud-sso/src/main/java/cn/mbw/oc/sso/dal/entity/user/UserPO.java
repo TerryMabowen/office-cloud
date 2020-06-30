@@ -1,8 +1,12 @@
 package cn.mbw.oc.sso.dal.entity.user;
 
-import cn.mbw.oc.sso.dal.entity.base.BaseEntry;
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
+import com.mbw.commons.dal.entity.BaseEntity;
 import lombok.Data;
-import org.springframework.data.annotation.Id;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 import java.util.Date;
 
@@ -11,8 +15,13 @@ import java.util.Date;
  * @date 2019-12-18 19:30
  */
 @Data
-public class UserPO extends BaseEntry {
-    @Id
+@EqualsAndHashCode(callSuper = true)
+@ToString(callSuper = true)
+@TableName(value = "sso_users")
+public class UserPO extends BaseEntity {
+    private static final long serialVersionUID = -3870894869499376597L;
+
+    @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
     /**
@@ -23,7 +32,7 @@ public class UserPO extends BaseEntry {
     /**
      * 密码，加密存储
      */
-    private String password;
+    private String passwordHash;
 
     /**
      * 注册手机号
@@ -34,13 +43,6 @@ public class UserPO extends BaseEntry {
      * 注册邮箱
      */
     private String email;
-
-    /**
-     * 创建时间
-     */
-    private Date created;
-
-    private Date updated;
 
     /**
      * 会员来源：1:PC，2：H5，3：Android，4：IOS，5：WeChat
@@ -73,24 +75,14 @@ public class UserPO extends BaseEntry {
     private String qq;
 
     /**
-     * 账户余额
+     * 微信号
      */
-    private Long accountBalance;
-
-    /**
-     * 手机是否验证 （0否  1是）
-     */
-    private String isMobileCheck;
-
-    /**
-     * 邮箱是否检测（0否  1是）
-     */
-    private String isEmailCheck;
+    private String weiXin;
 
     /**
      * 性别，1男，2女
      */
-    private String sex;
+    private Integer gender;
 
     /**
      * 会员等级
@@ -116,6 +108,4 @@ public class UserPO extends BaseEntry {
      * 最后登录时间
      */
     private Date lastLoginTime;
-
-    private String job;
 }

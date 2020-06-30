@@ -1,6 +1,6 @@
 package cn.mbw.oc.sso.spi.enums;
 
-import cn.mbw.oc.common.enums.EnumStatus;
+import com.mbw.commons.lang.enums.BaseEnumStatus;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -10,7 +10,7 @@ import lombok.Getter;
  */
 @Getter
 @AllArgsConstructor
-public enum EnumDataType implements EnumStatus {
+public enum EnumDataType implements BaseEnumStatus<Integer> {
     /*
      * 整数
      */
